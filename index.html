@@ -1852,6 +1852,12 @@
             eduCards[2].querySelector('.card-title').textContent = t.edu3Title;
             eduCards[2].querySelector('.card-subtitle').textContent = t.edu3Subtitle;
             eduCards[2].querySelector('.card-description').textContent = t.edu3Desc;
+            
+            if (document.querySelector('.chat-window.active')) {
+                const firstMsg = document.querySelector('.chat-messages .chat-message.bot');
+                const greetings = { ru: 'Привет! Я бот портфолио Владимира. Спросите о проектах, образовании, навыках или контактах.', en: 'Hi! I\'m Vladimir\'s portfolio bot. Ask about projects, education, skills, or contacts.', zh: '你好！我是弗拉基米尔作品集机器人。询问项目、教育、技能或联系方式。' };
+                if (firstMsg) firstMsg.textContent = greetings[lang];
+            }
         }
 
         if (localStorage.getItem('language')) {
@@ -1859,7 +1865,6 @@
             document.querySelector('.lang-select').value = localStorage.getItem('language');
         }
 
-        let apiKey = localStorage.getItem('openai_api_key');
         let chatOpen = false;
         let conversationHistory = [];
 
@@ -1867,122 +1872,77 @@
             const chatWindow = document.querySelector('.chat-window');
             chatOpen = !chatOpen;
             chatWindow.classList.toggle('active', chatOpen);
+            if (chatOpen && !conversationHistory.length) {
+                const messages = document.querySelector('.chat-messages');
+                messages.innerHTML = '';
+                const lang = localStorage.getItem('language') || 'ru';
+                const greetings = { ru: 'Привет! Я бот портфолио Владимира. Спросите о проектах, образовании, навыках или контактах.', en: 'Hi! I\'m Vladimir\'s portfolio bot. Ask about projects, education, skills, or contacts.', zh: '你好！我是弗拉基米尔作品集机器人。询问项目、教育、技能或联系方式。' };
+                messages.innerHTML = `<div class="chat-message bot">${greetings[lang]}</div>`;
+            }
         }
 
-        function initChat() {
-            const chatWindow = document.querySelector('.chat-window');
-            chatWindow.innerHTML = `
-                <div class="chat-header">
-                    <h4>AI Assistant</h4>
-                    <button class="chat-close" onclick="toggleChat()">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                        </svg>
-                    </button>
-                </div>
-                <div class="chat-messages">
-                    <div class="chat-message bot">Привет! Я AI-ассистент портфолио Владимира. Задавайте вопросы о его проектах, образовании и навыках!<br><br><small>Для настройки нажмите ⚙ и введите Groq API ключ (<a href="https://console.groq.com" target="_blank" style="color: var(--accent);">бесплатно здесь</a>)</small></div>
-                </div>
-                <div class="chat-input-area">
-                    <input type="text" class="chat-input" placeholder="Введите сообщение..." onkeypress="if(event.key==='Enter')sendMessage()">
-                    <button class="chat-send" onclick="sendMessage()">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                        </svg>
-                    </button>
-                </div>
-            `;
+        function getFAQResponse(message, lang) {
+            const lower = message.toLowerCase();
+            const faq = {
+                ru: [
+                    { keywords: ['проект', 'проекты', 'mnist', 'digit', 'cnn', 'pytorch'], answer: 'Владимир работает над проектом MNIST Handwritten Digit Recognition - распознавание рукописных цифр с помощью CNN на PyTorch. Подробнее на GitHub: github.com/serezhinVM/Handwriting' },
+                    { keywords: ['образование', 'универ', 'университет', 'учится', 'учился'], answer: 'Владимир учится в Санкт-Петербургском политехническом университете (Мехатроника и робототехника). Также проходил обмен в Китае: XATU и XJTU (西安交通大学).' },
+                    { keywords: ['навык', 'skills', 'язык', 'программир', 'python', 'c++', 'ros', 'haskell'], answer: 'Основные навыки: Python, C++, ML, CNN, PyTorch, ROS, Haskell. Также знает математику (матан, линал, теория вероятностей).' },
+                    { keywords: ['контакт', 'email', 'почта', 'telegram', 'wechat', 'связать'], answer: 'Email: svovamtr@mail.ru, Telegram: @seriozhin, WeChat: wxid_1kay0tsy4dt722' },
+                    { keywords: ['имя', 'зовут', 'кто ты', 'владимир', 'serge', 'serzhin'], answer: 'Это портфолио Сережина Владимира - студента и ML-инженера.' },
+                    { keywords: ['язык', 'english', 'английск', 'китайск', 'china'], answer: 'Владимир владеет русским (родной), английским (C1) и китайским (средний разговорный, 1.5 года в Китае).' }
+                ],
+                en: [
+                    { keywords: ['project', 'mnist', 'digit', 'cnn', 'pytorch', 'github'], answer: 'Vladimir is working on MNIST Handwritten Digit Recognition - handwritten digit recognition using CNN with PyTorch. More on GitHub: github.com/serezhinVM/Handwriting' },
+                    { keywords: ['education', 'university', 'study', 'studied'], answer: 'Vladimir studies at Peter the Great St. Petersburg Polytechnic University (Mechatronics and Robotics). Also did exchange at XATU and XJTU in China.' },
+                    { keywords: ['skills', 'python', 'c++', 'ros', 'haskell', 'programming'], answer: 'Main skills: Python, C++, ML, CNN, PyTorch, ROS, Haskell. Also strong in math (calculus, linear algebra, probability).' },
+                    { keywords: ['contact', 'email', 'telegram', 'wechat', 'reach'], answer: 'Email: svovamtr@mail.ru, Telegram: @seriozhin, WeChat: wxid_1kay0tsy4dt722' },
+                    { keywords: ['name', 'who', 'vladimir', 'serge', 'serzhin'], answer: 'This is Vladimir Serezhin\'s portfolio - student and ML engineer.' }
+                ],
+                zh: [
+                    { keywords: ['项目', 'mnist', 'digit', 'cnn', 'pytorch', 'github'], answer: '弗拉基米尔正在进行MNIST手写数字识别项目——使用PyTorch卷积神经网络识别手写数字。更多在GitHub: github.com/serezhinVM/Handwriting' },
+                    { keywords: ['教育', '大学', '学习', '学校'], answer: '弗拉基米尔在圣彼得堡彼得大帝理工大学学习（机电一体化与机器人技术）。也在中国西安理工大学和西安交通大学学习。' },
+                    { keywords: ['技能', 'python', 'c++', 'ros', 'haskell', '编程'], answer: '主要技能：Python、C++、机器学习、CNN、PyTorch、ROS、Haskell。数学也很好（微积分、线性代数、概率论）。' },
+                    { keywords: ['联系', '邮箱', 'telegram', 'wechat', '微信'], answer: '邮箱: svovamtr@mail.ru, Telegram: @seriozhin, 微信: wxid_1kay0tsy4dt722' },
+                    { keywords: ['名字', '谁', '弗拉基米尔', 'serzhin'], answer: '这是谢尔金·弗拉基米尔的作品集——学生和机器学习工程师。' }
+                ]
+            };
+            
+            const answers = faq[lang] || faq.ru;
+            for (const item of answers) {
+                if (item.keywords.some(kw => lower.includes(kw))) {
+                    return item.answer;
+                }
+            }
+            
+            const defaultAnswers = {
+                ru: 'Я не совсем понял вопрос. Попробуйте спросить о проектах, образовании, навыках или контактах.',
+                en: 'I didn\'t understand. Try asking about projects, education, skills, or contacts.',
+                zh: '我没听懂。尝试询问项目、教育、技能或联系方式。'
+            };
+            return defaultAnswers[lang];
         }
 
-        async function sendMessage() {
+        function sendMessage() {
             const input = document.querySelector('.chat-input');
             const messages = document.querySelector('.chat-messages');
             const message = input.value.trim();
-            
             if (!message) return;
-            if (!apiKey) {
-                const chatMessages = document.querySelector('.chat-messages');
-                chatMessages.innerHTML += `<div class="chat-message bot">Для настройки нажмите ⚙ и введите Groq API ключ (бесплатно на <a href="https://console.groq.com" target="_blank" style="color: var(--accent);">console.groq.com</a>)</div>`;
-                return;
-            }
 
+            const lang = localStorage.getItem('language') || 'ru';
             messages.innerHTML += `<div class="chat-message user">${escapeHtml(message)}</div>`;
             input.value = '';
-            messages.scrollTop = messages.scrollHeight;
 
             const typingDiv = document.createElement('div');
             typingDiv.className = 'chat-message bot';
-            typingDiv.textContent = 'Печатает...';
+            typingDiv.textContent = '...';
             messages.appendChild(typingDiv);
             messages.scrollTop = messages.scrollHeight;
 
-            try {
-                const context = getPortfolioContext();
-                conversationHistory.push({ role: 'user', content: message });
-                
-                const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${apiKey}`
-                    },
-                    body: JSON.stringify({
-                        model: 'llama-3.1-8b-instant',
-                        messages: [
-                            { role: 'system', content: `Ты AI-ассистент портфолио Сережина Владимира. Отвечай на вопросы о его владельце. Вот информация: ${context}. Отвечай кратко и по существу.` },
-                            ...conversationHistory
-                        ],
-                        max_tokens: 500
-                    })
-                });
-
-                const data = await response.json();
-                typingDiv.remove();
-
-                if (data.choices && data.choices[0]) {
-                    const botResponse = data.choices[0].message.content;
-                    conversationHistory.push({ role: 'assistant', content: botResponse });
-                    messages.innerHTML += `<div class="chat-message bot">${escapeHtml(botResponse)}</div>`;
-                } else {
-                    messages.innerHTML += `<div class="chat-message bot">Извините, произошла ошибка. Проверьте API ключ.</div>`;
-                }
-            } catch (error) {
-                typingDiv.remove();
-                messages.innerHTML += `<div class="chat-message bot">Ошибка соединения. Попробуйте позже.</div>`;
-            }
-
-            messages.scrollTop = messages.scrollHeight;
-        }
-
-        function getPortfolioContext() {
-            const lang = localStorage.getItem('language') || 'ru';
-            const translations = {
-                ru: {
-                    name: 'Сережин Владимир',
-                    role: 'ML-инженер, студент',
-                    education: 'Санкт-Петербургский политехнический университет (Мехатроника и робототехника), обмен в XATU и XJTU (Китай)',
-                    skills: 'Python, C++, ML, CNN, PyTorch, ROS, Haskell',
-                    projects: 'MNIST Handwritten Digit Recognition (CNN на PyTorch)',
-                    contacts: 'Email: svovamtr@mail.ru, Telegram: @seriozhin'
-                },
-                en: {
-                    name: 'Vladimir Serezhin',
-                    role: 'ML Engineer, student',
-                    education: 'Peter the Great St. Petersburg Polytechnic University (Mechatronics and Robotics), exchange at XATU and XJTU (China)',
-                    skills: 'Python, C++, ML, CNN, PyTorch, ROS, Haskell',
-                    projects: 'MNIST Handwritten Digit Recognition (CNN with PyTorch)',
-                    contacts: 'Email: svovamtr@mail.ru, Telegram: @seriozhin'
-                },
-                zh: {
-                    name: '谢尔金·弗拉基米尔',
-                    role: '机器学习工程师，学生',
-                    education: '圣彼得堡彼得大帝理工大学（机电一体化与机器人技术），西安理工大学和西安交通大学交换生（中国）',
-                    skills: 'Python, C++, ML, CNN, PyTorch, ROS, Haskell',
-                    projects: 'MNIST手写数字识别（PyTorch卷积神经网络）',
-                    contacts: '邮箱: svovamtr@mail.ru, Telegram: @seriozhin'
-                }
-            };
-            return `Имя: ${translations[lang].name}. ${translations[lang].role}. Образование: ${translations[lang].education}. Навыки: ${translations[lang].skills}. Проекты: ${translations[lang].projects}. Контакты: ${translations[lang].contacts}.`;
+            setTimeout(() => {
+                typingDiv.textContent = getFAQResponse(message, lang);
+                messages.scrollTop = messages.scrollHeight;
+            }, 300);
         }
 
         function escapeHtml(text) {
@@ -1991,14 +1951,27 @@
             return div.innerHTML;
         }
 
-        function openSettings() {
-            const apiKeyInput = prompt('Введите Groq API ключ:', apiKey || '');
-            if (apiKeyInput) {
-                apiKey = apiKeyInput;
-                localStorage.setItem('openai_api_key', apiKey);
-                alert('API ключ сохранён! Бесплатный ключ: https://console.groq.com');
-            }
-        }
+        document.querySelector('.chat-window').innerHTML = `
+            <div class="chat-header">
+                <h4>FAQ Bot</h4>
+                <button class="chat-close" onclick="toggleChat()">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="chat-messages">
+                <div class="chat-message bot">Привет! Я бот портфолио Владимира. Спросите о проектах, образовании, навыках или контактах.</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" placeholder="Введите сообщение..." onkeypress="if(event.key==='Enter')sendMessage()">
+                <button class="chat-send" onclick="sendMessage()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </div>
+        `;
     </script>
     <div class="chat-widget">
         <button class="chat-btn" onclick="toggleChat()" title="Чат с ассистентом">
@@ -2008,6 +1981,5 @@
         </button>
         <div class="chat-window"></div>
     </div>
-    <button onclick="openSettings()" style="position:fixed;bottom:24px;right:94px;width:36px;height:36px;border-radius:50%;border:none;background:#666;cursor:pointer;color:white;font-size:16px;" title="Настройки API">⚙</button>
 </body>
 </html>
