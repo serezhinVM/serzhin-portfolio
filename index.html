@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сережин Владимир | ML-инженер</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #F5F5F5;
+            --bg-white: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #666666;
+            --accent: #1E3A5F;
+            --accent-hover: #2E5A8F;
+            --border: #E0E0E0;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1A1A1A;
+            --bg-white: #2D2D2D;
+            --text-primary: #F5F5F5;
+            --text-secondary: #AAAAAA;
+            --accent: #4A90D9;
+            --accent-hover: #6BA3E0;
+            --border: #404040;
+            --shadow: 0 2px 8px rgba(0,0,0,0.3);
+            --shadow-hover: 0 4px 16px rgba(0,0,0,0.4);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px;
+            cursor: pointer;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .lang-select {
+            padding: 8px 12px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .lang-select:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .lang-select option {
+            background: var(--bg-white);
+            color: var(--text-primary);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 24px 80px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-name {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-role {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .hero-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 480px;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-image img {
+            width: 320px;
+            height: 400px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 16px;
+            box-shadow: var(--shadow-hover);
+        }
+
+        section {
+            padding: 80px 24px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        #education {
+            background: var(--bg-white);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .card-year {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--bg-white);
+            border-radius: 20px;
+        }
+
+        #projects {
+            background: var(--bg-primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image svg {
+            width: 48px;
+            height: 48px;
+            opacity: 0.5;
+        }
+
+        .project-content {
+            padding: 24px;
+        }
+
+        .project-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        #contacts {
+            background: var(--bg-white);
+        }
+
+        .contacts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .contact-info h4 {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tabs {
+            margin-top: 32px;
+        }
+
+        .profile-blocks {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .profile-block {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .simple-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .simple-tag {
+            padding: 8px 14px;
+            background: var(--bg-primary);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--text-primary);
+        }
+
+        .languages-list {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .skill-group {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-group-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-tag {
+            padding: 6px 12px;
+            background: var(--bg-primary);
+            border-radius: 16px;
+            font-size: 13px;
+            color: var(--text-primary);
+        }
+
+        .skill-tag.sub {
+            font-size: 12px;
+            color: var(--text-secondary);
+            padding: 4px 10px;
+        }
+
+        .interests-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+        }
+
+        .interest-item {
+            padding: 16px;
+            background: var(--bg-white);
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-primary);
+            box-shadow: var(--shadow);
+        }
+
+        .languages-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            background: var(--bg-white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .language-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .language-level {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-align: right;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .carousel-track {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .carousel-caption {
+            padding: 16px;
+            background: var(--bg-white);
+            text-align: center;
+            border-radius: 0 0 12px 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .carousel-caption p {
+            font-size: 14px;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--bg-white);
+            border: none;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .carousel-btn.prev {
+            left: -20px;
+        }
+
+        .carousel-btn.next {
+            right: -20px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--accent);
+        }
+
+        .certificate-link {
+            display: block;
+            text-decoration: none;
+        }
+
+        .certificate-placeholder {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .certificate-placeholder svg {
+            opacity: 0.8;
+            margin-bottom: 16px;
+        }
+
+        .certificate-placeholder p {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .cert-card {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+
+        .cert-header {
+            padding: 24px;
+            background: var(--bg-white);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .cert-header:hover {
+            background: var(--bg-primary);
+        }
+
+        .cert-title-group h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .cert-title-group p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .cert-toggle-btn {
+            padding: 10px 20px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+
+        .cert-toggle-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .cert-toggle-btn.viewing {
+            background: var(--text-secondary);
+        }
+
+        .cert-viewer {
+            display: none;
+            padding: 20px;
+            background: var(--bg-white);
+            border-top: 1px solid var(--border);
+        }
+
+        .cert-viewer.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .cert-viewer object,
+        .cert-viewer iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            background: #f0f0f0;
+        }
+
+        .cert-download-link {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--bg-white);
+        }
+
+        .cert-download-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cert-download-link a:hover {
+            background: var(--accent-hover);
+        }
+
+        @media (max-width: 768px) {
+            .cert-viewer object,
+            .cert-viewer iframe {
+                display: none;
+            }
+
+            .cert-viewer .cert-download-link {
+                display: block;
+            }
+
+            .cert-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .cert-toggle-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--bg-white);
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+                box-shadow: var(--shadow);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-name {
+                font-size: 36px;
+            }
+
+            .hero-role {
+                font-size: 20px;
+            }
+
+            .hero-description {
+                margin: 0 auto;
+            }
+
+            .hero-image img {
+                width: 260px;
+                height: 320px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 60px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#" class="nav-home">Сережин Владимир</a></li>
+                <li><a href="#education">Образование</a></li>
+                <li><a href="#additional">Доп. образование</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <div class="nav-right">
+                <select class="lang-select" onchange="changeLanguage(this.value)">
+                    <option value="ru">Русский</option>
+                    <option value="en">English</option>
+                    <option value="zh">中文</option>
+                </select>
+                <button class="theme-toggle" onclick="toggleTheme()" title="Переключить тему">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="nav-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-name">Сережин Владимир</h1>
+                <p class="hero-role">ML-инженер</p>
+                <p class="hero-description">Студент бакалавриата по направлению "Мехатроника и робототехника" в Санкт-Петербургском политехническом университете. Занимаюсь машинным обучением и робототехникой.</p>
+                
+                <div class="tabs">
+                    <div class="profile-blocks">
+                        <div class="profile-block">
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 16px;">Skills</h3>
+                            <div class="simple-tags">
+                                <span class="simple-tag">Python (Numpy, Pandas, Matplotlib, Scikit-learn)</span>
+                                <span class="simple-tag">C++</span>
+                                <span class="simple-tag">Математический анализ, линейная алгебра, теория вероятностей и математическая статистика</span>
+                                <span class="simple-tag">OOP (базовые знания)</span>
+                                <span class="simple-tag">ROS</span>
+                                <span class="simple-tag">Haskell</span>
+                            </div>
+                        </div>
+                        <div class="profile-block">
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 16px;">Интересы</h3>
+                            <div class="simple-tags">
+                                <span class="simple-tag">Машинное обучение</span>
+                                <span class="simple-tag">Глубокое обучение</span>
+                                <span class="simple-tag">Нейронные сети</span>
+                                <span class="simple-tag">Робототехника</span>
+                                <span class="simple-tag">Компьютерное зрение</span>
+                                <span class="simple-tag">Прикладной ИИ</span>
+                                <span class="simple-tag">Мягкая робототехника</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="languages-section" style="margin-top: 24px;">
+                        <h3 style="font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 16px;">Языки</h3>
+                        <div class="languages-list">
+                            <div class="language-item">
+                                <span class="language-name">Русский</span>
+                                <span class="language-level">родной</span>
+                            </div>
+                            <div class="language-item">
+                                <span class="language-name">Английский</span>
+                                <span class="language-level">C1 - свободный (подтверждён Oxford Placement Test)</span>
+                            </div>
+                            <div class="language-item">
+                                <span class="language-name">Китайский</span>
+                                <span class="language-level">средний разговорный (1.5 года учёбы и жизни в Китае)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="photo.jpg" alt="Фото профиля">
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-container">
+            <h2 class="section-title">Образование</h2>
+            <div class="cards-grid">
+                <div class="card fade-in">
+                    <span class="card-year">2023 - 2027</span>
+                    <h3 class="card-title">Санкт-Петербургский политехнический университет Петра Великого (СПбПУ), Россия</h3>
+                    <p class="card-subtitle">Бакалавр | Мехатроника и робототехника</p>
+                    <p class="card-description">Основное образование. Изучение основ мехатроники и робототехники, программирования на языках высокого уровня, математики, физики и инженерных дисциплин.</p>
+                </div>
+                <div class="card fade-in">
+                    <span class="card-year">февраль 2025 - июль 2025</span>
+                    <h3 class="card-title">Сианьский технологический университет (XATU), Китай</h3>
+                    <p class="card-subtitle">Студент по обмену (бакалавр) | Mechanical manufacturing and its automation</p>
+                    <p class="card-description">Академическая мобильность. Core courses: "C++ Programming Design" - 93/100, "Python" - 91/100, "Mechanical graphing" - 100/100</p>
+                </div>
+                <div class="card fade-in">
+                    <span class="card-year">февраль 2026 - январь 2027</span>
+                    <h3 class="card-title">Сианьский университет Цзяотун (XJTU), Китай</h3>
+                    <p class="card-subtitle">Студент по обмену (магистр) | Mechanical Engineering</p>
+                    <p class="card-description">Академическая мобильность по специальностям "Mechanical Engineering" (ТОП-1 вузов мира в этой специальности по версии U.S. News & World Report 2025) и "Computer science". Core courses: "Theory and Implementation of Programming Language", "Software Development", "AI in Electrical Engineering", "AI and Intelligent Robots", "Statistical Signal Processing: Fundamentals and Machine Learning Prospectives"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="additional" style="background: var(--bg-white);">
+        <div class="section-container">
+            <h2 class="section-title">Дополнительное образование</h2>
+            
+            <div class="certs-list">
+                <div class="cert-card">
+                    <div class="cert-header" onclick="toggleCert(this)">
+                        <div class="cert-title-group">
+                            <h3>Certificate of achievement</h3>
+                            <p>Сианьский технологический университет, Китай</p>
+                        </div>
+                        <button class="cert-toggle-btn">Посмотреть</button>
+                    </div>
+                    <div class="cert-viewer">
+                        <object data="Certificate of achivement.pdf" type="application/pdf">
+                            <iframe src="Certificate of achivement.pdf">
+                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="Certificate of achivement.pdf">Скачать сертификат</a></p>
+                            </iframe>
+                        </object>
+                        <div class="cert-download-link">
+                            <a href="Certificate of achivement.pdf" target="_blank">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                Открыть сертификат
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-header" onclick="toggleCert(this)">
+                        <div class="cert-title-group">
+                            <h3>Oxford Placement Test - C1</h3>
+                            <p>Подтверждение уровня английского языка</p>
+                        </div>
+                        <button class="cert-toggle-btn">Посмотреть</button>
+                    </div>
+                    <div class="cert-viewer">
+                        <object data="OxfordPlacementTest.pdf" type="application/pdf">
+                            <iframe src="OxfordPlacementTest.pdf">
+                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="OxfordPlacementTest.pdf">Скачать сертификат</a></p>
+                            </iframe>
+                        </object>
+                        <div class="cert-download-link">
+                            <a href="OxfordPlacementTest.pdf" target="_blank">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                Открыть сертификат
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-header" onclick="toggleCert(this)">
+                        <div class="cert-title-group">
+                            <h3>Математический анализ - с отличием</h3>
+                            <p>Онлайн-курс</p>
+                        </div>
+                        <button class="cert-toggle-btn">Посмотреть</button>
+                    </div>
+                    <div class="cert-viewer">
+                        <object data="Математический анализ.pdf" type="application/pdf">
+                            <iframe src="Математический анализ.pdf">
+                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="Математический анализ.pdf">Скачать сертификат</a></p>
+                            </iframe>
+                        </object>
+                        <div class="cert-download-link">
+                            <a href="Математический анализ.pdf" target="_blank">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                Открыть сертификат
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-header" onclick="toggleCert(this)">
+                        <div class="cert-title-group">
+                            <h3>Теория вероятностей - с отличием</h3>
+                            <p>Онлайн-курс</p>
+                        </div>
+                        <button class="cert-toggle-btn">Посмотреть</button>
+                    </div>
+                    <div class="cert-viewer">
+                        <object data="Теория вероятности.pdf" type="application/pdf">
+                            <iframe src="Теория вероятности.pdf">
+                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="Теория вероятности.pdf">Скачать сертификат</a></p>
+                            </iframe>
+                        </object>
+                        <div class="cert-download-link">
+                            <a href="Теория вероятности.pdf" target="_blank">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                Открыть сертификат
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-header" onclick="toggleCert(this)">
+                        <div class="cert-title-group">
+                            <h3>Разработка программного обеспечения беспилотных авиационных систем</h3>
+                            <p>Онлайн-курс (144 часа)</p>
+                        </div>
+                        <button class="cert-toggle-btn">Посмотреть</button>
+                    </div>
+                    <div class="cert-viewer">
+                        <object data="Разработка ПО БВС.pdf" type="application/pdf">
+                            <iframe src="Разработка ПО БВС.pdf">
+                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="Разработка ПО БВС.pdf">Скачать сертификат</a></p>
+                            </iframe>
+                        </object>
+                        <div class="cert-download-link">
+                            <a href="Разработка ПО БВС.pdf" target="_blank">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                Открыть сертификат
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-container">
+            <h2 class="section-title">Проекты</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <svg viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Название проекта</h3>
+                        <p class="project-description">Описание проекта, используемые технологии, результаты. Текст будет добавлен позже.</p>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <svg viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Название проекта</h3>
+                        <p class="project-description">Описание проекта, используемые технологии, результаты. Текст будет добавлен позже.</p>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <svg viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Название проекта</h3>
+                        <p class="project-description">Описание проекта, используемые технологии, результаты. Текст будет добавлен позже.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts">
+        <div class="section-container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contacts-container">
+                <a href="mailto:svovamtr@mail.ru" class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Email</h4>
+                        <p>svovamtr@mail.ru</p>
+                    </div>
+                </a>
+                <a href="https://t.me/seriozhin" class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Telegram</h4>
+                        <p>@seriozhin</p>
+                    </div>
+                </a>
+                <a href="#" class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 12c0 2.5 2 4.5 4.5 4.5s4.5-2 4.5-4.5S16.5 7 13.5 7 9 9 9 12zm0-7c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/>
+                            <path d="M17 3H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7V5h10v14z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <h4>WeChat</h4>
+                        <p>wxid_1kay0tsy4dt722</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleCert(header) {
+            const viewer = header.nextElementSibling;
+            const btn = header.querySelector('.cert-toggle-btn');
+            const currentLang = localStorage.getItem('language') || 'ru';
+            const t = translations[currentLang];
+            
+            if (viewer.classList.contains('active')) {
+                viewer.classList.remove('active');
+                btn.textContent = t.viewCert;
+                btn.classList.remove('viewing');
+            } else {
+                document.querySelectorAll('.cert-viewer.active').forEach(v => {
+                    v.classList.remove('active');
+                    const otherBtn = v.previousElementSibling.querySelector('.cert-toggle-btn');
+                    otherBtn.textContent = t.viewCert;
+                    otherBtn.classList.remove('viewing');
+                });
+                
+                viewer.classList.add('active');
+                btn.textContent = t.hideCert;
+                btn.classList.add('viewing');
+            }
+        }
+
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const track = document.querySelector('.carousel-slides');
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.querySelector('.sun-icon').style.display = 'none';
+            document.querySelector('.moon-icon').style.display = 'block';
+        }
+
+        const translations = {
+            ru: {
+                navHome: "Сережин Владимир",
+                education: "Образование",
+                additional: "Доп. образование",
+                projects: "Проекты",
+                contacts: "Контакты",
+                heroRole: "ML-инженер",
+                heroDesc: "Студент бакалавриата по направлению \"Мехатроника и робототехника\" в Санкт-Петербургском политехническом университете. Занимаюсь машинным обучением и робототехникой.",
+                skills: "Навыки",
+                interests: "Интересы",
+                languages: "Языки",
+                skill1: "Python (Numpy, Pandas, Matplotlib, Scikit-learn)",
+                skill2: "C++",
+                skill3: "Математический анализ, линейная алгебра, теория вероятностей и математическая статистика",
+                skill4: "OOP (базовые знания)",
+                skill5: "ROS",
+                skill6: "Haskell",
+                interest1: "Машинное обучение",
+                interest2: "Глубокое обучение",
+                interest3: "Нейронные сети",
+                interest4: "Робототехника",
+                interest5: "Компьютерное зрение",
+                interest6: "Прикладной ИИ",
+                interest7: "Мягкая робототехника",
+                russian: "Русский",
+                english: "Английский",
+                chinese: "Китайский",
+                native: "родной",
+                c1: "C1 - свободный (подтверждён Oxford Placement Test)",
+                intermediate: "средний разговорный (1.5 года учёбы и жизни в Китае)",
+                bachelor: "Бакалавр",
+                mechatronics: "Мехатроника и робототехника",
+                educationTitle: "Образование",
+                addEducationTitle: "Дополнительное образование",
+                projectsTitle: "Проекты",
+                contactsTitle: "Контакты",
+                email: "Email",
+                telegram: "Telegram",
+                wechat: "WeChat",
+                emailValue: "svovamtr@mail.ru",
+                telegramValue: "@seriozhin",
+                wechatValue: "wxid_1kay0tsy4dt722",
+                viewCert: "Посмотреть",
+                hideCert: "Скрыть",
+                cert1Title: "Certificate of achievement",
+                cert1Desc: "Сианьский технологический университет, Китай",
+                cert2Title: "Oxford Placement Test - C1",
+                cert2Desc: "Подтверждение уровня английского языка",
+                cert3Title: "Математический анализ - с отличием",
+                cert3Desc: "Онлайн-курс",
+                cert4Title: "Теория вероятностей - с отличием",
+                cert4Desc: "Онлайн-курс",
+                cert5Title: "Разработка программного обеспечения беспилотных авиационных систем",
+                cert5Desc: "Онлайн-курс (144 часа)",
+                projectPlaceholder: "Название проекта",
+                projectPlaceholderDesc: "Описание проекта, используемые технологии, результаты. Текст будет добавлен позже.",
+                edu1Title: "Санкт-Петербургский политехнический университет Петра Великого (СПбПУ), Россия",
+                edu1Subtitle: "Бакалавр | Мехатроника и робототехника",
+                edu1Desc: "Основное образование. Изучение основ мехатроники и робототехники, программирования на языках высокого уровня, математики, физики и инженерных дисциплин.",
+                edu2Title: "Сианьский технологический университет (XATU), Китай",
+                edu2Subtitle: "Студент по обмену (бакалавр) | Mechanical manufacturing and its automation",
+                edu2Desc: "Академическая мобильность. Core courses: \"C++ Programming Design\" - 93/100, \"Python\" - 91/100, \"Mechanical graphing\" - 100/100",
+                edu3Title: "Сианьский университет Цзяотун (XJTU), Китай",
+                edu3Subtitle: "Студент по обмену (магистр) | Mechanical Engineering",
+                edu3Desc: "Академическая мобильность по специальностям \"Mechanical Engineering\" и \"Computer science\". Core courses: \"Theory and Implementation of Programming Language\", \"Software Development\", \"AI in Electrical Engineering\", \"AI and Intelligent Robots\", \"Statistical Signal Processing: Fundamentals and Machine Learning Prospectives\""
+            },
+            en: {
+                navHome: "Seriozhin Vladimir",
+                education: "Education",
+                additional: "Additional Education",
+                projects: "Projects",
+                contacts: "Contacts",
+                heroRole: "ML Engineer",
+                heroDesc: "Bachelor's student in \"Mechatronics and Robotics\" at Peter the Great St. Petersburg Polytechnic University. Working on machine learning and robotics.",
+                skills: "Skills",
+                interests: "Interests",
+                languages: "Languages",
+                skill1: "Python (Numpy, Pandas, Matplotlib, Scikit-learn)",
+                skill2: "C++",
+                skill3: "Calculus, Linear Algebra, Probability Theory and Mathematical Statistics",
+                skill4: "OOP (basic knowledge)",
+                skill5: "ROS",
+                skill6: "Haskell",
+                interest1: "Machine Learning",
+                interest2: "Deep Learning",
+                interest3: "Neural Networks",
+                interest4: "Robotics",
+                interest5: "Computer Vision",
+                interest6: "Applied AI",
+                interest7: "Soft Robotics",
+                russian: "Russian",
+                english: "English",
+                chinese: "Chinese",
+                native: "native",
+                c1: "C1 - fluent (confirmed by Oxford Placement Test)",
+                intermediate: "intermediate spoken (1.5 years of study and life in China)",
+                bachelor: "Bachelor",
+                mechatronics: "Mechatronics and Robotics",
+                educationTitle: "Education",
+                addEducationTitle: "Additional Education",
+                projectsTitle: "Projects",
+                contactsTitle: "Contacts",
+                email: "Email",
+                telegram: "Telegram",
+                wechat: "WeChat",
+                emailValue: "svovamtr@mail.ru",
+                telegramValue: "@seriozhin",
+                wechatValue: "wxid_1kay0tsy4dt722",
+                viewCert: "View",
+                hideCert: "Hide",
+                cert1Title: "Certificate of achievement",
+                cert1Desc: "Xi'an University of Technology, China",
+                cert2Title: "Oxford Placement Test - C1",
+                cert2Desc: "English language proficiency confirmation",
+                cert3Title: "Calculus - with honors",
+                cert3Desc: "Online course",
+                cert4Title: "Probability Theory - with honors",
+                cert4Desc: "Online course",
+                cert5Title: "Unmanned Aerial Systems Software Development",
+                cert5Desc: "Online course (144 hours)",
+                projectPlaceholder: "Project name",
+                projectPlaceholderDesc: "Project description, technologies used, results. Text will be added later.",
+                edu1Title: "Peter the Great St. Petersburg Polytechnic University (SPbPU), Russia",
+                edu1Subtitle: "Bachelor | Mechatronics and Robotics",
+                edu1Desc: "Core education. Studying fundamentals of mechatronics and robotics, high-level programming, mathematics, physics and engineering disciplines.",
+                edu2Title: "Xi'an University of Technology (XATU), China",
+                edu2Subtitle: "Exchange student (Bachelor) | Mechanical manufacturing and its automation",
+                edu2Desc: "Academic mobility. Core courses: \"C++ Programming Design\" - 93/100, \"Python\" - 91/100, \"Mechanical graphing\" - 100/100",
+                edu3Title: "Xi'an Jiaotong University (XJTU), China",
+                edu3Subtitle: "Exchange student (Master) | Mechanical Engineering",
+                edu3Desc: "Academic mobility in \"Mechanical Engineering\" and \"Computer science\". Core courses: \"Theory and Implementation of Programming Language\", \"Software Development\", \"AI in Electrical Engineering\", \"AI and Intelligent Robots\", \"Statistical Signal Processing: Fundamentals and Machine Learning Prospectives\""
+            },
+            zh: {
+                navHome: "谢廖申·弗拉基米尔",
+                education: "教育",
+                additional: "附加教育",
+                projects: "项目",
+                contacts: "联系方式",
+                heroRole: "机器学习工程师",
+                heroDesc: "圣彼得堡彼得大帝理工大学\"机电一体化与机器人技术\"专业本科生。致力于机器学习和机器人技术研究。",
+                skills: "技能",
+                interests: "兴趣",
+                languages: "语言",
+                skill1: "Python (Numpy, Pandas, Matplotlib, Scikit-learn)",
+                skill2: "C++",
+                skill3: "数学分析、线性代数、概率论与数理统计",
+                skill4: "面向对象编程（基础知识）",
+                skill5: "ROS",
+                skill6: "Haskell",
+                interest1: "机器学习",
+                interest2: "深度学习",
+                interest3: "神经网络",
+                interest4: "机器人技术",
+                interest5: "计算机视觉",
+                interest6: "应用人工智能",
+                interest7: "软体机器人",
+                russian: "俄语",
+                english: "英语",
+                chinese: "中文",
+                native: "母语",
+                c1: "C1级 - 流利（牛津英语分级测试确认）",
+                intermediate: "中级口语（在中国学习和生活1.5年）",
+                bachelor: "学士",
+                mechatronics: "机电一体化与机器人技术",
+                educationTitle: "教育背景",
+                addEducationTitle: "附加教育",
+                projectsTitle: "项目",
+                contactsTitle: "联系方式",
+                email: "邮箱",
+                telegram: "Telegram",
+                wechat: "微信",
+                emailValue: "svovamtr@mail.ru",
+                telegramValue: "@seriozhin",
+                wechatValue: "wxid_1kay0tsy4dt722",
+                viewCert: "查看",
+                hideCert: "隐藏",
+                cert1Title: "成就证书",
+                cert1Desc: "西安理工大学，中国",
+                cert2Title: "牛津英语分级测试 - C1级",
+                cert2Desc: "英语水平证明",
+                cert3Title: "数学分析 - 优秀",
+                cert3Desc: "在线课程",
+                cert4Title: "概率论 - 优秀",
+                cert4Desc: "在线课程",
+                cert5Title: "无人机系统软件开发",
+                cert5Desc: "在线课程（144小时）",
+                projectPlaceholder: "项目名称",
+                projectPlaceholderDesc: "项目描述、使用的技术、结果。文字稍后添加。",
+                edu1Title: "圣彼得堡彼得大帝理工大学，俄罗斯",
+                edu1Subtitle: "学士 | 机电一体化与机器人技术",
+                edu1Desc: "核心教育。学习机电一体化和机器人技术、高层编程、数学、物理和工程学科基础知识。",
+                edu2Title: "西安理工大学，中国",
+                edu2Subtitle: "交换生（本科）| 机械制造及其自动化",
+                edu2Desc: "学术交流。核心课程：\"C++程序设计\" - 93/100，\"Python\" - 91/100，\"机械制图\" - 100/100",
+                edu3Title: "西安交通大学，中国",
+                edu3Subtitle: "交换生（硕士）| 机械工程",
+                edu3Desc: "机械工程和计算机科学学术交流。核心课程：\"编程语言理论与实现\"、\"软件开发\"、\"电气工程中的AI\"、\"AI与智能机器人\"、\"统计信号处理：基础与机器学习视角\""
+            }
+        };
+
+        function changeLanguage(lang) {
+            localStorage.setItem('language', lang);
+            const t = translations[lang];
+            
+            document.querySelector('.nav-home').textContent = t.navHome;
+            document.querySelectorAll('.nav-links a')[1].textContent = t.education;
+            document.querySelectorAll('.nav-links a')[2].textContent = t.additional;
+            document.querySelectorAll('.nav-links a')[3].textContent = t.projects;
+            document.querySelectorAll('.nav-links a')[4].textContent = t.contacts;
+            
+            document.querySelector('.hero-role').textContent = t.heroRole;
+            document.querySelector('.hero-description').textContent = t.heroDesc;
+            
+            document.querySelectorAll('.profile-block h3')[0].textContent = t.skills;
+            document.querySelectorAll('.profile-block h3')[1].textContent = t.interests;
+            document.querySelector('.languages-section h3').textContent = t.languages;
+            
+            const tags = document.querySelectorAll('.simple-tag');
+            const skillTags = [t.skill1, t.skill2, t.skill3, t.skill4, t.skill5, t.skill6];
+            const interestTags = [t.interest1, t.interest2, t.interest3, t.interest4, t.interest5, t.interest6, t.interest7];
+            
+            tags.forEach((tag, index) => {
+                if (index < skillTags.length) {
+                    tag.textContent = skillTags[index];
+                } else {
+                    tag.textContent = interestTags[index - skillTags.length];
+                }
+            });
+            
+            const langItems = document.querySelectorAll('.language-item');
+            langItems[0].querySelector('.language-name').textContent = t.russian;
+            langItems[0].querySelector('.language-level').textContent = t.native;
+            langItems[1].querySelector('.language-name').textContent = t.english;
+            langItems[1].querySelector('.language-level').textContent = t.c1;
+            langItems[2].querySelector('.language-name').textContent = t.chinese;
+            langItems[2].querySelector('.language-level').textContent = t.intermediate;
+            
+            document.querySelector('#education .section-title').textContent = t.educationTitle;
+            document.querySelector('#additional .section-title').textContent = t.addEducationTitle;
+            document.querySelector('#projects .section-title').textContent = t.projectsTitle;
+            document.querySelector('#contacts .section-title').textContent = t.contactsTitle;
+            
+            const contactItems = document.querySelectorAll('.contact-item');
+            contactItems[0].querySelector('h4').textContent = t.email;
+            contactItems[0].querySelector('p').textContent = t.emailValue;
+            contactItems[1].querySelector('h4').textContent = t.telegram;
+            contactItems[1].querySelector('p').textContent = t.telegramValue;
+            contactItems[2].querySelector('h4').textContent = t.wechat;
+            contactItems[2].querySelector('p').textContent = t.wechatValue;
+            
+            const certTitles = document.querySelectorAll('.cert-title-group h3');
+            const certDescs = document.querySelectorAll('.cert-title-group p');
+            const certBtns = document.querySelectorAll('.cert-toggle-btn');
+            
+            certTitles[0].textContent = t.cert1Title;
+            certDescs[0].textContent = t.cert1Desc;
+            certTitles[1].textContent = t.cert2Title;
+            certDescs[1].textContent = t.cert2Desc;
+            certTitles[2].textContent = t.cert3Title;
+            certDescs[2].textContent = t.cert3Desc;
+            certTitles[3].textContent = t.cert4Title;
+            certDescs[3].textContent = t.cert4Desc;
+            certTitles[4].textContent = t.cert5Title;
+            certDescs[4].textContent = t.cert5Desc;
+            
+            certBtns.forEach(btn => {
+                if (btn.closest('.cert-card').querySelector('.cert-viewer').classList.contains('active')) {
+                    btn.textContent = t.hideCert;
+                } else {
+                    btn.textContent = t.viewCert;
+                }
+            });
+            
+            const projectTitles = document.querySelectorAll('.project-title');
+            const projectDescs = document.querySelectorAll('.project-description');
+            projectTitles.forEach(title => title.textContent = t.projectPlaceholder);
+            projectDescs.forEach(desc => desc.textContent = t.projectPlaceholderDesc);
+            
+            const eduCards = document.querySelectorAll('.card');
+            eduCards[0].querySelector('.card-title').textContent = t.edu1Title;
+            eduCards[0].querySelector('.card-subtitle').textContent = t.edu1Subtitle;
+            eduCards[0].querySelector('.card-description').textContent = t.edu1Desc;
+            eduCards[1].querySelector('.card-title').textContent = t.edu2Title;
+            eduCards[1].querySelector('.card-subtitle').textContent = t.edu2Subtitle;
+            eduCards[1].querySelector('.card-description').textContent = t.edu2Desc;
+            eduCards[2].querySelector('.card-title').textContent = t.edu3Title;
+            eduCards[2].querySelector('.card-subtitle').textContent = t.edu3Subtitle;
+            eduCards[2].querySelector('.card-description').textContent = t.edu3Desc;
+        }
+
+        if (localStorage.getItem('language')) {
+            changeLanguage(localStorage.getItem('language'));
+            document.querySelector('.lang-select').value = localStorage.getItem('language');
+        }
+    </script>
+</body>
+</html>
