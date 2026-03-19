@@ -1867,18 +1867,46 @@
 
         let chatOpen = false;
         let conversationHistory = [];
+        let chatInitialized = false;
+
+        function initChatWindow() {
+            const chatWindow = document.querySelector('.chat-window');
+            const lang = localStorage.getItem('language') || 'ru';
+            const greetings = { ru: 'Привет! Я бот портфолио Владимира. Спросите о проектах, образовании, навыках или контактах.', en: 'Hi! I\'m Vladimir\'s portfolio bot. Ask about projects, education, skills, or contacts.', zh: '你好！我是弗拉基米尔作品集机器人。询问项目、教育、技能或联系方式。' };
+            
+            chatWindow.innerHTML = `
+                <div class="chat-header">
+                    <h4>FAQ Bot</h4>
+                    <button class="chat-close" onclick="toggleChat()">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="chat-messages">
+                    <div class="chat-message bot">${greetings[lang]}</div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" class="chat-input" placeholder="${lang === 'ru' ? 'Введите сообщение...' : lang === 'zh' ? '输入消息...' : 'Type a message...'}" onkeypress="if(event.key==='Enter')sendMessage()">
+                    <button class="chat-send" onclick="sendMessage()">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                    </button>
+                </div>
+            `;
+            chatInitialized = true;
+        }
 
         function toggleChat() {
             const chatWindow = document.querySelector('.chat-window');
             chatOpen = !chatOpen;
-            chatWindow.classList.toggle('active', chatOpen);
-            if (chatOpen && !conversationHistory.length) {
-                const messages = document.querySelector('.chat-messages');
-                messages.innerHTML = '';
-                const lang = localStorage.getItem('language') || 'ru';
-                const greetings = { ru: 'Привет! Я бот портфолио Владимира. Спросите о проектах, образовании, навыках или контактах.', en: 'Hi! I\'m Vladimir\'s portfolio bot. Ask about projects, education, skills, or contacts.', zh: '你好！我是弗拉基米尔作品集机器人。询问项目、教育、技能或联系方式。' };
-                messages.innerHTML = `<div class="chat-message bot">${greetings[lang]}</div>`;
+            
+            if (!chatInitialized) {
+                initChatWindow();
             }
+            
+            chatWindow.classList.toggle('active', chatOpen);
         }
 
         function getFAQResponse(message, lang) {
@@ -1950,28 +1978,6 @@
             div.textContent = text;
             return div.innerHTML;
         }
-
-        document.querySelector('.chat-window').innerHTML = `
-            <div class="chat-header">
-                <h4>FAQ Bot</h4>
-                <button class="chat-close" onclick="toggleChat()">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="chat-messages">
-                <div class="chat-message bot">Привет! Я бот портфолио Владимира. Спросите о проектах, образовании, навыках или контактах.</div>
-            </div>
-            <div class="chat-input-area">
-                <input type="text" class="chat-input" placeholder="Введите сообщение..." onkeypress="if(event.key==='Enter')sendMessage()">
-                <button class="chat-send" onclick="sendMessage()">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                    </svg>
-                </button>
-            </div>
-        `;
     </script>
     <div class="chat-widget">
         <button class="chat-btn" onclick="toggleChat()" title="Чат с ассистентом">
