@@ -1362,6 +1362,7 @@
         const translations = {
             ru: {
                 navHome: "Сережин Владимир",
+                heroName: "Сережин Владимир",
                 education: "Образование",
                 additional: "Доп. образование",
                 projects: "Проекты",
@@ -1428,6 +1429,7 @@
             },
             en: {
                 navHome: "Serezhin Vladimir",
+                heroName: "Vladimir Serezhin",
                 education: "Education",
                 additional: "Additional Education",
                 projects: "Projects",
@@ -1494,6 +1496,7 @@
             },
             zh: {
                 navHome: "谢尔金·弗拉基米尔",
+                heroName: "弗拉基米尔·谢尔金",
                 education: "教育",
                 additional: "附加教育",
                 projects: "项目",
@@ -1570,6 +1573,7 @@
             document.querySelectorAll('.nav-links a')[3].textContent = t.projects;
             document.querySelectorAll('.nav-links a')[4].textContent = t.contacts;
             
+            document.querySelector('.hero-name').textContent = t.heroName;
             document.querySelector('.hero-role').textContent = t.heroRole;
             document.querySelector('.hero-description').textContent = t.heroDesc;
             
