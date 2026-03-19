@@ -889,6 +889,18 @@
                 height: 320px;
             }
 
+            .profile-blocks {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                margin-top: 24px;
+            }
+
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+
             .section-title {
                 font-size: 28px;
             }
@@ -1076,6 +1088,15 @@
             .chat-window {
                 width: calc(100vw - 32px);
                 right: -12px;
+                height: 70vh;
+                max-height: 500px;
+            }
+        }
+
+        @media (max-height: 600px) {
+            .chat-window {
+                height: calc(100vh - 120px);
+                max-height: 400px;
             }
         }
     </style>
