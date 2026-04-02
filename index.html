@@ -1383,17 +1383,16 @@
                         <p class="project-tech">OpenCode, Python (pandas, numpy, matplotlib), PyTorch, CNN</p>
                     </div>
                 </a>
-                <div class="project-card fade-in">
+                <a href="https://github.com/serezhinVM/serzhin-portfolio" target="_blank" class="project-card fade-in">
                     <div class="project-image">
-                        <svg viewBox="0 0 24 24" fill="white">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
+                        <img src="photo.jpg" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Название проекта</h3>
-                        <p class="project-description">Описание проекта, используемые технологии, результаты. Текст будет добавлен позже.</p>
+                        <h3 class="project-title">Личное портфолио</h3>
+                        <p class="project-description">Персональный сайт-портфолио ML-инженера с информацией об образовании, навыках, проектах и контактах.</p>
+                        <p class="project-tech">OpenCode, HTML, GitHub</p>
                     </div>
-                </div>
+                </a>
                 <div class="project-card fade-in">
                     <div class="project-image">
                         <svg viewBox="0 0 24 24" fill="white">
@@ -1643,6 +1642,9 @@
                 project1Title: "MNIST Handwritten Digit Recognition",
                 project1Desc: "Распознавание рукописных цифр с помощью свёрточной нейронной сети (CNN) на PyTorch.",
                 project1Tech: "OpenCode, Python (pandas, numpy, matplotlib), PyTorch, CNN",
+                project2Title: "Личное портфолио",
+                project2Desc: "Персональный сайт-портфолио ML-инженера с информацией об образовании, навыках, проектах и контактах.",
+                project2Tech: "OpenCode, HTML, GitHub",
                 projectPlaceholder: "Название проекта",
                 projectPlaceholderDesc: "Описание проекта, используемые технологии, результаты. Текст будет добавлен позже.",
                 edu1Title: "Санкт-Петербургский политехнический университет Петра Великого (СПбПУ), Россия",
@@ -1714,6 +1716,9 @@
                 project1Title: "MNIST Handwritten Digit Recognition",
                 project1Desc: "Handwritten digit recognition using a convolutional neural network (CNN) with PyTorch.",
                 project1Tech: "OpenCode, Python (pandas, numpy, matplotlib), PyTorch, CNN",
+                project2Title: "Personal Portfolio",
+                project2Desc: "Personal portfolio website for an ML engineer with information about education, skills, projects and contacts.",
+                project2Tech: "OpenCode, HTML, GitHub",
                 projectPlaceholder: "Project name",
                 projectPlaceholderDesc: "Project description, technologies used, results. Text will be added later.",
                 edu1Title: "Peter the Great St. Petersburg Polytechnic University (SPbPU), Russia",
@@ -1785,6 +1790,9 @@
                 project1Title: "MNIST 手写数字识别",
                 project1Desc: "使用 PyTorch 卷积神经网络（CNN）识别手写数字。",
                 project1Tech: "OpenCode, Python (pandas, numpy, matplotlib), PyTorch, CNN",
+                project2Title: "个人作品集",
+                project2Desc: "机器学习工程师的个人作品集网站，包含教育背景、技能、项目和联系方式。",
+                project2Tech: "OpenCode, HTML, GitHub",
                 projectPlaceholder: "项目名称",
                 projectPlaceholderDesc: "项目描述、使用的技术、结果。文字稍后添加。",
                 edu1Title: "圣彼得堡彼得大帝理工大学，俄罗斯",
@@ -1877,8 +1885,9 @@
             projectCards[0].querySelector('.project-title').textContent = t.project1Title;
             projectCards[0].querySelector('.project-description').textContent = t.project1Desc;
             projectCards[0].querySelector('.project-tech').textContent = t.project1Tech;
-            projectCards[1].querySelector('.project-title').textContent = t.projectPlaceholder;
-            projectCards[1].querySelector('.project-description').textContent = t.projectPlaceholderDesc;
+            projectCards[1].querySelector('.project-title').textContent = t.project2Title;
+            projectCards[1].querySelector('.project-description').textContent = t.project2Desc;
+            projectCards[1].querySelector('.project-tech').textContent = t.project2Tech;
             projectCards[2].querySelector('.project-title').textContent = t.projectPlaceholder;
             projectCards[2].querySelector('.project-description').textContent = t.projectPlaceholderDesc;
             
