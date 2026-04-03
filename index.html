@@ -621,9 +621,13 @@
 
 
         .projects-grid {
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
             gap: 24px;
+
         }
 
 
@@ -2243,13 +2247,7 @@
         }
 
         .projects-slider {
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .projects-slider::-webkit-scrollbar {
-            display: none;
+            overflow: hidden;
         }
 
         .projects-grid {
@@ -2288,11 +2286,21 @@
             .projects-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .projects-wrapper {
+                padding: 0 50px;
+            }
         }
 
         @media (max-width: 768px) {
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+            .projects-wrapper {
+                padding: 0 20px;
+            }
+            .projects-nav-btn {
+                width: 36px;
+                height: 36px;
             }
         }
 
@@ -4248,11 +4256,11 @@ edu3Desc: "综合技术教育。学习\"编程语言理论与实现\"、\"软件
         }
 
         function updateProjectsCarousel() {
-            const slider = document.querySelector('.projects-slider');
             const grid = document.querySelector('.projects-grid');
-            const cardWidth = grid.offsetWidth / projectsPerPage;
-            const offset = currentProjectPage * cardWidth * projectsPerPage;
-            slider.scrollLeft = offset;
+            const cards = document.querySelectorAll('.projects-grid .project-card');
+            const cardWidth = cards.length > 0 ? cards[0].offsetWidth + 24 : 0;
+            const offset = currentProjectPage * projectsPerPage * cardWidth;
+            grid.style.transform = `translateX(-${offset}px)`;
             
             document.querySelectorAll('.projects-nav-dot').forEach((dot, i) => {
                 dot.classList.toggle('active', i === currentProjectPage);
