@@ -3305,6 +3305,9 @@
                 edu1Subtitle: "Бакалавр | Мехатроника и робототехника",
 
                 edu1Desc: "Основное образование. Изучение основ мехатроники и робототехники, программирования на языках высокого уровня, математики, физики и инженерных дисциплин.",
+                edu1Year: "2023 - 2027",
+                edu2Year: "февраль 2025 - июль 2025",
+                edu3Year: "февраль 2026 - январь 2027",
 
                 edu2Title: "Сианьский технологический университет (XATU), Китай",
 
@@ -3624,7 +3627,10 @@
 
                 edu3Subtitle: "交换学习(硕士)| 机械工程",
 
-edu3Desc: "综合技术教育。学习\"编程语言理论与实现\"、\"软件开发\"、\"电气工程中的AI\"、\"AI与智能机器人\"、\"统计信号处理：基础与机器学习视角\""
+edu3Desc: "综合技术教育。学习\"编程语言理论与实现\"、\"软件开发\"、\"电气工程中的AI\"、\"AI与智能机器人\"、\"统计信号处理：基础与机器学习视角\"",
+                edu1Year: "2023 - 2027",
+                edu2Year: "2025年2月 - 2025年7月",
+                edu3Year: "2026年2月 - 2027年1月"
 
             }
 
@@ -3803,6 +3809,11 @@ edu3Desc: "综合技术教育。学习\"编程语言理论与实现\"、\"软件
             
 
             const eduCards = document.querySelectorAll('.card');
+            
+            const eduYears = document.querySelectorAll('.card-year');
+            eduYears[0].textContent = t.edu1Year;
+            eduYears[1].textContent = t.edu2Year;
+            eduYears[2].textContent = t.edu3Year;
 
             eduCards[0].querySelector('.card-title').textContent = t.edu1Title;
 
