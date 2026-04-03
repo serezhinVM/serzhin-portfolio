@@ -4236,8 +4236,9 @@ edu3Desc: "综合技术教育。学习\"编程语言理论与实现\"、\"软件
                 dot.classList.toggle('active', i === currentProjectPage);
             });
             
-            document.querySelector('.projects-nav-btn.prev').style.display = totalProjectPages > 1 ? 'flex' : 'none';
-            document.querySelector('.projects-nav-btn.next').style.display = totalProjectPages > 1 ? 'flex' : 'none';
+            // Always show navigation buttons (even with 1 page for future projects)
+            document.querySelector('.projects-nav-btn.prev').style.display = 'flex';
+            document.querySelector('.projects-nav-btn.next').style.display = 'flex';
         }
 
         function handleResize() {
