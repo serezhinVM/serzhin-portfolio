@@ -2850,99 +2850,109 @@
 
             <h2 class="section-title">Проекты</h2>
 
-            <div class="projects-grid">
+            <div class="projects-wrapper">
+                <button class="projects-nav-btn prev" onclick="slideProjects(-1)">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <div class="projects-slider">
+                    <div class="projects-grid">
 
-                <a href="https://github.com/serezhinVM/Handwriting" target="_blank" class="project-card fade-in">
+                        <a href="https://github.com/serezhinVM/Handwriting" target="_blank" class="project-card fade-in">
 
-                    <div class="project-image">
+                            <div class="project-image">
 
-                        <img src="digit_performance.png" alt="MNIST Performance" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                                <img src="digit_performance.png" alt="MNIST Performance" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+
+                            </div>
+
+                            <div class="project-content">
+
+                                <h3 class="project-title">MNIST Handwritten Digit Recognition</h3>
+
+                                <p class="project-description">Распознавание рукописных цифр с помощью сверточных нейронных сетей (CNN) на PyTorch.</p>
+
+                                <p class="project-tech">OpenCode, Python (pandas, numpy, matplotlib), PyTorch, CNN</p>
+
+                            </div>
+
+                        </a>
+
+                        <a href="https://github.com/serezhinVM/AI-and-Intelligent-Robots" target="_blank" class="project-card fade-in">
+
+                            <div class="project-image">
+
+                                <img src="Robotics.jpg" alt="Robotics" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+
+                            </div>
+
+                            <div class="project-content">
+
+                                <h3 class="project-title">AI and Intelligent Robots</h3>
+
+                                <p class="project-description">Проведение 6 экспериментов в робототехнике. 1. Установка и использование ROS 1 и ROS 2. 2. Практика основных функций ROS 1 и ROS 2. 3. Траектория и скорость движения робота. 4. Лазерное сканирование в навигации. 5. ПИД-регулирование в навигации робота. 6. Нечеткое управление в навигации робота.</p>
+
+                                <p class="project-tech">ROS1, ROS2, Python (PyTorch)</p>
+
+                            </div>
+
+                        </a>
+
+                        <a href="https://github.com/serezhinVM/serzhin-portfolio" target="_blank" class="project-card fade-in">
+
+                            <div class="project-image">
+
+                                <img src="photo.jpg" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+
+                            </div>
+
+                            <div class="project-content">
+
+                                <h3 class="project-title">Личное портфолио</h3>
+
+                                <p class="project-description">Разработан HTML-портфолио ML-инженера с информацией об образовании, проектах, навыках и контактах.</p>
+
+                                <p class="project-tech">OpenCode, HTML, GitHub</p>
+
+                            </div>
+
+                        </a>
+
+                        <a href="https://github.com/serezhinVM/Python-modules-numpy-pandas-matplotlib-sckit-learn-" target="_blank" class="project-card fade-in">
+
+                            <div class="project-image">
+
+                                <img src="Number of cyclists.png" alt="Data Analysis" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+
+                            </div>
+
+                            <div class="project-content">
+
+                                <h3 class="project-title">Учебные проекты по анализу данных на Python</h3>
+
+                                <p class="project-description">Анализ данных, визуализация и выводы на основе датасетов.</p>
+
+                                <p class="project-tech">Python (Pandas, NumPy, Matplotlib, Seaborn, Datetime)</p>
+
+                            </div>
+
+                        </a>
 
                     </div>
-
-                    <div class="project-content">
-
-                        <h3 class="project-title">MNIST Handwritten Digit Recognition</h3>
-
-                        <p class="project-description">Распознавание рукописных цифр с помощью свёрточной нейронной сети (CNN) на PyTorch.</p>
-
-                        <p class="project-tech">OpenCode, Python (pandas, numpy, matplotlib), PyTorch, CNN</p>
-
-                    </div>
-
-                </a>
-
-                <a href="https://github.com/serezhinVM/AI-and-Intelligent-Robots" target="_blank" class="project-card fade-in">
-
-                    <div class="project-image">
-
-                        <img src="Robotics.jpg" alt="Robotics" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3 class="project-title">AI and Intelligent Robots</h3>
-
-                        <p class="project-description">Проведение 6 экспериментов в робототехнике. 1. Установка и использование ROS 1 и ROS 2. 2. Практика основных функций ROS 1 и ROS 2. 3. Траектория и скорость движения робота. 4. Лазерное сканирование в навигации. 5. ПИД-регулирование в навигации робота. 6. Нечеткое управление в навигации робота.</p>
-
-                        <p class="project-tech">ROS1, ROS2, Python (PyTorch)</p>
-
-                    </div>
-
-                </a>
-
-                <a href="https://github.com/serezhinVM/serzhin-portfolio" target="_blank" class="project-card fade-in">
-
-                    <div class="project-image">
-
-                        <img src="photo.jpg" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3 class="project-title">Личное портфолио</h3>
-
-                        <p class="project-description">Персональный сайт-портфолио ML-инженера с информацией об образовании, навыках, проектах и контактах.</p>
-
-                        <p class="project-tech">OpenCode, HTML, GitHub</p>
-
-                    </div>
-
-                </a>
-
-                <a href="https://github.com/serezhinVM/Python-modules-numpy-pandas-matplotlib-sckit-learn-" target="_blank" class="project-card fade-in">
-
-                    <div class="project-image">
-
-                        <img src="Number of cyclists.png" alt="Data Analysis" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3 class="project-title">Учебные проекты по анализу данных на Python</h3>
-
-                        <p class="project-description">Анализ данных Титаника, рождаемости в США и других датасетов.</p>
-
-                        <p class="project-tech">Python (Pandas, NumPy, Matplotlib, Seaborn, Datetime)</p>
-
-                    </div>
-
-                </a>
-
-                            
-
+                </div>
+                <button class="projects-nav-btn next" onclick="slideProjects(1)">
+                    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+                <div class="projects-nav-dots">
+                    <span class="projects-nav-dot active" onclick="goToProjectPage(0)"></span>
+                    <span class="projects-nav-dot" onclick="goToProjectPage(1)"></span>
+                </div>
             </div>
 
         </div>
 
     </section>
 
-
-
-    <section id="contacts">
+    <section id="contacts"><section id="contacts">
 
         <div class="section-container">
 
