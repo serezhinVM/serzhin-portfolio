@@ -2200,7 +2200,111 @@
 
         }
 
-    </style>
+    
+        .projects-wrapper {
+            position: relative;
+            padding: 0 40px;
+        }
+
+        .projects-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: var(--shadow);
+        }
+
+        .projects-nav-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .projects-nav-btn.prev {
+            left: 0;
+        }
+
+        .projects-nav-btn.next {
+            right: 0;
+        }
+
+        .projects-nav-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        .projects-slider {
+            overflow: hidden;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            transition: transform 0.4s ease;
+        }
+
+        .projects-nav-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .projects-nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .projects-nav-dot.active {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .projects-nav-dot:hover {
+            background: var(--accent-hover);
+        }
+
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .projects-wrapper {
+                padding: 0 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .projects-wrapper {
+                padding: 0 20px;
+            }
+            .projects-nav-btn {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+</style>
 
 </head>
 
@@ -4087,7 +4191,62 @@ edu3Desc: "综合技术教育。学习\"编程语言理论与实现\"、\"软件
 
         }
 
-    </script>
+    
+        
+        let currentProjectPage = 0;
+        const projectsPerPage = 3;
+        let totalProjectPages = 1;
+
+        function initProjectsCarousel() {
+            const cards = document.querySelectorAll('.projects-grid .project-card');
+            totalProjectPages = Math.ceil(cards.length / projectsPerPage);
+            
+            const dotsContainer = document.querySelector('.projects-nav-dots');
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalProjectPages; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'projects-nav-dot' + (i === 0 ? ' active' : '');
+                dot.onclick = function() { goToProjectPage(i); };
+                dotsContainer.appendChild(dot);
+            }
+            
+            updateProjectsCarousel();
+        }
+
+        function slideProjects(direction) {
+            currentProjectPage += direction;
+            if (currentProjectPage < 0) currentProjectPage = totalProjectPages - 1;
+            if (currentProjectPage >= totalProjectPages) currentProjectPage = 0;
+            updateProjectsCarousel();
+        }
+
+        function goToProjectPage(page) {
+            currentProjectPage = page;
+            updateProjectsCarousel();
+        }
+
+        function updateProjectsCarousel() {
+            const grid = document.querySelector('.projects-grid');
+            const cards = document.querySelectorAll('.projects-grid .project-card');
+            const cardWidth = cards.length > 0 ? cards[0].offsetWidth + 24 : 0;
+            const offset = currentProjectPage * projectsPerPage * cardWidth;
+            grid.style.transform = `translateX(-${offset}px)`;
+            
+            document.querySelectorAll('.projects-nav-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentProjectPage);
+            });
+            
+            document.querySelector('.projects-nav-btn.prev').style.display = totalProjectPages > 1 ? 'flex' : 'none';
+            document.querySelector('.projects-nav-btn.next').style.display = totalProjectPages > 1 ? 'flex' : 'none';
+        }
+
+        function handleResize() {
+            initProjectsCarousel();
+        }
+
+        window.addEventListener('resize', handleResize);
+        document.addEventListener('DOMContentLoaded', initProjectsCarousel);
+</script>
 
     <div class="chat-widget">
 
