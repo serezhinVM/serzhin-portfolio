@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="ru">
 
@@ -28,6 +28,8 @@
 
         }
 
+
+
         :root {
 
             --bg-primary: #F5F5F5;
@@ -49,6 +51,8 @@
             --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
 
         }
+
+
 
         [data-theme="dark"] {
 
@@ -72,313 +76,2227 @@
 
         }
 
-        html { scroll-behavior: smooth; }
 
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
 
-        .nav { position: fixed; top: 0; left: 0; right: 0; background: var(--bg-white); box-shadow: var(--shadow); z-index: 1000; padding: 16px 0; }
+        html {
 
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
-
-        .nav-logo { font-size: 20px; font-weight: 700; color: var(--accent); text-decoration: none; }
-
-        .nav-links { display: flex; gap: 32px; list-style: none; }
-
-        .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.3s; position: relative; }
-
-        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s; }
-
-        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-
-        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-
-        .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
-
-        .nav-toggle span { width: 24px; height: 2px; background: var(--text-primary); transition: all 0.3s; }
-
-        .nav-right { display: flex; align-items: center; gap: 16px; }
-
-        .theme-toggle { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 8px; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
-
-        .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
-
-        .theme-toggle svg { width: 18px; height: 18px; }
-
-        .lang-select { padding: 8px 12px; background: transparent; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--text-secondary); cursor: pointer; font-family: inherit; transition: all 0.3s; }
-
-        .lang-select:hover { border-color: var(--accent); color: var(--accent); }
-
-        .lang-select option { background: var(--bg-white); color: var(--text-primary); }
-
-        .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 24px 80px; }
-
-        .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-
-        .hero-content { animation: fadeInUp 0.8s ease; }
-
-        .hero-name { font-size: 48px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; line-height: 1.2; }
-
-        .hero-role { font-size: 24px; font-weight: 500; color: var(--accent); margin-bottom: 24px; }
-
-        .hero-description { font-size: 16px; color: var(--text-secondary); max-width: 480px; }
-
-        .hero-image { display: flex; justify-content: center; animation: fadeInUp 0.8s ease 0.2s both; }
-
-        .hero-image img { width: 320px; height: 400px; object-fit: cover; object-position: center 20%; border-radius: 16px; box-shadow: var(--shadow-hover); }
-
-        section { padding: 80px 24px; }
-
-        .section-container { max-width: 1200px; margin: 0 auto; }
-
-        .section-title { font-size: 36px; font-weight: 600; color: var(--text-primary); margin-bottom: 48px; text-align: center; }
-
-        #education { background: var(--bg-white); }
-
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-
-        .card { background: var(--bg-primary); border-radius: 12px; padding: 32px; box-shadow: var(--shadow); transition: all 0.3s; }
-
-        .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-
-        .card-title { font-size: 20px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; }
-
-        .card-subtitle { font-size: 14px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
-
-        .card-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
-
-        .card-year { font-size: 12px; color: var(--text-secondary); margin-bottom: 12px; display: inline-block; padding: 4px 12px; background: var(--bg-white); border-radius: 20px; }
-
-        #projects { background: var(--bg-primary); }
-
-        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-
-        .project-card { background: var(--bg-white); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: all 0.3s; }
-
-        .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-
-        .project-image { height: 180px; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%); display: flex; align-items: center; justify-content: center; }
-
-        .project-image svg { width: 48px; height: 48px; opacity: 0.5; }
-
-        .project-content { padding: 24px; }
-
-        .project-title { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
-
-        .project-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
-
-        .project-tech { font-size: 12px; color: var(--accent); margin-top: 12px; font-weight: 500; }
-
-        #contacts { background: var(--bg-white); }
-
-        .contacts-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; max-width: 800px; margin: 0 auto; }
-
-        .contact-item { display: flex; align-items: center; gap: 16px; padding: 24px; background: var(--bg-primary); border-radius: 12px; text-decoration: none; transition: all 0.3s; }
-
-        .contact-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-
-        .contact-icon { width: 48px; height: 48px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-
-        .contact-icon svg { width: 24px; height: 24px; fill: white; }
-
-        .contact-info h4 { font-size: 14px; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px; }
-
-        .contact-info p { font-size: 16px; font-weight: 500; color: var(--text-primary); }
-
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s; }
-
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        .tabs { margin-top: 32px; }
-
-        .profile-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-
-        .profile-block { background: var(--bg-white); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); }
-
-        .simple-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-
-        .simple-tag { padding: 8px 14px; background: var(--bg-primary); border-radius: 20px; font-size: 13px; color: var(--text-primary); }
-
-        .tab-btn { padding: 10px 20px; background: transparent; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--text-secondary); cursor: pointer; transition: all 0.3s; font-family: inherit; }
-
-        .tab-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-        .tab-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
-
-        .tab-content { display: none; }
-
-        .tab-content.active { display: block; animation: fadeIn 0.3s; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .skills-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-
-        .skill-group { background: var(--bg-white); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); }
-
-        .skill-group-title { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 10px; }
-
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-
-        .skill-tag { padding: 6px 12px; background: var(--bg-primary); border-radius: 16px; font-size: 13px; color: var(--text-primary); }
-
-        .skill-tag.sub { font-size: 12px; color: var(--text-secondary); padding: 4px 10px; }
-
-        .interests-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
-
-        .interest-item { padding: 16px; background: var(--bg-white); border-radius: 12px; text-align: center; font-size: 14px; color: var(--text-primary); box-shadow: var(--shadow); }
-
-        .languages-list { display: flex; flex-direction: column; gap: 12px; }
-
-        .language-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; background: var(--bg-white); border-radius: 10px; box-shadow: var(--shadow); }
-
-        .language-name { font-weight: 600; font-size: 14px; color: var(--text-primary); }
-
-        .language-level { font-size: 13px; color: var(--text-secondary); text-align: right; }
-
-        .carousel { position: relative; max-width: 600px; margin: 0 auto; }
-
-        .carousel-track { overflow: hidden; border-radius: 12px; box-shadow: var(--shadow); }
-
-        .carousel-slides { display: flex; transition: transform 0.5s ease; }
-
-        .carousel-slide { min-width: 100%; }
-
-        .carousel-slide img { width: 100%; height: auto; display: block; }
-
-        .carousel-caption { padding: 16px; background: var(--bg-white); text-align: center; border-radius: 0 0 12px 12px; box-shadow: var(--shadow); }
-
-        .carousel-caption p { font-size: 14px; color: var(--text-primary); margin: 0; }
-
-        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: var(--bg-white); border: none; border-radius: 50%; box-shadow: var(--shadow); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; z-index: 10; }
-
-        .carousel-btn:hover { background: var(--accent); color: white; }
-
-        .carousel-btn.prev { left: -20px; }
-
-        .carousel-btn.next { right: -20px; }
-
-        .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
-
-        .carousel-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.3s; }
-
-        .carousel-dot.active { background: var(--accent); }
-
-        .certificate-link { display: block; text-decoration: none; }
-
-        .certificate-placeholder { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%); padding: 60px 20px; text-align: center; color: white; border-radius: 12px 12px 0 0; }
-
-        .certificate-placeholder svg { opacity: 0.8; margin-bottom: 16px; }
-
-        .certificate-placeholder p { font-size: 16px; font-weight: 500; margin: 0; }
-
-        .cert-card { background: var(--bg-primary); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 24px; }
-
-        .cert-header { padding: 24px; background: var(--bg-white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s; }
-
-        .cert-header:hover { background: var(--bg-primary); }
-
-        .cert-title-group h3 { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
-
-        .cert-title-group p { font-size: 14px; color: var(--text-secondary); }
-
-        .cert-toggle-btn { padding: 10px 20px; background: var(--accent); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.3s; font-family: inherit; white-space: nowrap; }
-
-        .cert-toggle-btn:hover { background: var(--accent-hover); }
-
-        .cert-toggle-btn.viewing { background: var(--text-secondary); }
-
-        .cert-viewer { display: none; padding: 20px; background: var(--bg-white); border-top: 1px solid var(--border); }
-
-        .cert-viewer.active { display: block; animation: fadeIn 0.3s; }
-
-        .cert-viewer object, .cert-viewer iframe { width: 100%; height: 600px; border: none; border-radius: 8px; background: #f0f0f0; }
-
-        .cert-download-link { display: none; text-align: center; padding: 40px 20px; background: var(--bg-white); }
-
-        .cert-download-link a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; transition: all 0.3s; }
-
-        .cert-download-link a:hover { background: var(--accent-hover); }
-
-        @media (max-width: 768px) {
-
-            .cert-viewer object, .cert-viewer iframe { display: none; }
-
-            .cert-viewer .cert-download-link { display: block; }
-
-            .cert-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-
-            .cert-toggle-btn { width: 100%; }
-
-            .nav-links { position: fixed; top: 70px; left: 0; right: 0; background: var(--bg-white); flex-direction: column; padding: 24px; gap: 16px; box-shadow: var(--shadow); transform: translateY(-150%); transition: transform 0.3s; }
-
-            .nav-links.active { transform: translateY(0); }
-
-            .nav-toggle { display: flex; }
-
-            .hero-container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-
-            .hero-name { font-size: 36px; }
-
-            .hero-role { font-size: 20px; }
-
-            .hero-description { margin: 0 auto; }
-
-            .hero-image img { width: 260px; height: 320px; }
-
-            .profile-blocks { grid-template-columns: 1fr; }
-
-            .tabs { margin-top: 24px; }
-
-            .skills-list { grid-template-columns: 1fr; }
-
-            .section-title { font-size: 28px; }
-
-            section { padding: 60px 24px; }
-
-            .carousel-btn { display: flex; }
-
-            .projects-grid { grid-template-columns: 1fr; }
+            scroll-behavior: smooth;
 
         }
 
-        .chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 1001; }
 
-        .chat-btn { width: 60px; height: 60px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; box-shadow: var(--shadow-hover); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
 
-        .chat-btn:hover { background: var(--accent-hover); transform: scale(1.05); }
+        body {
 
-        .chat-btn svg { width: 28px; height: 28px; fill: white; }
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-        .chat-window { position: absolute; bottom: 70px; right: 0; width: 360px; height: 500px; background: var(--bg-white); border-radius: 16px; box-shadow: var(--shadow-hover); display: none; flex-direction: column; overflow: hidden; }
+            background-color: var(--bg-primary);
 
-        .chat-window.active { display: flex; }
+            color: var(--text-primary);
 
-        .chat-header { padding: 16px 20px; background: var(--accent); color: white; display: flex; justify-content: space-between; align-items: center; }
+            line-height: 1.6;
 
-        .chat-header h4 { font-size: 16px; font-weight: 600; }
+        }
 
-        .chat-close { background: none; border: none; color: white; cursor: pointer; padding: 4px; }
 
-        .chat-messages { flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
 
-        .chat-message { padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.5; max-width: 85%; }
+        .nav {
 
-        .chat-message.bot { background: var(--bg-primary); color: var(--text-primary); align-self: flex-start; }
+            position: fixed;
 
-        .chat-message.user { background: var(--accent); color: white; align-self: flex-end; }
+            top: 0;
 
-        .chat-input { padding: 16px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
+            left: 0;
 
-        .chat-input input { flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg-primary); color: var(--text-primary); }
+            right: 0;
 
-        .chat-input input:focus { outline: none; border-color: var(--accent); }
+            background: var(--bg-white);
 
-        .chat-input button { padding: 10px 20px; background: var(--accent); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.3s; font-family: inherit; }
+            box-shadow: var(--shadow);
 
-        .chat-input button:hover { background: var(--accent-hover); }
+            z-index: 1000;
 
-    </style>
+            padding: 16px 0;
+
+        }
+
+
+
+        .nav-container {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 0 24px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+
+        .nav-logo {
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            color: var(--accent);
+
+            text-decoration: none;
+
+        }
+
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 32px;
+
+            list-style: none;
+
+        }
+
+
+
+        .nav-links a {
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            color: var(--text-secondary);
+
+            text-decoration: none;
+
+            transition: color 0.3s ease;
+
+            position: relative;
+
+        }
+
+
+
+        .nav-links a::after {
+
+            content: '';
+
+            position: absolute;
+
+            bottom: -4px;
+
+            left: 0;
+
+            width: 0;
+
+            height: 2px;
+
+            background: var(--accent);
+
+            transition: width 0.3s ease;
+
+        }
+
+
+
+        .nav-links a:hover,
+
+        .nav-links a.active {
+
+            color: var(--accent);
+
+        }
+
+
+
+        .nav-links a:hover::after,
+
+        .nav-links a.active::after {
+
+            width: 100%;
+
+        }
+
+
+
+        .nav-toggle {
+
+            display: none;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            cursor: pointer;
+
+            padding: 8px;
+
+        }
+
+
+
+        .nav-toggle span {
+
+            width: 24px;
+
+            height: 2px;
+
+            background: var(--text-primary);
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .nav-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+        }
+
+
+
+        .theme-toggle {
+
+            background: none;
+
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            padding: 8px;
+
+            cursor: pointer;
+
+            color: var(--text-primary);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .theme-toggle:hover {
+
+            border-color: var(--accent);
+
+            color: var(--accent);
+
+        }
+
+
+
+        .theme-toggle svg {
+
+            width: 18px;
+
+            height: 18px;
+
+        }
+
+
+
+        .lang-select {
+
+            padding: 8px 12px;
+
+            background: transparent;
+
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            color: var(--text-secondary);
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .lang-select:hover {
+
+            border-color: var(--accent);
+
+            color: var(--accent);
+
+        }
+
+
+
+        .lang-select option {
+
+            background: var(--bg-white);
+
+            color: var(--text-primary);
+
+        }
+
+
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 120px 24px 80px;
+
+        }
+
+
+
+        .hero-container {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 64px;
+
+            align-items: center;
+
+        }
+
+
+
+        .hero-content {
+
+            animation: fadeInUp 0.8s ease;
+
+        }
+
+
+
+        .hero-name {
+
+            font-size: 48px;
+
+            font-weight: 700;
+
+            color: var(--text-primary);
+
+            margin-bottom: 16px;
+
+            line-height: 1.2;
+
+        }
+
+
+
+        .hero-role {
+
+            font-size: 24px;
+
+            font-weight: 500;
+
+            color: var(--accent);
+
+            margin-bottom: 24px;
+
+        }
+
+
+
+        .hero-description {
+
+            font-size: 16px;
+
+            color: var(--text-secondary);
+
+            max-width: 480px;
+
+        }
+
+
+
+        .hero-image {
+
+            display: flex;
+
+            justify-content: center;
+
+            animation: fadeInUp 0.8s ease 0.2s both;
+
+        }
+
+
+
+        .hero-image img {
+
+            width: 320px;
+
+            height: 400px;
+
+            object-fit: cover;
+
+            object-position: center 20%;
+
+            border-radius: 16px;
+
+            box-shadow: var(--shadow-hover);
+
+        }
+
+
+
+        section {
+
+            padding: 80px 24px;
+
+        }
+
+
+
+        .section-container {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+        }
+
+
+
+        .section-title {
+
+            font-size: 36px;
+
+            font-weight: 600;
+
+            color: var(--text-primary);
+
+            margin-bottom: 48px;
+
+            text-align: center;
+
+        }
+
+
+
+        #education {
+
+            background: var(--bg-white);
+
+        }
+
+
+
+        .cards-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+            gap: 24px;
+
+        }
+
+
+
+        .card {
+
+            background: var(--bg-primary);
+
+            border-radius: 12px;
+
+            padding: 32px;
+
+            box-shadow: var(--shadow);
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .card:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow: var(--shadow-hover);
+
+        }
+
+
+
+        .card-title {
+
+            font-size: 20px;
+
+            font-weight: 600;
+
+            color: var(--text-primary);
+
+            margin-bottom: 12px;
+
+        }
+
+
+
+        .card-subtitle {
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            color: var(--accent);
+
+            margin-bottom: 8px;
+
+        }
+
+
+
+        .card-description {
+
+            font-size: 14px;
+
+            color: var(--text-secondary);
+
+            line-height: 1.7;
+
+        }
+
+
+
+        .card-year {
+
+            font-size: 12px;
+
+            color: var(--text-secondary);
+
+            margin-bottom: 12px;
+
+            display: inline-block;
+
+            padding: 4px 12px;
+
+            background: var(--bg-white);
+
+            border-radius: 20px;
+
+        }
+
+
+
+        #projects {
+
+            background: var(--bg-primary);
+
+        }
+
+
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+
+
+        .project-card {
+
+            background: var(--bg-white);
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            box-shadow: var(--shadow);
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .project-card:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow: var(--shadow-hover);
+
+        }
+
+
+
+        .project-image {
+
+            height: 180px;
+
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+
+        .project-image svg {
+
+            width: 48px;
+
+            height: 48px;
+
+            opacity: 0.5;
+
+        }
+
+
+
+        .project-content {
+
+            padding: 24px;
+
+        }
+
+
+
+        .project-title {
+
+            font-size: 18px;
+
+            font-weight: 600;
+
+            color: var(--text-primary);
+
+            margin-bottom: 8px;
+
+        }
+
+
+
+        .project-description {
+
+            font-size: 14px;
+
+            color: var(--text-secondary);
+
+            line-height: 1.7;
+
+        }
+
+
+
+        .project-tech {
+
+            font-size: 12px;
+
+            color: var(--accent);
+
+            margin-top: 12px;
+
+            font-weight: 500;
+
+        }
+
+
+
+        #contacts {
+
+            background: var(--bg-white);
+
+        }
+
+
+
+        .contacts-container {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 32px;
+
+            max-width: 800px;
+
+            margin: 0 auto;
+
+        }
+
+
+
+        .contact-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            padding: 24px;
+
+            background: var(--bg-primary);
+
+            border-radius: 12px;
+
+            text-decoration: none;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .contact-item:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+
+        .contact-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            background: var(--accent);
+
+            border-radius: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+        }
+
+
+
+        .contact-icon svg {
+
+            width: 24px;
+
+            height: 24px;
+
+            fill: white;
+
+        }
+
+
+
+        .contact-info h4 {
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            color: var(--text-secondary);
+
+            margin-bottom: 4px;
+
+        }
+
+
+
+        .contact-info p {
+
+            font-size: 16px;
+
+            font-weight: 500;
+
+            color: var(--text-primary);
+
+        }
+
+
+
+        @keyframes fadeInUp {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+
+        .fade-in {
+
+            opacity: 0;
+
+            transform: translateY(30px);
+
+            transition: all 0.6s ease;
+
+        }
+
+
+
+        .fade-in.visible {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+
+
+        .tabs {
+
+            margin-top: 32px;
+
+        }
+
+
+
+        .profile-blocks {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 24px;
+
+        }
+
+
+
+        .profile-block {
+
+            background: var(--bg-white);
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+
+        .simple-tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+        }
+
+
+
+        .simple-tag {
+
+            padding: 8px 14px;
+
+            background: var(--bg-primary);
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            color: var(--text-primary);
+
+        }
+
+
+
+        .languages-list {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .tab-btn {
+
+            padding: 10px 20px;
+
+            background: transparent;
+
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            color: var(--text-secondary);
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+
+            font-family: inherit;
+
+        }
+
+
+
+        .tab-btn:hover {
+
+            border-color: var(--accent);
+
+            color: var(--accent);
+
+        }
+
+
+
+        .tab-btn.active {
+
+            background: var(--accent);
+
+            border-color: var(--accent);
+
+            color: white;
+
+        }
+
+
+
+        .tab-content {
+
+            display: none;
+
+        }
+
+
+
+        .tab-content.active {
+
+            display: block;
+
+            animation: fadeIn 0.3s ease;
+
+        }
+
+
+
+        @keyframes fadeIn {
+
+            from { opacity: 0; }
+
+            to { opacity: 1; }
+
+        }
+
+
+
+        .skills-list {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
+
+        }
+
+
+
+        .skill-group {
+
+            background: var(--bg-white);
+
+            border-radius: 12px;
+
+            padding: 16px;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+
+        .skill-group-title {
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            color: var(--accent);
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        .skill-tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 6px;
+
+        }
+
+
+
+        .skill-tag {
+
+            padding: 6px 12px;
+
+            background: var(--bg-primary);
+
+            border-radius: 16px;
+
+            font-size: 13px;
+
+            color: var(--text-primary);
+
+        }
+
+
+
+        .skill-tag.sub {
+
+            font-size: 12px;
+
+            color: var(--text-secondary);
+
+            padding: 4px 10px;
+
+        }
+
+
+
+        .interests-list {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+            gap: 12px;
+
+        }
+
+
+
+        .interest-item {
+
+            padding: 16px;
+
+            background: var(--bg-white);
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            color: var(--text-primary);
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+
+        .languages-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+
+        }
+
+
+
+        .language-item {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 14px 18px;
+
+            background: var(--bg-white);
+
+            border-radius: 10px;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+
+        .language-name {
+
+            font-weight: 600;
+
+            font-size: 14px;
+
+            color: var(--text-primary);
+
+        }
+
+
+
+        .language-level {
+
+            font-size: 13px;
+
+            color: var(--text-secondary);
+
+            text-align: right;
+
+        }
+
+
+
+        .carousel {
+
+            position: relative;
+
+            max-width: 600px;
+
+            margin: 0 auto;
+
+        }
+
+
+
+        .carousel-track {
+
+            overflow: hidden;
+
+            border-radius: 12px;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+
+        .carousel-slides {
+
+            display: flex;
+
+            transition: transform 0.5s ease;
+
+        }
+
+
+
+        .carousel-slide {
+
+            min-width: 100%;
+
+        }
+
+
+
+        .carousel-slide img {
+
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+
+        }
+
+
+
+        .carousel-caption {
+
+            padding: 16px;
+
+            background: var(--bg-white);
+
+            text-align: center;
+
+            border-radius: 0 0 12px 12px;
+
+            box-shadow: var(--shadow);
+
+        }
+
+
+
+        .carousel-caption p {
+
+            font-size: 14px;
+
+            color: var(--text-primary);
+
+            margin: 0;
+
+        }
+
+
+
+        .carousel-btn {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 40px;
+
+            height: 40px;
+
+            background: var(--bg-white);
+
+            border: none;
+
+            border-radius: 50%;
+
+            box-shadow: var(--shadow);
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: all 0.3s ease;
+
+            z-index: 10;
+
+        }
+
+
+
+        .carousel-btn:hover {
+
+            background: var(--accent);
+
+            color: white;
+
+        }
+
+
+
+        .carousel-btn.prev {
+
+            left: -20px;
+
+        }
+
+
+
+        .carousel-btn.next {
+
+            right: -20px;
+
+        }
+
+
+
+        .carousel-dots {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-top: 16px;
+
+        }
+
+
+
+        .carousel-dot {
+
+            width: 10px;
+
+            height: 10px;
+
+            border-radius: 50%;
+
+            background: var(--border);
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .carousel-dot.active {
+
+            background: var(--accent);
+
+        }
+
+
+
+        .certificate-link {
+
+            display: block;
+
+            text-decoration: none;
+
+        }
+
+
+
+        .certificate-placeholder {
+
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+
+            padding: 60px 20px;
+
+            text-align: center;
+
+            color: white;
+
+            border-radius: 12px 12px 0 0;
+
+        }
+
+
+
+        .certificate-placeholder svg {
+
+            opacity: 0.8;
+
+            margin-bottom: 16px;
+
+        }
+
+
+
+        .certificate-placeholder p {
+
+            font-size: 16px;
+
+            font-weight: 500;
+
+            margin: 0;
+
+        }
+
+
+
+        .cert-card {
+
+            background: var(--bg-primary);
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            box-shadow: var(--shadow);
+
+            margin-bottom: 24px;
+
+        }
+
+
+
+        .cert-header {
+
+            padding: 24px;
+
+            background: var(--bg-white);
+
+            cursor: pointer;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .cert-header:hover {
+
+            background: var(--bg-primary);
+
+        }
+
+
+
+        .cert-title-group h3 {
+
+            font-size: 18px;
+
+            font-weight: 600;
+
+            color: var(--text-primary);
+
+            margin-bottom: 4px;
+
+        }
+
+
+
+        .cert-title-group p {
+
+            font-size: 14px;
+
+            color: var(--text-secondary);
+
+        }
+
+
+
+        .cert-toggle-btn {
+
+            padding: 10px 20px;
+
+            background: var(--accent);
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+
+            font-family: inherit;
+
+            white-space: nowrap;
+
+        }
+
+
+
+        .cert-toggle-btn:hover {
+
+            background: var(--accent-hover);
+
+        }
+
+
+
+        .cert-toggle-btn.viewing {
+
+            background: var(--text-secondary);
+
+        }
+
+
+
+        .cert-viewer {
+
+            display: none;
+
+            padding: 20px;
+
+            background: var(--bg-white);
+
+            border-top: 1px solid var(--border);
+
+        }
+
+
+
+        .cert-viewer.active {
+
+            display: block;
+
+            animation: fadeIn 0.3s ease;
+
+        }
+
+
+
+        .cert-viewer object,
+
+        .cert-viewer iframe {
+
+            width: 100%;
+
+            height: 600px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #f0f0f0;
+
+        }
+
+
+
+        .cert-download-link {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            background: var(--bg-white);
+
+        }
+
+
+
+        .cert-download-link a {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 12px 24px;
+
+            background: var(--accent);
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: 500;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .cert-download-link a:hover {
+
+            background: var(--accent-hover);
+
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            .cert-viewer object,
+
+            .cert-viewer iframe {
+
+                display: none;
+
+            }
+
+
+
+            .cert-viewer .cert-download-link {
+
+                display: block;
+
+            }
+
+
+
+            .cert-header {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 16px;
+
+            }
+
+
+
+            .cert-toggle-btn {
+
+                width: 100%;
+
+            }
+
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            .nav-links {
+
+                position: fixed;
+
+                top: 70px;
+
+                left: 0;
+
+                right: 0;
+
+                background: var(--bg-white);
+
+                flex-direction: column;
+
+                padding: 24px;
+
+                gap: 16px;
+
+                box-shadow: var(--shadow);
+
+                transform: translateY(-150%);
+
+                transition: transform 0.3s ease;
+
+            }
+
+
+
+            .nav-links.active {
+
+                transform: translateY(0);
+
+            }
+
+
+
+            .nav-toggle {
+
+                display: flex;
+
+            }
+
+
+
+            .hero-container {
+
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+
+                text-align: center;
+
+            }
+
+
+
+            .hero-name {
+
+                font-size: 36px;
+
+            }
+
+
+
+            .hero-role {
+
+                font-size: 20px;
+
+            }
+
+
+
+            .hero-description {
+
+                margin: 0 auto;
+
+            }
+
+
+
+            .hero-image img {
+
+                width: 260px;
+
+                height: 320px;
+
+            }
+
+
+
+            .profile-blocks {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+
+            .tabs {
+
+                margin-top: 24px;
+
+            }
+
+
+
+            .skills-list {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+
+            .section-title {
+
+                font-size: 28px;
+
+            }
+
+
+
+            section {
+
+                padding: 60px 24px;
+
+            }
+
+        }
+
+
+
+        .chat-widget {
+
+            position: fixed;
+
+            bottom: 24px;
+
+            right: 24px;
+
+            z-index: 1001;
+
+        }
+
+
+
+        .chat-btn {
+
+            width: 60px;
+
+            height: 60px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+
+            border: none;
+
+            cursor: pointer;
+
+            box-shadow: var(--shadow-hover);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .chat-btn:hover {
+
+            background: var(--accent-hover);
+
+            transform: scale(1.05);
+
+        }
+
+
+
+        .chat-btn svg {
+
+            width: 28px;
+
+            height: 28px;
+
+            fill: white;
+
+        }
+
+
+
+        .chat-window {
+
+            position: absolute;
+
+            bottom: 70px;
+
+            right: 0;
+
+            width: 360px;
+
+            height: 500px;
+
+            background: var(--bg-white);
+
+            border-radius: 16px;
+
+            box-shadow: var(--shadow-hover);
+
+            display: none;
+
+            flex-direction: column;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .chat-window.active {
+
+            display: flex;
+
+        }
+
+
+
+        .chat-header {
+
+            padding: 16px 20px;
+
+            background: var(--accent);
+
+            color: white;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+
+        .chat-header h4 {
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+        }
+
+
+
+        .chat-close {
+
+            background: none;
+
+            border: none;
+
+            color: white;
+
+            cursor: pointer;
+
+            padding: 4px;
+
+        }
+
+
+
+        .chat-messages {
+
+            flex: 1;
+
+            padding: 16px;
+
+            overflow-y: auto;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+
+        }
+
+
+
+        .chat-message {
+
+            padding: 10px 14px;
+
+            border-radius: 12px;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            max-width: 85%;
+
+        }
+
+
+
+        .chat-message.bot {
+
+            background: var(--bg-primary);
+
+            color: var(--text-primary);
+
+            align-self: flex-start;
+
+        }
+
+
+
+        .chat-message.user {
+
+            background: var(--accent);
+
+            color: white;
+
+            align-self: flex-end;
+
+        }
+
+
+
+        .chat-input-area {
+
+            padding: 12px 16px;
+
+            border-top: 1px solid var(--border);
+
+            display: flex;
+
+            gap: 8px;
+
+        }
+
+
+
+        .chat-input {
+
+            flex: 1;
+
+            padding: 10px 14px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            font-family: inherit;
+
+            background: var(--bg-primary);
+
+            color: var(--text-primary);
+
+            outline: none;
+
+        }
+
+
+
+        .chat-input:focus {
+
+            border-color: var(--accent);
+
+        }
+
+
+
+        .chat-send {
+
+            width: 40px;
+
+            height: 40px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+
+            border: none;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+
+        .chat-send svg {
+
+            width: 18px;
+
+            height: 18px;
+
+            fill: white;
+
+        }
+
+
+
+        .chat-setup {
+
+            padding: 20px;
+
+            text-align: center;
+
+            color: var(--text-secondary);
+
+        }
+
+
+
+        .chat-setup p {
+
+            margin-bottom: 12px;
+
+            font-size: 14px;
+
+        }
+
+
+
+        .chat-setup input {
+
+            width: 100%;
+
+            padding: 10px 14px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            margin-bottom: 12px;
+
+            background: var(--bg-primary);
+
+            color: var(--text-primary);
+
+        }
+
+
+
+        .chat-setup button {
+
+            padding: 10px 20px;
+
+            background: var(--accent);
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+        }
+
+
+
+        @media (max-width: 400px) {
+
+            .chat-window {
+
+                width: calc(100vw - 32px);
+
+                right: -12px;
+
+                height: 70vh;
+
+                max-height: 500px;
+
+            }
+
+        }
+
+
+
+        @media (max-height: 600px) {
+
+            .chat-window {
+
+                height: calc(100vh - 120px);
+
+                max-height: 400px;
+
+            }
+
+        }
+
+    
+        .projects-wrapper {
+            position: relative;
+            padding: 0 40px;
+        }
+
+        .projects-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: var(--shadow);
+        }
+
+        .projects-nav-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .projects-nav-btn.prev {
+            left: 0;
+        }
+
+        .projects-nav-btn.next {
+            right: 0;
+        }
+
+        .projects-nav-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        .projects-slider {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .projects-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            transition: transform 0.4s ease;
+        }
+
+        .projects-nav-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .projects-nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .projects-nav-dot.active {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .projects-nav-dot:hover {
+            background: var(--accent-hover);
+        }
+
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+</style>
 
 </head>
 
@@ -388,13 +2306,13 @@
 
         <div class="nav-container">
 
-            <a href="#" class="nav-logo">VS</a>
-
             <ul class="nav-links">
 
-                <li><a href="#hero">Главная</a></li>
+                <li><a href="#" class="nav-home">Сережин Владимир</a></li>
 
                 <li><a href="#education">Образование</a></li>
+
+                <li><a href="#additional">Доп. образование</a></li>
 
                 <li><a href="#projects">Проекты</a></li>
 
@@ -404,33 +2322,57 @@
 
             <div class="nav-right">
 
-                <button class="theme-toggle" id="themeToggle">
+                <select class="lang-select" onchange="changeLanguage(this.value)">
 
-                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <option value="ru">Русский</option>
 
-                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-
-                </button>
-
-                <select class="lang-select" id="langSelect">
-
-                    <option value="ru">RU</option>
-
-                    <option value="en">EN</option>
+                    <option value="en">English</option>
 
                     <option value="zh">中文</option>
 
                 </select>
 
-                <div class="nav-toggle" id="navToggle">
+                <button class="theme-toggle" onclick="toggleTheme()" title="Переключить тему">
 
-                    <span></span>
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 
-                    <span></span>
+                        <circle cx="12" cy="12" r="5"/>
 
-                    <span></span>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
 
-                </div>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+
+                    </svg>
+
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+            <div class="nav-toggle" onclick="toggleMenu()">
+
+                <span></span>
+
+                <span></span>
+
+                <span></span>
 
             </div>
 
@@ -438,7 +2380,9 @@
 
     </nav>
 
-    <section class="hero" id="hero">
+
+
+    <section class="hero">
 
         <div class="hero-container">
 
@@ -448,19 +2392,117 @@
 
                 <p class="hero-role">ML-инженер</p>
 
-                <p class="hero-description" id="heroDesc">Студент магистратуры, специализирующийся на машинном обучении и анализе данных. Разрабатываю модели для распознавания образов и обработки данных.</p>
+                <p class="hero-description">Студент по направлению "Мехатроника и робототехника" в Санкт-Петербургском политехническом университете. Занимаюсь машинным обучением и робототехникой.</p>
+
+                
+
+                <div class="tabs">
+
+                    <div class="profile-blocks">
+
+                        <div class="profile-block">
+
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 16px;">Skills</h3>
+
+                            <div class="simple-tags">
+
+                                <span class="simple-tag">Python (PyTorch, Numpy, Pandas, Matplotlib, Scikit-learn)</span>
+
+                                <span class="simple-tag">C++</span>
+
+                                <span class="simple-tag">OpenCode</span>
+
+                                <span class="simple-tag">Математический анализ, линейная алгебра, теория вероятностей и математическая статистика</span>
+
+                                <span class="simple-tag">OOP (базовые знания)</span>
+
+                                <span class="simple-tag">ROS</span>
+
+                                <span class="simple-tag">Haskell</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="profile-block">
+
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 16px;">Интересы</h3>
+
+                            <div class="simple-tags">
+
+                                <span class="simple-tag">Машинное обучение</span>
+
+                                <span class="simple-tag">Глубокое обучение</span>
+
+                                <span class="simple-tag">Нейронные сети</span>
+
+                                <span class="simple-tag">Робототехника</span>
+
+                                <span class="simple-tag">Компьютерное зрение</span>
+
+                                <span class="simple-tag">Прикладной ИИ</span>
+
+                                <span class="simple-tag">Мягкая робототехника</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <div class="languages-section" style="margin-top: 24px;">
+
+                        <h3 style="font-size: 16px; font-weight: 600; color: var(--accent); margin-bottom: 16px;">Языки</h3>
+
+                        <div class="languages-list">
+
+                            <div class="language-item">
+
+                                <span class="language-name">Русский</span>
+
+                                <span class="language-level">родной</span>
+
+                            </div>
+
+                            <div class="language-item">
+
+                                <span class="language-name">Английский</span>
+
+                                <span class="language-level">C1 - свободный (подтверждён Oxford Placement Test)</span>
+
+                            </div>
+
+                            <div class="language-item">
+
+                                <span class="language-name">Китайский</span>
+
+                                <span class="language-level">средний разговорный (1.5 года учёбы и жизни в Китае)</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
             <div class="hero-image">
 
-                <img src="photo.jpg" alt="Vladimir Serezhin">
+                <img src="photo.jpg" alt="Фото профиля">
+
+                            
 
             </div>
 
         </div>
 
     </section>
+
+
 
     <section id="education">
 
@@ -472,45 +2514,327 @@
 
                 <div class="card fade-in">
 
-                    <span class="card-year">2023 - 2025</span>
+                    <span class="card-year">2023 - 2027</span>
 
-                    <h3 class="card-title">Университет ИТМО</h3>
+                    <h3 class="card-title">Санкт-Петербургский политехнический университет Петра Великого (СПбПУ), Россия</h3>
 
-                    <p class="card-subtitle">Магистратура</p>
+                    <p class="card-subtitle">Бакалавр | Мехатроника и робототехника</p>
 
-                    <p class="card-description">Прикладная математика и информатика. Специализация: Машинное обучение и интеллектуальный анализ данных.</p>
-
-                </div>
-
-                <div class="card fade-in">
-
-                    <span class="card-year">2019 - 2023</span>
-
-                    <h3 class="card-title">Университет ИТМО</h3>
-
-                    <p class="card-subtitle">Бакалавриат</p>
-
-                    <p class="card-description">Прикладная информатика. Специализация: Разработка программного обеспечения для беспилотных летательных аппаратов.</p>
+                    <p class="card-description">Основное образование. Изучение основ мехатроники и робототехники, программирования на языках высокого уровня, математики, физики и инженерных дисциплин.</p>
 
                 </div>
 
                 <div class="card fade-in">
 
-                    <span class="card-year">2024 - 2025</span>
+                    <span class="card-year">февраль 2025 - июль 2025</span>
 
-                    <h3 class="card-title">Wrocław University of Science and Technology</h3>
+                    <h3 class="card-title">Сианьский технологический университет (XATU), Китай</h3>
 
-                    <p class="card-subtitle">Академическая мобильность</p>
+                    <p class="card-subtitle">Студент по обмену (бакалавр) | Mechanical manufacturing and its automation</p>
+
+                    <p class="card-description">Академическая мобильность. Core courses: "C++ Programming Design" - 93/100, "Python" - 91/100, "Mechanical graphing" - 100/100</p>
+
+                </div>
+
+                <div class="card fade-in">
+
+                    <span class="card-year">февраль 2026 - январь 2027</span>
+
+                    <h3 class="card-title">Сианьский университет Цзяотун (XJTU), Китай</h3>
+
+                    <p class="card-subtitle">Студент по обмену (магистр) | Mechanical Engineering</p>
 
                     <p class="card-description">Академическая мобильность по специальностям "Mechanical Engineering" (ТОП-1 вузов мира в этой специальности по версии U.S. News & World Report 2025) и "Computer science". Core courses: "Theory and Implementation of Programming Language", "Software Development", "AI in Electrical Engineering", "AI and Intelligent Robots", "Statistical Signal Processing: Fundamentals and Machine Learning Prospectives"</p>
 
                 </div>
+
+                            
 
             </div>
 
         </div>
 
     </section>
+
+
+
+    <section id="additional" style="background: var(--bg-white);">
+
+        <div class="section-container">
+
+            <h2 class="section-title">Дополнительное образование</h2>
+
+            
+
+            <div class="certs-list">
+
+                <div class="cert-card">
+
+                    <div class="cert-header" onclick="toggleCert(this)">
+
+                        <div class="cert-title-group">
+
+                            <h3>Certificate of achievement</h3>
+
+                            <p>Сианьский технологический университет, Китай</p>
+
+                        </div>
+
+                        <button class="cert-toggle-btn">Посмотреть</button>
+
+                    </div>
+
+                    <div class="cert-viewer">
+
+                        <object data="Certificate of achievement.pdf" type="application/pdf">
+
+                            <iframe src="Certificate of achievement.pdf">
+
+                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="Certificate of achievement.pdf">Скачать сертификат</a></p>
+
+                            </iframe>
+
+                        </object>
+
+                        <div class="cert-download-link">
+
+                            <a href="Certificate of achievement.pdf" target="_blank">
+
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+
+                                    <polyline points="14 2 14 8 20 8"/>
+
+                                </svg>
+
+                                Открыть сертификат
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="cert-card">
+
+                    <div class="cert-header" onclick="toggleCert(this)">
+
+                        <div class="cert-title-group">
+
+                            <h3>Oxford Placement Test - C1</h3>
+
+                            <p>Подтверждение уровня английского языка</p>
+
+                        </div>
+
+                        <button class="cert-toggle-btn">Посмотреть</button>
+
+                    </div>
+
+                    <div class="cert-viewer">
+
+                        <object data="OxfordPlacementTest.pdf" type="application/pdf">
+
+                            <iframe src="OxfordPlacementTest.pdf">
+
+                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="OxfordPlacementTest.pdf">Скачать сертификат</a></p>
+
+                            </iframe>
+
+                        </object>
+
+                        <div class="cert-download-link">
+
+                            <a href="OxfordPlacementTest.pdf" target="_blank">
+
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+
+                                    <polyline points="14 2 14 8 20 8"/>
+
+                                </svg>
+
+                                Открыть сертификат
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="cert-card">
+
+                    <div class="cert-header" onclick="toggleCert(this)">
+
+                        <div class="cert-title-group">
+
+                            <h3>Математический анализ - с отличием</h3>
+
+                            <p>Онлайн-курс</p>
+
+                        </div>
+
+                        <button class="cert-toggle-btn">Посмотреть</button>
+
+                    </div>
+
+                    <div class="cert-viewer">
+
+                        <object data="Математический анализ.pdf" type="application/pdf">
+
+                            <iframe src="Математический анализ.pdf">
+
+                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="Математический анализ.pdf">Скачать сертификат</a></p>
+
+                            </iframe>
+
+                        </object>
+
+                        <div class="cert-download-link">
+
+                            <a href="Математический анализ.pdf" target="_blank">
+
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+
+                                    <polyline points="14 2 14 8 20 8"/>
+
+                                </svg>
+
+                                Открыть сертификат
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="cert-card">
+
+                    <div class="cert-header" onclick="toggleCert(this)">
+
+                        <div class="cert-title-group">
+
+                            <h3>Теория вероятностей - с отличием</h3>
+
+                            <p>Онлайн-курс</p>
+
+                        </div>
+
+                        <button class="cert-toggle-btn">Посмотреть</button>
+
+                    </div>
+
+                    <div class="cert-viewer">
+
+                        <object data="Теория вероятности.pdf" type="application/pdf">
+
+                            <iframe src="Теория вероятности.pdf">
+
+                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="Теория вероятности.pdf">Скачать сертификат</a></p>
+
+                            </iframe>
+
+                        </object>
+
+                        <div class="cert-download-link">
+
+                            <a href="Теория вероятности.pdf" target="_blank">
+
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+
+                                    <polyline points="14 2 14 8 20 8"/>
+
+                                </svg>
+
+                                Открыть сертификат
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="cert-card">
+
+                    <div class="cert-header" onclick="toggleCert(this)">
+
+                        <div class="cert-title-group">
+
+                            <h3>Разработка программного обеспечения беспилотных авиационных систем</h3>
+
+                            <p>Онлайн-курс (144 часа)</p>
+
+                        </div>
+
+                        <button class="cert-toggle-btn">Посмотреть</button>
+
+                    </div>
+
+                    <div class="cert-viewer">
+
+                        <object data="Разработка ПО БВС.pdf" type="application/pdf">
+
+                            <iframe src="Разработка ПО БВС.pdf">
+
+                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="Разработка ПО БВС.pdf">Скачать сертификат</a></p>
+
+                            </iframe>
+
+                        </object>
+
+                        <div class="cert-download-link">
+
+                            <a href="Разработка ПО БВС.pdf" target="_blank">
+
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+
+                                    <polyline points="14 2 14 8 20 8"/>
+
+                                </svg>
+
+                                Открыть сертификат
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                            
+
+            </div>
+
+        </div>
+
+    </section>
+
+
 
     <section id="projects">
 
@@ -518,95 +2842,109 @@
 
             <h2 class="section-title">Проекты</h2>
 
-            <div class="projects-grid">
+            <div class="projects-wrapper">
+                <button class="projects-nav-btn prev" onclick="slideProjects(-1)">
+                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <div class="projects-slider">
+                    <div class="projects-grid">
 
-                <a href="https://github.com/serezhinVM/Handwriting" target="_blank" class="project-card fade-in">
+                        <a href="https://github.com/serezhinVM/Handwriting" target="_blank" class="project-card fade-in">
 
-                    <div class="project-image">
+                            <div class="project-image">
 
-                        <img src="digit_performance.png" alt="MNIST Performance" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                                <img src="digit_performance.png" alt="MNIST Performance" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+
+                            </div>
+
+                            <div class="project-content">
+
+                                <h3 class="project-title">MNIST Handwritten Digit Recognition</h3>
+
+                                <p class="project-description">Распознавание рукописных цифр с помощью сверточных нейронных сетей (CNN) на PyTorch.</p>
+
+                                <p class="project-tech">OpenCode, Python (pandas, numpy, matplotlib), PyTorch, CNN</p>
+
+                            </div>
+
+                        </a>
+
+                        <a href="https://github.com/serezhinVM/AI-and-Intelligent-Robots" target="_blank" class="project-card fade-in">
+
+                            <div class="project-image">
+
+                                <img src="Robotics.jpg" alt="Robotics" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+
+                            </div>
+
+                            <div class="project-content">
+
+                                <h3 class="project-title">AI and Intelligent Robots</h3>
+
+                                <p class="project-description">Проведение 6 экспериментов в робототехнике. 1. Установка и использование ROS 1 и ROS 2. 2. Практика основных функций ROS 1 и ROS 2. 3. Траектория и скорость движения робота. 4. Лазерное сканирование в навигации. 5. ПИД-регулирование в навигации робота. 6. Нечеткое управление в навигации робота.</p>
+
+                                <p class="project-tech">ROS1, ROS2, Python (PyTorch)</p>
+
+                            </div>
+
+                        </a>
+
+                        <a href="https://github.com/serezhinVM/serzhin-portfolio" target="_blank" class="project-card fade-in">
+
+                            <div class="project-image">
+
+                                <img src="photo.jpg" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+
+                            </div>
+
+                            <div class="project-content">
+
+                                <h3 class="project-title">Личное портфолио</h3>
+
+                                <p class="project-description">Разработан HTML-портфолио ML-инженера с информацией об образовании, проектах, навыках и контактах.</p>
+
+                                <p class="project-tech">OpenCode, HTML, GitHub</p>
+
+                            </div>
+
+                        </a>
+
+                        <a href="https://github.com/serezhinVM/Python-modules-numpy-pandas-matplotlib-sckit-learn-" target="_blank" class="project-card fade-in">
+
+                            <div class="project-image">
+
+                                <img src="Number of cyclists.png" alt="Data Analysis" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+
+                            </div>
+
+                            <div class="project-content">
+
+                                <h3 class="project-title">Учебные проекты по анализу данных на Python</h3>
+
+                                <p class="project-description">Анализ данных, визуализация и выводы на основе датасетов.</p>
+
+                                <p class="project-tech">Python (Pandas, NumPy, Matplotlib, Seaborn, Datetime)</p>
+
+                            </div>
+
+                        </a>
 
                     </div>
-
-                    <div class="project-content">
-
-                        <h3 class="project-title">MNIST Handwritten Digit Recognition</h3>
-
-                        <p class="project-description">Распознавание рукописных цифр с помощью свёрточной нейронной сети (CNN) на PyTorch.</p>
-
-                        <p class="project-tech">Python (pandas, numpy, matplotlib), PyTorch, CNN</p>
-
-                    </div>
-
-                </a>
-
-                <a href="https://github.com/serezhinVM/serzhin-portfolio" target="_blank" class="project-card fade-in">
-
-                    <div class="project-image">
-
-                        <img src="photo.jpg" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3 class="project-title">Личное портфолио</h3>
-
-                        <p class="project-description">Персональный сайт-портфолио ML-инженера с информацией об образовании, навыках, проектах и контактах.</p>
-
-                        <p class="project-tech">HTML, CSS, JavaScript, GitHub</p>
-
-                    </div>
-
-                </a>
-
-                <a href="https://github.com/serezhinVM/Python-modules-numpy-pandas-matplotlib-sckit-learn-" target="_blank" class="project-card fade-in">
-
-                    <div class="project-image">
-
-                        <img src="Number of cyclists.png" alt="Data Analysis" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3 class="project-title">Учебные проекты по анализу данных на Python</h3>
-
-                        <p class="project-description">Анализ данных Титаника, рождаемости в США и других датасетов.</p>
-
-                        <p class="project-tech">Python (numpy, pandas, matplotlib, scikit-learn)</p>
-
-                    </div>
-
-                </a>
-
-                <a href="https://github.com/serezhinVM" target="_blank" class="project-card fade-in">
-
-                    <div class="project-image">
-
-                        <img src="Robotics.jpg" alt="AI and Intelligent Robots" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3 class="project-title">AI and Intelligent Robots</h3>
-
-                        <p class="project-description">Проект по искусственному интеллекту и интеллектуальным роботам, выполненный в рамках академической мобильности.</p>
-
-                        <p class="project-tech">Python, Machine Learning, Robotics</p>
-
-                    </div>
-
-                </a>
-
+                </div>
+                <button class="projects-nav-btn next" onclick="slideProjects(1)">
+                    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+                <div class="projects-nav-dots">
+                    <span class="projects-nav-dot active" onclick="goToProjectPage(0)"></span>
+                    <span class="projects-nav-dot" onclick="goToProjectPage(1)"></span>
+                </div>
             </div>
 
         </div>
 
     </section>
 
-    <section id="contacts">
+    <section id="contacts"><section id="contacts">
 
         <div class="section-container">
 
@@ -618,7 +2956,11 @@
 
                     <div class="contact-icon">
 
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <svg viewBox="0 0 16 16" fill="white">
+
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+
+                        </svg>
 
                     </div>
 
@@ -632,29 +2974,15 @@
 
                 </a>
 
-                <a href="https://github.com/serezhinVM" target="_blank" class="contact-item">
+                <a href="https://t.me/seriozhin" class="contact-item">
 
                     <div class="contact-icon">
 
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <svg viewBox="0 0 16 16" fill="white">
 
-                    </div>
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09"/>
 
-                    <div class="contact-info">
-
-                        <h4>GitHub</h4>
-
-                        <p>github.com/serezhinVM</p>
-
-                    </div>
-
-                </a>
-
-                <a href="https://t.me/serezhinVM" target="_blank" class="contact-item">
-
-                    <div class="contact-icon">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        </svg>
 
                     </div>
 
@@ -662,11 +2990,59 @@
 
                         <h4>Telegram</h4>
 
-                        <p>@serezhinVM</p>
+                        <p>@seriozhin</p>
 
                     </div>
 
                 </a>
+
+                <a href="#" class="contact-item">
+
+                    <div class="contact-icon">
+
+                        <svg viewBox="0 0 16 16" fill="white">
+
+                            <path d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02S16 8.191 16 10.411c0 1.21-.65 2.301-1.666 3.036a.32.32 0 0 0-.12.366l.218.81a.6.6 0 0 1 .029.117.166.166 0 0 1-.162.162.2.2 0 0 1-.092-.03l-1.057-.61a.5.5 0 0 0-.256-.074.5.5 0 0 0-.142.021 5.7 5.7 0 0 1-1.576.22M9.064 9.542a.647.647 0 1 0 .557-1 .645.645 0 0 0-.646.647.6.6 0 0 0 .09.353Zm3.232.001a.646.646 0 1 0 .546-1 .645.645 0 0 0-.644.644.63.63 0 0 0 .098.356"/>
+
+                            <path d="M0 6.826c0 1.455.781 2.765 2.001 3.656a.385.385 0 0 1 .143.439l-.161.6-.1.373a.5.5 0 0 0-.032.14.19.19 0 0 0 .193.193q.06 0 .111-.029l1.268-.733a.6.6 0 0 1 .308-.088q.088 0 .171.025a6.8 6.8 0 0 0 1.625.26 4.5 4.5 0 0 1-.177-1.251c0-2.936 2.785-5.02 5.824-5.02l.15.002C10.587 3.429 8.392 2 5.796 2 2.596 2 0 4.16 0 6.826m4.632-1.555a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0m3.875 0a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div class="contact-info">
+
+                        <h4>WeChat</h4>
+
+                        <p>wxid_1kay0tsy4dt722</p>
+
+                    </div>
+
+                </a>
+
+                <a href="https://github.com/serezhinVM" class="contact-item">
+
+                    <div class="contact-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path fill="white" d="M12 0.3c-6.6 0-12 5.4-12 12 0 5.3 3.4 9.8 8.2 11.4 0.6 0.1 0.8-0.3 0.8-0.6v-2c-3.3 0.7-4-1.6-4-1.6 -0.5-1.4-1.3-1.8-1.3-1.8 -1.1-0.7 0.1-0.7 0.1-0.7 1.2 0.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 0.1-0.8 0.4-1.3 0.8-1.6 -2.7-0.3-5.5-1.3-5.5-5.9 0-1.3 0.5-2.4 1.2-3.2 -0.1-0.3-0.5-1.5 0.1-3.2 0 0 1-0.3 3.3 1.2 1-0.3 2-0.4 3-0.4 1 0 2 0.1 3 0.4 2.3-1.6 3.3-1.2 3.3-1.2 0.7 1.7 0.2 2.9 0.1 3.2 0.8 0.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9 0.4 0.4 0.8 1.1 0.8 2.2v3.3c0 0.3 0.2 0.7 0.8 0.6 4.8-1.6 8.2-6.1 8.2-11.4C24 5.7 18.6 0.3 12 0.3z"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div class="contact-info">
+
+                        <h4>GitHub</h4>
+
+                        <p>serezhinVM</p>
+
+                    </div>
+
+                </a>
+
+                            
 
             </div>
 
@@ -674,155 +3050,237 @@
 
     </section>
 
-    <div class="chat-widget">
 
-        <button class="chat-btn" id="chatBtn">
-
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path></svg>
-
-        </button>
-
-        <div class="chat-window" id="chatWindow">
-
-            <div class="chat-header">
-
-                <h4>Чат с Владимиром</h4>
-
-                <button class="chat-close" id="chatClose">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-
-                </button>
-
-            </div>
-
-            <div class="chat-messages" id="chatMessages">
-
-                <div class="chat-message bot">Привет! Чем могу помочь?</div>
-
-            </div>
-
-            <div class="chat-input">
-
-                <input type="text" id="chatInput" placeholder="Введите сообщение...">
-
-                <button id="chatSend">Отправить</button>
-
-            </div>
-
-        </div>
-
-    </div>
 
     <script>
 
-        const translations = {
+        function toggleCert(header) {
 
-            ru: { heroDesc: "Студент магистратуры, специализирующийся на машинном обучении и анализе данных. Разрабатываю модели для распознавания образов и обработки данных.", edu1Title: "Университет ИТМО", edu1Subtitle: "Магистратура", edu1Desc: "Прикладная математика и информатика. Специализация: Машинное обучение и интеллектуальный анализ данных.", edu2Title: "Университет ИТМО", edu2Subtitle: "Бакалавриат", edu2Desc: "Прикладная информатика. Специализация: Разработка программного обеспечения для беспилотных летательных аппаратов.", edu3Title: "Wrocław University of Science and Technology", edu3Subtitle: "Академическая мобильность", edu3Desc: "Академическая мобильность по специальностям "Mechanical Engineering" и "Computer science". Core courses: "Theory and Implementation of Programming Language", "Software Development", "AI in Electrical Engineering", "AI and Intelligent Robots", "Statistical Signal Processing: Fundamentals and Machine Learning Prospectives"", skillsTitle: "Навыки", interestsTitle: "Интересы", languagesTitle: "Языки", project1Title: "MNIST Handwritten Digit Recognition", project2Title: "Личное портфолио", project3Title: "Учебные проекты по анализу данных на Python", project4Title: "AI and Intelligent Robots" },
+            const viewer = header.nextElementSibling;
 
-            en: { heroDesc: "Master's student specializing in machine learning and data analysis. Developing models for pattern recognition and data processing.", edu1Title: "ITMO University", edu1Subtitle: "Master's Degree", edu1Desc: "Applied Mathematics and Computer Science. Specialization: Machine Learning and Data Mining.", edu2Title: "ITMO University", edu2Subtitle: "Bachelor's Degree", edu2Desc: "Applied Informatics. Specialization: Software Development for Unmanned Aerial Vehicles.", edu3Title: "Wrocław University of Science and Technology", edu3Subtitle: "Academic Mobility", edu3Desc: "Academic mobility in "Mechanical Engineering" and "Computer science". Core courses: "Theory and Implementation of Programming Language", "Software Development", "AI in Electrical Engineering", "AI and Intelligent Robots", "Statistical Signal Processing: Fundamentals and Machine Learning Prospectives"", skillsTitle: "Skills", interestsTitle: "Interests", languagesTitle: "Languages", project1Title: "MNIST Handwritten Digit Recognition", project2Title: "Personal Portfolio", project3Title: "Python Data Analysis Projects", project4Title: "AI and Intelligent Robots" },
+            const btn = header.querySelector('.cert-toggle-btn');
 
-            zh: { heroDesc: "专攻机器学习和数据分析的硕士生。开发用于模式识别和数据处理的模型。", edu1Title: "ITMO 大学", edu1Subtitle: "硕士", edu1Desc: "应用数学与计算机科学。专业：机器学习和数据挖掘。", edu2Title: "ITMO 大学", edu2Subtitle: "学士", edu2Desc: "应用信息学。专业：无人机软件系统开发。", edu3Title: "Wrocław University of Science and Technology", edu3Subtitle: "学术交流", edu3Desc: "学术交流 "机械工程" 和 "计算机科学" 专业。核心课程："编程语言理论与实现"、"软件开发"、"电气工程中的AI"、"AI与智能机器人"、"统计信号处理：基础与机器学习视角"", skillsTitle: "技能", interestsTitle: "兴趣", languagesTitle: "语言", project1Title: "MNIST 手写数字识别", project2Title: "个人作品集", project3Title: "Python 数据分析项目", project4Title: "AI与智能机器人" }
+            const currentLang = localStorage.getItem('language') || 'ru';
 
-        };
+            const t = translations[currentLang];
 
-        let currentLang = 'ru';
+            
 
-        const chatAnswers = {
+            if (viewer.classList.contains('active')) {
 
-            ru: [
+                viewer.classList.remove('active');
 
-                { keywords: ['привет', 'здравствуй', 'приветствую', 'hi', 'hello', 'hey', '嗨', '你好'], answer: 'Привет! Рад, что вы посетили мое портфолио. Если у вас есть вопросы обо мне или моих проектах, не стесняйтесь спрашивать!' },
+                btn.textContent = t.viewCert;
 
-                { keywords: ['образование', 'учился', 'университет', 'вуз', 'study', 'education', '学校', '教育'], answer: 'Я выпускник бакалавриата и магистратуры Университета ИТМО. Также проходил обучение в Wrocław University of Science and Technology (Польша) по программе академической мобильности.' },
+                btn.classList.remove('viewing');
 
-                { keywords: ['навыки', 'скиллы', ' технологии', 'stack', 'skills', '技能'], answer: 'Мои основные навыки: Python, PyTorch, TensorFlow, scikit-learn, numpy, pandas, matplotlib, HTML/CSS. Подробнее вы можете увидеть в соответствующем разделе.' },
+            } else {
 
-                { keywords: ['проект', 'проекты', 'mnist', 'digit', 'cnn', 'pytorch', '项目', '项目'], answer: 'Владимир работает над проектом MNIST Handwritten Digit Recognition - распознавание рукописных цифр с помощью CNN на PyTorch. Подробнее на GitHub: github.com/serezhinVM/Handwriting' },
+                document.querySelectorAll('.cert-viewer.active').forEach(v => {
 
-                { keywords: ['контакт', 'связаться', 'email', 'telegram', 'github', 'contact', '联系'], answer: 'Вы можете связаться со мной по email: svovamtr@mail.ru, в Telegram: @serezhinVM, или на GitHub: github.com/serezhinVM' },
+                    v.classList.remove('active');
 
-                { keywords: ['спасибо', 'благодар', 'thanks', 'thx', '谢谢'], answer: 'Пожалуйста! Если у вас есть ещё вопросы, не стесняйтесь спрашивать.' }
+                    const otherBtn = v.previousElementSibling.querySelector('.cert-toggle-btn');
 
-            ],
+                    otherBtn.textContent = t.viewCert;
 
-            en: [
+                    otherBtn.classList.remove('viewing');
 
-                { keywords: ['hi', 'hello', 'hey', 'привет', 'здравствуй', '你好', '嗨'], answer: 'Hello! Nice to see you on my portfolio. If you have any questions about me or my projects, feel free to ask!' },
+                });
 
-                { keywords: ['education', 'university', 'study', 'образование', 'учился', 'вуз', '学校', '教育'], answer: 'I am a graduate of ITMO University bachelor and master programs. Also studied at Wrocław University of Science and Technology (Poland) through an academic mobility program.' },
+                
 
-                { keywords: ['skills', 'stack', 'technologies', 'навыки', 'скиллы', '技术', '技能'], answer: 'My main skills: Python, PyTorch, TensorFlow, scikit-learn, numpy, pandas, matplotlib, HTML/CSS. You can see more details in the corresponding section.' },
+                viewer.classList.add('active');
 
-                { keywords: ['project', 'projects', 'mnist', 'digit', 'cnn', 'pytorch', '项目'], answer: 'Vladimir is working on MNIST Handwritten Digit Recognition - handwritten digit recognition using CNN with PyTorch. More on GitHub: github.com/serezhinVM/Handwriting' },
+                btn.textContent = t.hideCert;
 
-                { keywords: ['contact', 'email', 'telegram', 'github', 'связаться', 'контакт', '联系'], answer: 'You can reach me at: email - svovamtr@mail.ru, Telegram - @serezhinVM, or GitHub - github.com/serezhinVM' },
+                btn.classList.add('viewing');
 
-                { keywords: ['thanks', 'thank you', 'thx', 'спасибо', 'благодар', '谢谢'], answer: 'You're welcome! If you have any more questions, feel free to ask.' }
+            }
 
-            ],
+        }
 
-            zh: [
 
-                { keywords: ['你好', '嗨', 'привет', 'hi', 'hello', 'hey'], answer: '你好！很高兴您访问我的作品集。如果您有关于我或我的项目的问题，请随时提问！' },
 
-                { keywords: ['教育', '学校', '大学', 'образование', 'education', 'university', 'study'], answer: '我是ITMO大学本科和硕士课程的毕业生。还在波兰Wrocław科技大学学习过。' },
+        function toggleMenu() {
 
-                { keywords: ['技能', '技术', 'навыки', 'skills', 'stack'], answer: '我的主要技能：Python、PyTorch、TensorFlow、scikit-learn、numpy、pandas、matplotlib、HTML/CSS。您可以在相应部分查看更多详情。' },
+            document.querySelector('.nav-links').classList.toggle('active');
 
-                { keywords: ['项目', 'проект', 'project', 'mnist', 'cnn'], answer: '弗拉基米尔正在做MNIST手写数字识别项目——使用PyTorch的CNN进行手写数字识别。更多详情：github.com/serezhinVM/Handwriting' },
+        }
 
-                { keywords: ['联系', 'contact', 'контакт', 'email', 'telegram'], answer: '您可以通过以下方式联系我：邮箱 - svovamtr@mail.ru，Telegram - @serezhinVM，或GitHub - github.com/serezhinVM' },
 
-                { keywords: ['谢谢', '感谢', 'thanks', 'thank you', 'спасибо', 'благодар'], answer: '不客气！如果您还有其他问题，请随时提问。' }
 
-            ]
+        document.querySelectorAll('.nav-links a').forEach(link => {
 
-        };
+            link.addEventListener('click', () => {
 
-        document.getElementById('themeToggle').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
 
-            const body = document.body;
+            });
+
+        });
+
+
+
+        const sections = document.querySelectorAll('section');
+
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+
+
+        window.addEventListener('scroll', () => {
+
+            let current = '';
+
+            
+
+            sections.forEach(section => {
+
+                const sectionTop = section.offsetTop;
+
+                const sectionHeight = section.clientHeight;
+
+                if (scrollY >= sectionTop - 200) {
+
+                    current = section.getAttribute('id');
+
+                }
+
+            });
+
+
+
+            navLinks.forEach(link => {
+
+                link.classList.remove('active');
+
+                if (link.getAttribute('href').slice(1) === current) {
+
+                    link.classList.add('active');
+
+                }
+
+            });
+
+        });
+
+
+
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add('visible');
+
+                }
+
+            });
+
+        }, {
+
+            threshold: 0.1
+
+        });
+
+
+
+        fadeElements.forEach(el => observer.observe(el));
+
+
+
+        let currentSlide = 0;
+
+        const slides = document.querySelectorAll('.carousel-slide');
+
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        const totalSlides = slides.length;
+
+
+
+        function updateCarousel() {
+
+            const track = document.querySelector('.carousel-slides');
+
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            
+
+            dots.forEach((dot, index) => {
+
+                dot.classList.toggle('active', index === currentSlide);
+
+            });
+
+        }
+
+
+
+        function moveSlide(direction) {
+
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+
+            updateCarousel();
+
+        }
+
+
+
+        function goToSlide(index) {
+
+            currentSlide = index;
+
+            updateCarousel();
+
+        }
+
+
+
+        function toggleTheme() {
+
+            const html = document.documentElement;
 
             const sunIcon = document.querySelector('.sun-icon');
 
             const moonIcon = document.querySelector('.moon-icon');
 
-            if (body.getAttribute('data-theme') === 'dark') {
+            
 
-                body.removeAttribute('data-theme');
+            if (html.getAttribute('data-theme') === 'dark') {
 
-                sunIcon.style.display = 'none';
-
-                moonIcon.style.display = 'block';
-
-                localStorage.setItem('theme', 'light');
-
-            } else {
-
-                body.setAttribute('data-theme', 'dark');
+                html.removeAttribute('data-theme');
 
                 sunIcon.style.display = 'block';
 
                 moonIcon.style.display = 'none';
 
+                localStorage.setItem('theme', 'light');
+
+            } else {
+
+                html.setAttribute('data-theme', 'dark');
+
+                sunIcon.style.display = 'none';
+
+                moonIcon.style.display = 'block';
+
                 localStorage.setItem('theme', 'dark');
 
             }
 
-        });
+        }
 
-        const savedTheme = localStorage.getItem('theme');
 
-        if (savedTheme === 'dark') {
 
-            document.body.setAttribute('data-theme', 'dark');
+        if (localStorage.getItem('theme') === 'dark') {
 
-            document.querySelector('.sun-icon').style.display = 'block';
-
-            document.querySelector('.moon-icon').style.display = 'none';
-
-        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
 
             document.querySelector('.sun-icon').style.display = 'none';
 
@@ -830,125 +3288,1004 @@
 
         }
 
-        document.getElementById('langSelect').addEventListener('change', function(e) {
 
-            currentLang = e.target.value;
 
-            const t = translations[currentLang];
+        const translations = {
 
-            document.getElementById('heroDesc').textContent = t.heroDesc;
+            ru: {
 
-            localStorage.setItem('lang', currentLang);
+                navHome: "Сережин Владимир",
 
-        });
+                heroName: "Сережин Владимир",
 
-        const savedLang = localStorage.getItem('lang');
+                education: "Образование",
 
-        if (savedLang) {
+                additional: "Доп. образование",
 
-            currentLang = savedLang;
+                projects: "Проекты",
 
-            document.getElementById('langSelect').value = savedLang;
+                contacts: "Контакты",
 
-        }
+                heroRole: "ML-инженер",
 
-        document.getElementById('navToggle').addEventListener('click', function() {
+                heroDesc: "Студент по направлению \"Мехатроника и робототехника\" в Санкт-Петербургском политехническом университете. Занимаюсь машинным обучением и робототехникой.",
 
-            document.querySelector('.nav-links').classList.toggle('active');
+                skills: "Навыки",
 
-        });
+                interests: "Интересы",
 
-        const observer = new IntersectionObserver((entries) => {
+                languages: "Языки",
 
-            entries.forEach(entry => {
+                skill1: "Python (PyTorch, Numpy, Pandas, Matplotlib, Scikit-learn)",
 
-                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+                skill2: "C++",
+
+                skill3: "OpenCode",
+
+                skill4: "Математический анализ, линейная алгебра, теория вероятностей и математическая статистика",
+
+                skill5: "OOP (базовые знания)",
+
+                skill6: "ROS",
+
+                skill7: "Haskell",
+
+                interest1: "Машинное обучение",
+
+                interest2: "Глубокое обучение",
+
+                interest3: "Нейронные сети",
+
+                interest4: "Робототехника",
+
+                interest5: "Компьютерное зрение",
+
+                interest6: "Прикладной ИИ",
+
+                interest7: "Мягкая робототехника",
+
+                russian: "Русский",
+
+                english: "Английский",
+
+                chinese: "Китайский",
+
+                native: "родной",
+
+                c1: "C1 - свободный (подтверждён Oxford Placement Test)",
+
+                intermediate: "средний разговорный (1.5 года учёбы и жизни в Китае)",
+
+                bachelor: "Бакалавр",
+
+                mechatronics: "Мехатроника и робототехника",
+
+                educationTitle: "Образование",
+
+                addEducationTitle: "Дополнительное образование",
+
+                projectsTitle: "Проекты",
+
+                contactsTitle: "Контакты",
+
+                email: "Email",
+
+                telegram: "Telegram",
+
+                wechat: "WeChat",
+
+                emailValue: "svovamtr@mail.ru",
+
+                telegramValue: "@seriozhin",
+
+                wechatValue: "wxid_1kay0tsy4dt722",
+
+                viewCert: "Посмотреть",
+
+                hideCert: "Скрыть",
+
+                cert1Title: "Certificate of achievement",
+
+                cert1Desc: "Сианьский технологический университет, Китай",
+
+                cert2Title: "Oxford Placement Test - C1",
+
+                cert2Desc: "Подтверждение уровня английского языка",
+
+                cert3Title: "Математический анализ - с отличием",
+
+                cert3Desc: "Онлайн-курс",
+
+                cert4Title: "Теория вероятностей - с отличием",
+
+                cert4Desc: "Онлайн-курс",
+
+                cert5Title: "Разработка программного обеспечения беспилотных авиационных систем",
+
+                cert5Desc: "Онлайн-курс (144 часа)",
+
+                project1Title: "MNIST Handwritten Digit Recognition",
+
+                project1Desc: "Распознавание рукописных цифр с помощью свёрточной нейронной сети (CNN) на PyTorch.",
+
+                project1Tech: "OpenCode, Python (pandas, numpy, matplotlib), PyTorch, CNN",
+
+                project2Title: "Личное портфолио",
+
+                project2Desc: "Персональный сайт-портфолио ML-инженера с информацией об образовании, навыках, проектах и контактах.",
+
+                project2Tech: "OpenCode, HTML, GitHub",
+
+                project3Title: "Учебные проекты по анализу данных на Python",
+
+                project3Desc: "Анализ данных Титаника, рождаемости в США и других датасетов.",
+
+                project3Tech: "Python (Pandas, NumPy, Matplotlib, Seaborn, Datetime)",
+
+                projectPlaceholder: "Название проекта",
+
+                projectPlaceholderDesc: "Описание проекта, используемые технологии, результаты. Текст будет добавлен позже.",
+
+                edu1Title: "Санкт-Петербургский политехнический университет Петра Великого (СПбПУ), Россия",
+
+                edu1Subtitle: "Бакалавр | Мехатроника и робототехника",
+
+                edu1Desc: "Основное образование. Изучение основ мехатроники и робототехники, программирования на языках высокого уровня, математики, физики и инженерных дисциплин.",
+                edu1Year: "2023 - 2027",
+                edu2Year: "февраль 2025 - июль 2025",
+                edu3Year: "февраль 2026 - январь 2027",
+
+                edu2Title: "Сианьский технологический университет (XATU), Китай",
+
+                edu2Subtitle: "Студент по обмену (бакалавр) | Mechanical manufacturing and its automation",
+
+                edu2Desc: "Академическая мобильность. Core courses: \"C++ Programming Design\" - 93/100, \"Python\" - 91/100, \"Mechanical graphing\" - 100/100",
+
+                edu3Title: "Сианьский университет Цзяотун (XJTU), Китай",
+
+                edu3Subtitle: "Студент по обмену (магистр) | Mechanical Engineering",
+
+                edu3Desc: "Академическая мобильность по специальностям \"Mechanical Engineering\" и \"Computer science\". Core courses: \"Theory and Implementation of Programming Language\", \"Software Development\", \"AI in Electrical Engineering\", \"AI and Intelligent Robots\", \"Statistical Signal Processing: Fundamentals and Machine Learning Prospectives\""
+
+            },
+
+            en: {
+
+                navHome: "Serezhin Vladimir",
+
+                heroName: "Vladimir Serezhin",
+
+                education: "Education",
+
+                additional: "Additional Education",
+
+                projects: "Projects",
+
+                contacts: "Contacts",
+
+                heroRole: "ML Engineer",
+
+                heroDesc: "Student in \"Mechatronics and Robotics\" at Peter the Great St. Petersburg Polytechnic University. Working on machine learning and robotics.",
+
+                skills: "Skills",
+
+                interests: "Interests",
+
+                languages: "Languages",
+
+                skill1: "Python (PyTorch, Numpy, Pandas, Matplotlib, Scikit-learn)",
+
+                skill2: "C++",
+
+                skill3: "OpenCode",
+
+                skill4: "Calculus, Linear Algebra, Probability Theory and Mathematical Statistics",
+
+                skill5: "OOP (basic knowledge)",
+
+                skill6: "ROS",
+
+                skill7: "Haskell",
+
+                interest1: "Machine Learning",
+
+                interest2: "Deep Learning",
+
+                interest3: "Neural Networks",
+
+                interest4: "Robotics",
+
+                interest5: "Computer Vision",
+
+                interest6: "Applied AI",
+
+                interest7: "Soft Robotics",
+
+                russian: "Russian",
+
+                english: "English",
+
+                chinese: "Chinese",
+
+                native: "native",
+
+                c1: "C1 - fluent (confirmed by Oxford Placement Test)",
+
+                intermediate: "intermediate spoken (1.5 years of study and life in China)",
+
+                bachelor: "Bachelor",
+
+                mechatronics: "Mechatronics and Robotics",
+
+                educationTitle: "Education",
+
+                addEducationTitle: "Additional Education",
+
+                projectsTitle: "Projects",
+
+                contactsTitle: "Contacts",
+
+                email: "Email",
+
+                telegram: "Telegram",
+
+                wechat: "WeChat",
+
+                emailValue: "svovamtr@mail.ru",
+
+                telegramValue: "@seriozhin",
+
+                wechatValue: "wxid_1kay0tsy4dt722",
+
+                viewCert: "View",
+
+                hideCert: "Hide",
+
+                cert1Title: "Certificate of achievement",
+
+                cert1Desc: "Xi'an University of Technology, China",
+
+                cert2Title: "Oxford Placement Test - C1",
+
+                cert2Desc: "English language proficiency confirmation",
+
+                cert3Title: "Calculus - with honors",
+
+                cert3Desc: "Online course",
+
+                cert4Title: "Probability Theory - with honors",
+
+                cert4Desc: "Online course",
+
+                cert5Title: "Unmanned Aerial Systems Software Development",
+
+                cert5Desc: "Online course (144 hours)",
+
+                project1Title: "MNIST Handwritten Digit Recognition",
+
+                project1Desc: "Handwritten digit recognition using a convolutional neural network (CNN) with PyTorch.",
+
+                project1Tech: "OpenCode, Python (pandas, numpy, matplotlib), PyTorch, CNN",
+
+                project2Title: "Personal Portfolio",
+
+                project2Desc: "Personal portfolio website for an ML engineer with information about education, skills, projects and contacts.",
+
+                project2Tech: "OpenCode, HTML, GitHub",
+
+                project3Title: "Python Data Analysis Projects",
+
+                project3Desc: "Titanic dataset analysis, US birth rates and other datasets.",
+
+                project3Tech: "Python (Pandas, NumPy, Matplotlib, Seaborn, Datetime)",
+
+                projectPlaceholder: "Project name",
+
+                projectPlaceholderDesc: "Project description, technologies used, results. Text will be added later.",
+
+                edu1Title: "Peter the Great St. Petersburg Polytechnic University (SPbPU), Russia",
+
+                edu1Subtitle: "Bachelor | Mechatronics and Robotics",
+
+                edu1Desc: "Core education. Studying fundamentals of mechatronics and robotics, high-level programming, mathematics, physics and engineering disciplines.",
+
+                edu2Title: "Xi'an University of Technology (XATU), China",
+
+                edu2Subtitle: "Exchange student (Bachelor) | Mechanical manufacturing and its automation",
+
+                edu2Desc: "Academic mobility. Core courses: \"C++ Programming Design\" - 93/100, \"Python\" - 91/100, \"Mechanical graphing\" - 100/100",
+
+                edu3Title: "Xi'an Jiaotong University (XJTU), China",
+
+                edu3Subtitle: "Exchange student (Master) | Mechanical Engineering",
+
+                edu3Desc: "Academic mobility in \"Mechanical Engineering\" and \"Computer science\". Core courses: \"Theory and Implementation of Programming Language\", \"Software Development\", \"AI in Electrical Engineering\", \"AI and Intelligent Robots\", \"Statistical Signal Processing: Fundamentals and Machine Learning Prospectives\"",
+                edu1Year: "2023 - 2027",
+                edu2Year: "February 2025 - July 2025",
+                edu3Year: "February 2026 - January 2027"
+            },
+
+            zh: {
+
+                navHome: "谢尔金·弗拉基米尔",
+
+                heroName: "谢尔金·弗拉基米尔",
+
+                education: "教育",
+
+                additional: "附加教育",
+
+                projects: "项目",
+
+                contacts: "联系方式",
+
+                heroRole: "机器学习工程师",
+
+                heroDesc: "圣彼得堡彼得大帝理工大学机电一体化与机器人专业学生。专注于机器学习和机器人技术。",
+
+                skills: "技能",
+
+                interests: "兴趣",
+
+                languages: "语言",
+
+                skill1: "Python (PyTorch, Numpy, Pandas, Matplotlib, Scikit-learn)",
+
+                skill2: "C++",
+
+                skill3: "OpenCode",
+
+                skill4: "机器学习、深度学习、计算机视觉与自然语言处理",
+
+                skill5: "面向对象编程(封装)",
+
+                skill6: "ROS",
+
+                skill7: "Haskell",
+
+                interest1: "机器学习",
+
+                interest2: "机器人技术",
+
+                interest3: "摄影",
+
+                interest4: "乒乓球",
+
+                interest5: "篮球",
+
+                interest6: "电影",
+
+                interest7: "音乐",
+
+                russian: "俄语",
+
+                english: "英语",
+
+                chinese: "中文",
+
+                native: "母语",
+
+                c1: "C1 - 熟练(牛津分级测试)",
+
+                intermediate: "中级(在中国学习1.5年)",
+
+                bachelor: "本科",
+
+                mechatronics: "机电一体化与机器人技术",
+
+                educationTitle: "教育",
+
+                addEducationTitle: "附加教育",
+
+                projectsTitle: "项目",
+
+                contactsTitle: "联系方式",
+
+                email: "邮箱",
+
+                telegram: "Telegram",
+
+                wechat: "微信",
+
+                emailValue: "svovamtr@mail.ru",
+
+                telegramValue: "@seriozhin",
+
+                wechatValue: "wxid_1kay0tsy4dt722",
+
+                viewCert: "查看",
+
+                hideCert: "隐藏",
+
+                cert1Title: "成就证书",
+
+                cert1Desc: "西安理工大学，中国",
+
+                cert2Title: "牛津分级测试 - C1",
+
+                cert2Desc: "牛津大学英语水平测试",
+
+                cert3Title: "数学分析 - 高中",
+
+                cert3Desc: "高中",
+
+                cert4Title: "概率论 - 高中",
+
+                cert4Desc: "高中",
+
+                cert5Title: "软件开发与计算机科学基础知识",
+
+                cert5Desc: "高中（144小时)",
+
+                project1Title: "MNIST 手写数字识别?",
+
+                project1Desc: "使用 PyTorch 卷积神经网络(CNN)进行手写数字识别",
+
+                project1Tech: "OpenCode, Python (pandas, numpy, matplotlib), PyTorch, CNN",
+
+                project2Title: "个人作品集",
+
+                project2Desc: "使用HTML和JavaScript创建的响应式作品集网站，包含教育、项目、技能和联系方式。",
+
+                project2Tech: "OpenCode, HTML, GitHub",
+
+                project3Title: "Python数据分析项目",
+
+                project3Desc: "探索性数据分析、可视化和洞察发现。",
+
+                project3Tech: "Python (Pandas, NumPy, Matplotlib, Seaborn, Datetime)",
+
+                projectPlaceholder: "即将推出",
+
+                projectPlaceholderDesc: "探索性数据分析、可视化和洞察发现。",
+
+                edu1Title: "圣彼得堡彼得大帝理工大学，俄罗斯",
+
+                edu1Subtitle: "学士 | 机电一体化与机器人技术",
+
+                edu1Desc: "综合技术教育。学习机械电子工程与机器人技术、控制理论、电子设备、传感器、执行器和嵌入式系统。",
+
+                edu2Title: "西安理工大学，中国",
+
+                edu2Subtitle: "交换学习(本科)| 机械制造及其自动化",
+
+                edu2Desc: "综合技术教育。核心课程：\"C++程序设计\" - 93/100，\"Python\" - 91/100，\"机械制图\" - 100/100",
+
+                edu3Title: "西安交通大学，中国",
+
+                edu3Subtitle: "交换学习(硕士)| 机械工程",
+
+edu3Desc: "综合技术教育。学习\"编程语言理论与实现\"、\"软件开发\"、\"电气工程中的AI\"、\"AI与智能机器人\"、\"统计信号处理：基础与机器学习视角\"",
+                edu1Year: "2023 - 2027",
+                edu2Year: "2025年2月 - 2025年7月",
+                edu3Year: "2026年2月 - 2027年1月"
+
+            }
+
+        };
+
+
+
+        function changeLanguage(lang) {
+
+            localStorage.setItem('language', lang);
+
+            const t = translations[lang];
+
+            
+
+            document.querySelector('.nav-home').textContent = t.navHome;
+
+            document.querySelectorAll('.nav-links a')[1].textContent = t.education;
+
+            document.querySelectorAll('.nav-links a')[2].textContent = t.additional;
+
+            document.querySelectorAll('.nav-links a')[3].textContent = t.projects;
+
+            document.querySelectorAll('.nav-links a')[4].textContent = t.contacts;
+
+            
+
+            document.querySelector('.hero-name').textContent = t.heroName;
+
+            document.querySelector('.hero-role').textContent = t.heroRole;
+
+            document.querySelector('.hero-description').textContent = t.heroDesc;
+
+            
+
+            document.querySelectorAll('.profile-block h3')[0].textContent = t.skills;
+
+            document.querySelectorAll('.profile-block h3')[1].textContent = t.interests;
+
+            document.querySelector('.languages-section h3').textContent = t.languages;
+
+            
+
+            const tags = document.querySelectorAll('.simple-tag');
+
+            const skillTags = [t.skill1, t.skill2, t.skill3, t.skill4, t.skill5, t.skill6, t.skill7];
+
+            const interestTags = [t.interest1, t.interest2, t.interest3, t.interest4, t.interest5, t.interest6, t.interest7];
+
+            
+
+            tags.forEach((tag, index) => {
+
+                if (index < skillTags.length) {
+
+                    tag.textContent = skillTags[index];
+
+                } else {
+
+                    tag.textContent = interestTags[index - skillTags.length];
+
+                }
 
             });
 
-        }, { threshold: 0.1 });
+            
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+            const langItems = document.querySelectorAll('.language-item');
 
-        document.getElementById('chatBtn').addEventListener('click', function() {
+            langItems[0].querySelector('.language-name').textContent = t.russian;
 
-            document.getElementById('chatWindow').classList.toggle('active');
+            langItems[0].querySelector('.language-level').textContent = t.native;
 
-        });
+            langItems[1].querySelector('.language-name').textContent = t.english;
 
-        document.getElementById('chatClose').addEventListener('click', function() {
+            langItems[1].querySelector('.language-level').textContent = t.c1;
 
-            document.getElementById('chatWindow').classList.remove('active');
+            langItems[2].querySelector('.language-name').textContent = t.chinese;
 
-        });
+            langItems[2].querySelector('.language-level').textContent = t.intermediate;
 
-        document.getElementById('chatSend').addEventListener('click', sendMessage);
+            
 
-        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            document.querySelector('#education .section-title').textContent = t.educationTitle;
 
-            if (e.key === 'Enter') sendMessage();
+            document.querySelector('#additional .section-title').textContent = t.addEducationTitle;
 
-        });
+            document.querySelector('#projects .section-title').textContent = t.projectsTitle;
 
-        function sendMessage() {
+            document.querySelector('#contacts .section-title').textContent = t.contactsTitle;
 
-            const input = document.getElementById('chatInput');
+            
 
-            const message = input.value.trim();
+            const contactItems = document.querySelectorAll('.contact-item');
 
-            if (!message) return;
+            contactItems[0].querySelector('h4').textContent = t.email;
 
-            addMessage(message, 'user');
+            contactItems[0].querySelector('p').textContent = t.emailValue;
 
-            input.value = '';
+            contactItems[1].querySelector('h4').textContent = t.telegram;
 
-            setTimeout(() => {
+            contactItems[1].querySelector('p').textContent = t.telegramValue;
 
-                const answer = getAnswer(message);
+            contactItems[2].querySelector('h4').textContent = t.wechat;
 
-                addMessage(answer, 'bot');
+            contactItems[2].querySelector('p').textContent = t.wechatValue;
 
-            }, 500);
+            
+
+            const certTitles = document.querySelectorAll('.cert-title-group h3');
+
+            const certDescs = document.querySelectorAll('.cert-title-group p');
+
+            const certBtns = document.querySelectorAll('.cert-toggle-btn');
+
+            
+
+            certTitles[0].textContent = t.cert1Title;
+
+            certDescs[0].textContent = t.cert1Desc;
+
+            certTitles[1].textContent = t.cert2Title;
+
+            certDescs[1].textContent = t.cert2Desc;
+
+            certTitles[2].textContent = t.cert3Title;
+
+            certDescs[2].textContent = t.cert3Desc;
+
+            certTitles[3].textContent = t.cert4Title;
+
+            certDescs[3].textContent = t.cert4Desc;
+
+            certTitles[4].textContent = t.cert5Title;
+
+            certDescs[4].textContent = t.cert5Desc;
+
+            
+
+            certBtns.forEach(btn => {
+
+                if (btn.closest('.cert-card').querySelector('.cert-viewer').classList.contains('active')) {
+
+                    btn.textContent = t.hideCert;
+
+                } else {
+
+                    btn.textContent = t.viewCert;
+
+                }
+
+            });
+
+            
+
+            const projectCards = document.querySelectorAll('.project-card');
+
+            projectCards[0].querySelector('.project-title').textContent = t.project1Title;
+
+            projectCards[0].querySelector('.project-description').textContent = t.project1Desc;
+
+            projectCards[0].querySelector('.project-tech').textContent = t.project1Tech;
+
+            projectCards[1].querySelector('.project-title').textContent = t.project2Title;
+
+            projectCards[1].querySelector('.project-description').textContent = t.project2Desc;
+
+            projectCards[1].querySelector('.project-tech').textContent = t.project2Tech;
+
+            projectCards[2].querySelector('.project-title').textContent = t.project3Title;
+
+            projectCards[2].querySelector('.project-description').textContent = t.project3Desc;
+
+            projectCards[2].querySelector('.project-tech').textContent = t.project3Tech;
+
+            
+
+            const eduCards = document.querySelectorAll('.card');
+            
+            const eduYears = document.querySelectorAll('.card-year');
+            eduYears[0].textContent = t.edu1Year;
+            eduYears[1].textContent = t.edu2Year;
+            eduYears[2].textContent = t.edu3Year;
+
+            eduCards[0].querySelector('.card-title').textContent = t.edu1Title;
+
+            eduCards[0].querySelector('.card-subtitle').textContent = t.edu1Subtitle;
+
+            eduCards[0].querySelector('.card-description').textContent = t.edu1Desc;
+
+            eduCards[1].querySelector('.card-title').textContent = t.edu2Title;
+
+            eduCards[1].querySelector('.card-subtitle').textContent = t.edu2Subtitle;
+
+            eduCards[1].querySelector('.card-description').textContent = t.edu2Desc;
+
+            eduCards[2].querySelector('.card-title').textContent = t.edu3Title;
+
+            eduCards[2].querySelector('.card-subtitle').textContent = t.edu3Subtitle;
+
+            eduCards[2].querySelector('.card-description').textContent = t.edu3Desc;
+
+            
+
+            if (document.querySelector('.chat-window.active')) {
+
+                const firstMsg = document.querySelector('.chat-messages .chat-message.bot');
+
+                const greetings = { ru: 'Привет! Я бот портфолио Владимира. Спросите о проектах, образовании, навыках или контактах.', en: 'Hi! I\'m Vladimir\'s portfolio bot. Ask about projects, education, skills, or contacts.', zh: '你好！我是弗拉基米尔作品集助手。询问关于项目、教育、技能或联系方式的问题。' };
+
+                if (firstMsg) firstMsg.textContent = greetings[lang];
+
+            }
 
         }
 
-        function addMessage(text, type) {
 
-            const messages = document.getElementById('chatMessages');
 
-            const div = document.createElement('div');
+        if (localStorage.getItem('language')) {
 
-            div.className = 'chat-message ' + type;
+            changeLanguage(localStorage.getItem('language'));
 
-            div.textContent = text;
-
-            messages.appendChild(div);
-
-            messages.scrollTop = messages.scrollHeight;
+            document.querySelector('.lang-select').value = localStorage.getItem('language');
 
         }
 
-        function getAnswer(message) {
 
-            const langAnswers = chatAnswers[currentLang];
 
-            const lowerMessage = message.toLowerCase();
+        let chatOpen = false;
 
-            for (let item of langAnswers) {
+        let conversationHistory = [];
 
-                for (let keyword of item.keywords) {
+        let chatInitialized = false;
 
-                    if (lowerMessage.includes(keyword.toLowerCase())) { return item.answer; }
+
+
+        function initChatWindow() {
+
+            const chatWindow = document.querySelector('.chat-window');
+
+            const lang = localStorage.getItem('language') || 'ru';
+
+            const greetings = { ru: 'Привет! Я бот портфолио Владимира. Спросите о проектах, образовании, навыках или контактах.', en: 'Hi! I\'m Vladimir\'s portfolio bot. Ask about projects, education, skills, or contacts.', zh: '你好！我是弗拉基米尔作品集助手。询问关于项目、教育、技能或联系方式的问题。' };
+
+            
+
+            chatWindow.innerHTML = `
+
+                <div class="chat-header">
+
+                    <h4>FAQ Bot</h4>
+
+                    <button class="chat-close" onclick="toggleChat()">
+
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+
+                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+                <div class="chat-messages">
+
+                    <div class="chat-message bot">${greetings[lang]}</div>
+
+                </div>
+
+                <div class="chat-input-area">
+
+                    <input type="text" class="chat-input" placeholder="${lang === 'ru' ? 'Введите сообщение...' : lang === 'zh' ? '' : 'Type a message...'}" onkeypress="if(event.key==='Enter')sendMessage()">
+
+                    <button class="chat-send" onclick="sendMessage()">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            `;
+
+            chatInitialized = true;
+
+        }
+
+
+
+        function toggleChat() {
+
+            const chatWindow = document.querySelector('.chat-window');
+
+            chatOpen = !chatOpen;
+
+            
+
+            if (!chatInitialized) {
+
+                initChatWindow();
+
+            }
+
+            
+
+            chatWindow.classList.toggle('active', chatOpen);
+
+        }
+
+
+
+        function getFAQResponse(message, lang) {
+
+            const lower = message.toLowerCase();
+
+            const faq = {
+
+                ru: [
+
+                    { keywords: ['проект', 'проекты', 'mnist', 'digit', 'cnn', 'pytorch'], answer: 'Владимир работает над проектом MNIST Handwritten Digit Recognition - распознавание рукописных цифр с помощью CNN на PyTorch. Подробнее на GitHub: github.com/serezhinVM/Handwriting' },
+
+                    { keywords: ['образование', 'универ', 'университет', 'учится', 'учился'], answer: 'Владимир учится в Санкт-Петербургском политехническом университете (Мехатроника и робототехника). Также проходил обмен в Китае: XATU и XJTU (Сиань).' },
+
+                    { keywords: ['навык', 'skills', 'язык', 'программир', 'python', 'c++', 'ros', 'haskell'], answer: 'Основные навыки: Python, C++, ML, CNN, PyTorch, ROS, Haskell. Также знает математику (матан, линал, теория вероятностей).' },
+
+                    { keywords: ['контакт', 'email', 'почта', 'telegram', 'wechat', 'связать'], answer: 'Email: svovamtr@mail.ru, Telegram: @seriozhin, WeChat: wxid_1kay0tsy4dt722' },
+
+                    { keywords: ['имя', 'зовут', 'кто ты', 'владимир', 'serge', 'serzhin'], answer: 'Это портфолио Сережина Владимира - студента и ML-инженера.' },
+
+                    { keywords: ['язык', 'english', 'английск', 'китайск', 'china'], answer: 'Владимир владеет русским (родной), английским (C1) и китайским (средний разговорный, 1.5 года в Китае).' }
+
+                ],
+
+                en: [
+
+                    { keywords: ['project', 'mnist', 'digit', 'cnn', 'pytorch', 'github'], answer: 'Vladimir is working on MNIST Handwritten Digit Recognition - handwritten digit recognition using CNN with PyTorch. More on GitHub: github.com/serezhinVM/Handwriting' },
+
+                    { keywords: ['education', 'university', 'study', 'studied'], answer: 'Vladimir studies at Peter the Great St. Petersburg Polytechnic University (Mechatronics and Robotics). Also did exchange at XATU and XJTU in China.' },
+
+                    { keywords: ['skills', 'python', 'c++', 'ros', 'haskell', 'programming'], answer: 'Main skills: Python, C++, ML, CNN, PyTorch, ROS, Haskell. Also strong in math (calculus, linear algebra, probability).' },
+
+                    { keywords: ['contact', 'email', 'telegram', 'wechat', 'reach'], answer: 'Email: svovamtr@mail.ru, Telegram: @seriozhin, WeChat: wxid_1kay0tsy4dt722' },
+
+                    { keywords: ['name', 'who', 'vladimir', 'serge', 'serzhin'], answer: 'This is Vladimir Serezhin\'s portfolio - student and ML engineer.' }
+
+                ],
+
+                zh: [
+
+                    { keywords: ['项目', 'mnist', 'digit', 'cnn', 'pytorch', 'github'], answer: '弗拉基米尔正在做MNIST手写数字识别项目——使用PyTorch的CNN进行手写数字识别。更多详情：github.com/serezhinVM/Handwriting' },
+
+                    { keywords: ['教育', '大学', '学习', '留学'], answer: '弗拉基米尔在圣彼得堡彼得大帝理工大学学习（机电一体化与机器人技术）。也在中国西安理工大学和西安交通大学学习过。' },
+
+                    { keywords: ['技能', 'python', 'c++', 'ros', 'haskell', '编程'], answer: '主要技能：Python、C++、ML、CNN、PyTorch、ROS、Haskell。擅长数学（微积分、线性代数、概率论）。' },
+
+                    { keywords: ['联系', 'email', 'telegram', 'wechat', '微信'], answer: '邮箱: svovamtr@mail.ru, Telegram: @seriozhin, 微信: wxid_1kay0tsy4dt722' },
+
+                    { keywords: ['名字', 'who', '弗拉基米尔', 'serzhin'], answer: '这是弗拉基米尔·谢尔金的个人作品集——学生和机器学习工程师。' }
+
+                ]
+
+            };
+
+            
+
+            const answers = faq[lang] || faq.ru;
+
+            for (const item of answers) {
+
+                if (item.keywords.some(kw => lower.includes(kw))) {
+
+                    return item.answer;
 
                 }
 
             }
 
-            return currentLang === 'zh' ? '抱歉，我没有理解您的问题。请尝试其他问题。' : currentLang === 'en' ? 'Sorry, I didn\'t understand your question. Please try a different one.' : 'Извините, я не понял ваш вопрос. Попробуйте задать его по-другому.';
+            
+
+            const defaultAnswers = {
+
+                ru: 'Я не совсем понял вопрос. Попробуйте спросить о проектах, образовании, навыках или контактах.',
+
+                en: 'I didn\'t understand. Try asking about projects, education, skills, or contacts.',
+
+                zh: '抱歉，我不理解。请询问关于项目、教育、技能或联系方式的问题。'
+
+            };
+
+            return defaultAnswers[lang];
 
         }
 
-    </script>
+
+
+        function sendMessage() {
+
+            const input = document.querySelector('.chat-input');
+
+            const messages = document.querySelector('.chat-messages');
+
+            const message = input.value.trim();
+
+            if (!message) return;
+
+
+
+            const lang = localStorage.getItem('language') || 'ru';
+
+            messages.innerHTML += `<div class="chat-message user">${escapeHtml(message)}</div>`;
+
+            input.value = '';
+
+
+
+            const typingDiv = document.createElement('div');
+
+            typingDiv.className = 'chat-message bot';
+
+            typingDiv.textContent = '...';
+
+            messages.appendChild(typingDiv);
+
+            messages.scrollTop = messages.scrollHeight;
+
+
+
+            setTimeout(() => {
+
+                typingDiv.textContent = getFAQResponse(message, lang);
+
+                messages.scrollTop = messages.scrollHeight;
+
+            }, 300);
+
+        }
+
+
+
+        function escapeHtml(text) {
+
+            const div = document.createElement('div');
+
+            div.textContent = text;
+
+            return div.innerHTML;
+
+        }
+
+    
+        
+        let currentProjectPage = 0;
+        const projectsPerPage = 3;
+        let totalProjectPages = 1;
+
+        function initProjectsCarousel() {
+            const cards = document.querySelectorAll('.projects-grid .project-card');
+            totalProjectPages = Math.ceil(cards.length / projectsPerPage);
+            
+            const dotsContainer = document.querySelector('.projects-nav-dots');
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalProjectPages; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'projects-nav-dot' + (i === 0 ? ' active' : '');
+                dot.onclick = function() { goToProjectPage(i); };
+                dotsContainer.appendChild(dot);
+            }
+            
+            updateProjectsCarousel();
+        }
+
+        function slideProjects(direction) {
+            currentProjectPage += direction;
+            if (currentProjectPage < 0) currentProjectPage = totalProjectPages - 1;
+            if (currentProjectPage >= totalProjectPages) currentProjectPage = 0;
+            updateProjectsCarousel();
+        }
+
+        function goToProjectPage(page) {
+            currentProjectPage = page;
+            updateProjectsCarousel();
+        }
+
+        function updateProjectsCarousel() {
+            const slider = document.querySelector('.projects-slider');
+            const grid = document.querySelector('.projects-grid');
+            const cardWidth = grid.offsetWidth / projectsPerPage;
+            const offset = currentProjectPage * cardWidth * projectsPerPage;
+            slider.scrollLeft = offset;
+            
+            document.querySelectorAll('.projects-nav-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentProjectPage);
+            });
+            
+            // Always show navigation buttons (even with 1 page for future projects)
+            document.querySelector('.projects-nav-btn.prev').style.display = 'flex';
+            document.querySelector('.projects-nav-btn.next').style.display = 'flex';
+        }
+
+        function handleResize() {
+            initProjectsCarousel();
+        }
+
+        window.addEventListener('resize', handleResize);
+        document.addEventListener('DOMContentLoaded', initProjectsCarousel);
+</script>
+
+    <div class="chat-widget">
+
+        <button class="chat-btn" onclick="toggleChat()" title="Чат с ассистентом">
+
+            <svg viewBox="0 0 24 24">
+
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+
+            </svg>
+
+        </button>
+
+        <div class="chat-window"></div>
+
+    </div>
 
 </body>
 
