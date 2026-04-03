@@ -28,8 +28,6 @@
 
         }
 
-
-
         :root {
 
             --bg-primary: #F5F5F5;
@@ -51,8 +49,6 @@
             --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
 
         }
-
-
 
         [data-theme="dark"] {
 
@@ -76,2031 +72,311 @@
 
         }
 
+        html { scroll-behavior: smooth; }
 
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
 
-        html {
+        .nav { position: fixed; top: 0; left: 0; right: 0; background: var(--bg-white); box-shadow: var(--shadow); z-index: 1000; padding: 16px 0; }
 
-            scroll-behavior: smooth;
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
 
-        }
+        .nav-logo { font-size: 20px; font-weight: 700; color: var(--accent); text-decoration: none; }
 
+        .nav-links { display: flex; gap: 32px; list-style: none; }
 
+        .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.3s; position: relative; }
 
-        body {
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s; }
 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-            background-color: var(--bg-primary);
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-            color: var(--text-primary);
+        .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
 
-            line-height: 1.6;
+        .nav-toggle span { width: 24px; height: 2px; background: var(--text-primary); transition: all 0.3s; }
 
-        }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
 
+        .theme-toggle { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 8px; cursor: pointer; color: var(--text-primary); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
 
+        .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
 
-        .nav {
+        .theme-toggle svg { width: 18px; height: 18px; }
 
-            position: fixed;
+        .lang-select { padding: 8px 12px; background: transparent; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--text-secondary); cursor: pointer; font-family: inherit; transition: all 0.3s; }
 
-            top: 0;
+        .lang-select:hover { border-color: var(--accent); color: var(--accent); }
 
-            left: 0;
+        .lang-select option { background: var(--bg-white); color: var(--text-primary); }
 
-            right: 0;
+        .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 24px 80px; }
 
-            background: var(--bg-white);
+        .hero-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 
-            box-shadow: var(--shadow);
+        .hero-content { animation: fadeInUp 0.8s ease; }
 
-            z-index: 1000;
+        .hero-name { font-size: 48px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; line-height: 1.2; }
 
-            padding: 16px 0;
+        .hero-role { font-size: 24px; font-weight: 500; color: var(--accent); margin-bottom: 24px; }
 
-        }
+        .hero-description { font-size: 16px; color: var(--text-secondary); max-width: 480px; }
 
+        .hero-image { display: flex; justify-content: center; animation: fadeInUp 0.8s ease 0.2s both; }
 
+        .hero-image img { width: 320px; height: 400px; object-fit: cover; object-position: center 20%; border-radius: 16px; box-shadow: var(--shadow-hover); }
 
-        .nav-container {
+        section { padding: 80px 24px; }
 
-            max-width: 1200px;
+        .section-container { max-width: 1200px; margin: 0 auto; }
 
-            margin: 0 auto;
+        .section-title { font-size: 36px; font-weight: 600; color: var(--text-primary); margin-bottom: 48px; text-align: center; }
 
-            padding: 0 24px;
+        #education { background: var(--bg-white); }
 
-            display: flex;
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
 
-            justify-content: space-between;
+        .card { background: var(--bg-primary); border-radius: 12px; padding: 32px; box-shadow: var(--shadow); transition: all 0.3s; }
 
-            align-items: center;
+        .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
 
-        }
+        .card-title { font-size: 20px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; }
 
+        .card-subtitle { font-size: 14px; font-weight: 500; color: var(--accent); margin-bottom: 8px; }
 
+        .card-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
 
-        .nav-logo {
+        .card-year { font-size: 12px; color: var(--text-secondary); margin-bottom: 12px; display: inline-block; padding: 4px 12px; background: var(--bg-white); border-radius: 20px; }
 
-            font-size: 20px;
+        #projects { background: var(--bg-primary); }
 
-            font-weight: 700;
+        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
-            color: var(--accent);
+        .project-card { background: var(--bg-white); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: all 0.3s; }
 
-            text-decoration: none;
+        .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
 
-        }
+        .project-image { height: 180px; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%); display: flex; align-items: center; justify-content: center; }
 
+        .project-image svg { width: 48px; height: 48px; opacity: 0.5; }
 
+        .project-content { padding: 24px; }
 
-        .nav-links {
+        .project-title { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
 
-            display: flex;
+        .project-description { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
 
-            gap: 32px;
+        .project-tech { font-size: 12px; color: var(--accent); margin-top: 12px; font-weight: 500; }
 
-            list-style: none;
+        #contacts { background: var(--bg-white); }
 
-        }
+        .contacts-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; max-width: 800px; margin: 0 auto; }
 
+        .contact-item { display: flex; align-items: center; gap: 16px; padding: 24px; background: var(--bg-primary); border-radius: 12px; text-decoration: none; transition: all 0.3s; }
 
+        .contact-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 
-        .nav-links a {
+        .contact-icon { width: 48px; height: 48px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
-            font-size: 14px;
+        .contact-icon svg { width: 24px; height: 24px; fill: white; }
 
-            font-weight: 500;
+        .contact-info h4 { font-size: 14px; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px; }
 
-            color: var(--text-secondary);
+        .contact-info p { font-size: 16px; font-weight: 500; color: var(--text-primary); }
 
-            text-decoration: none;
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-            transition: color 0.3s ease;
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s; }
 
-            position: relative;
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        }
+        .tabs { margin-top: 32px; }
 
+        .profile-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 
+        .profile-block { background: var(--bg-white); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); }
 
-        .nav-links a::after {
+        .simple-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
-            content: '';
+        .simple-tag { padding: 8px 14px; background: var(--bg-primary); border-radius: 20px; font-size: 13px; color: var(--text-primary); }
 
-            position: absolute;
+        .tab-btn { padding: 10px 20px; background: transparent; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--text-secondary); cursor: pointer; transition: all 0.3s; font-family: inherit; }
 
-            bottom: -4px;
+        .tab-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-            left: 0;
+        .tab-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
 
-            width: 0;
+        .tab-content { display: none; }
 
-            height: 2px;
+        .tab-content.active { display: block; animation: fadeIn 0.3s; }
 
-            background: var(--accent);
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-            transition: width 0.3s ease;
+        .skills-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
-        }
+        .skill-group { background: var(--bg-white); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); }
 
+        .skill-group-title { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 10px; }
 
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
-        .nav-links a:hover,
+        .skill-tag { padding: 6px 12px; background: var(--bg-primary); border-radius: 16px; font-size: 13px; color: var(--text-primary); }
 
-        .nav-links a.active {
+        .skill-tag.sub { font-size: 12px; color: var(--text-secondary); padding: 4px 10px; }
 
-            color: var(--accent);
+        .interests-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
 
-        }
+        .interest-item { padding: 16px; background: var(--bg-white); border-radius: 12px; text-align: center; font-size: 14px; color: var(--text-primary); box-shadow: var(--shadow); }
 
+        .languages-list { display: flex; flex-direction: column; gap: 12px; }
 
+        .language-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; background: var(--bg-white); border-radius: 10px; box-shadow: var(--shadow); }
 
-        .nav-links a:hover::after,
+        .language-name { font-weight: 600; font-size: 14px; color: var(--text-primary); }
 
-        .nav-links a.active::after {
+        .language-level { font-size: 13px; color: var(--text-secondary); text-align: right; }
 
-            width: 100%;
+        .carousel { position: relative; max-width: 600px; margin: 0 auto; }
 
-        }
+        .carousel-track { overflow: hidden; border-radius: 12px; box-shadow: var(--shadow); }
 
+        .carousel-slides { display: flex; transition: transform 0.5s ease; }
 
+        .carousel-slide { min-width: 100%; }
 
-        .nav-toggle {
+        .carousel-slide img { width: 100%; height: auto; display: block; }
 
-            display: none;
+        .carousel-caption { padding: 16px; background: var(--bg-white); text-align: center; border-radius: 0 0 12px 12px; box-shadow: var(--shadow); }
 
-            flex-direction: column;
+        .carousel-caption p { font-size: 14px; color: var(--text-primary); margin: 0; }
 
-            gap: 5px;
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: var(--bg-white); border: none; border-radius: 50%; box-shadow: var(--shadow); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; z-index: 10; }
 
-            cursor: pointer;
+        .carousel-btn:hover { background: var(--accent); color: white; }
 
-            padding: 8px;
+        .carousel-btn.prev { left: -20px; }
 
-        }
+        .carousel-btn.next { right: -20px; }
 
+        .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
 
+        .carousel-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.3s; }
 
-        .nav-toggle span {
+        .carousel-dot.active { background: var(--accent); }
 
-            width: 24px;
+        .certificate-link { display: block; text-decoration: none; }
 
-            height: 2px;
+        .certificate-placeholder { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%); padding: 60px 20px; text-align: center; color: white; border-radius: 12px 12px 0 0; }
 
-            background: var(--text-primary);
+        .certificate-placeholder svg { opacity: 0.8; margin-bottom: 16px; }
 
-            transition: all 0.3s ease;
+        .certificate-placeholder p { font-size: 16px; font-weight: 500; margin: 0; }
 
-        }
+        .cert-card { background: var(--bg-primary); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 24px; }
 
+        .cert-header { padding: 24px; background: var(--bg-white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s; }
 
+        .cert-header:hover { background: var(--bg-primary); }
 
-        .nav-right {
+        .cert-title-group h3 { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
 
-            display: flex;
+        .cert-title-group p { font-size: 14px; color: var(--text-secondary); }
 
-            align-items: center;
+        .cert-toggle-btn { padding: 10px 20px; background: var(--accent); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.3s; font-family: inherit; white-space: nowrap; }
 
-            gap: 16px;
+        .cert-toggle-btn:hover { background: var(--accent-hover); }
 
-        }
+        .cert-toggle-btn.viewing { background: var(--text-secondary); }
 
+        .cert-viewer { display: none; padding: 20px; background: var(--bg-white); border-top: 1px solid var(--border); }
 
+        .cert-viewer.active { display: block; animation: fadeIn 0.3s; }
 
-        .theme-toggle {
+        .cert-viewer object, .cert-viewer iframe { width: 100%; height: 600px; border: none; border-radius: 8px; background: #f0f0f0; }
 
-            background: none;
+        .cert-download-link { display: none; text-align: center; padding: 40px 20px; background: var(--bg-white); }
 
-            border: 1px solid var(--border);
+        .cert-download-link a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; transition: all 0.3s; }
 
-            border-radius: 8px;
-
-            padding: 8px;
-
-            cursor: pointer;
-
-            color: var(--text-primary);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            transition: all 0.3s ease;
-
-        }
-
-
-
-        .theme-toggle:hover {
-
-            border-color: var(--accent);
-
-            color: var(--accent);
-
-        }
-
-
-
-        .theme-toggle svg {
-
-            width: 18px;
-
-            height: 18px;
-
-        }
-
-
-
-        .lang-select {
-
-            padding: 8px 12px;
-
-            background: transparent;
-
-            border: 1px solid var(--border);
-
-            border-radius: 8px;
-
-            font-size: 14px;
-
-            font-weight: 500;
-
-            color: var(--text-secondary);
-
-            cursor: pointer;
-
-            font-family: inherit;
-
-            transition: all 0.3s ease;
-
-        }
-
-
-
-        .lang-select:hover {
-
-            border-color: var(--accent);
-
-            color: var(--accent);
-
-        }
-
-
-
-        .lang-select option {
-
-            background: var(--bg-white);
-
-            color: var(--text-primary);
-
-        }
-
-
-
-        .hero {
-
-            min-height: 100vh;
-
-            display: flex;
-
-            align-items: center;
-
-            padding: 120px 24px 80px;
-
-        }
-
-
-
-        .hero-container {
-
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 64px;
-
-            align-items: center;
-
-        }
-
-
-
-        .hero-content {
-
-            animation: fadeInUp 0.8s ease;
-
-        }
-
-
-
-        .hero-name {
-
-            font-size: 48px;
-
-            font-weight: 700;
-
-            color: var(--text-primary);
-
-            margin-bottom: 16px;
-
-            line-height: 1.2;
-
-        }
-
-
-
-        .hero-role {
-
-            font-size: 24px;
-
-            font-weight: 500;
-
-            color: var(--accent);
-
-            margin-bottom: 24px;
-
-        }
-
-
-
-        .hero-description {
-
-            font-size: 16px;
-
-            color: var(--text-secondary);
-
-            max-width: 480px;
-
-        }
-
-
-
-        .hero-image {
-
-            display: flex;
-
-            justify-content: center;
-
-            animation: fadeInUp 0.8s ease 0.2s both;
-
-        }
-
-
-
-        .hero-image img {
-
-            width: 320px;
-
-            height: 400px;
-
-            object-fit: cover;
-
-            object-position: center 20%;
-
-            border-radius: 16px;
-
-            box-shadow: var(--shadow-hover);
-
-        }
-
-
-
-        section {
-
-            padding: 80px 24px;
-
-        }
-
-
-
-        .section-container {
-
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-        }
-
-
-
-        .section-title {
-
-            font-size: 36px;
-
-            font-weight: 600;
-
-            color: var(--text-primary);
-
-            margin-bottom: 48px;
-
-            text-align: center;
-
-        }
-
-
-
-        #education {
-
-            background: var(--bg-white);
-
-        }
-
-
-
-        .cards-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
-            gap: 24px;
-
-        }
-
-
-
-        .card {
-
-            background: var(--bg-primary);
-
-            border-radius: 12px;
-
-            padding: 32px;
-
-            box-shadow: var(--shadow);
-
-            transition: all 0.3s ease;
-
-        }
-
-
-
-        .card:hover {
-
-            transform: translateY(-4px);
-
-            box-shadow: var(--shadow-hover);
-
-        }
-
-
-
-        .card-title {
-
-            font-size: 20px;
-
-            font-weight: 600;
-
-            color: var(--text-primary);
-
-            margin-bottom: 12px;
-
-        }
-
-
-
-        .card-subtitle {
-
-            font-size: 14px;
-
-            font-weight: 500;
-
-            color: var(--accent);
-
-            margin-bottom: 8px;
-
-        }
-
-
-
-        .card-description {
-
-            font-size: 14px;
-
-            color: var(--text-secondary);
-
-            line-height: 1.7;
-
-        }
-
-
-
-        .card-year {
-
-            font-size: 12px;
-
-            color: var(--text-secondary);
-
-            margin-bottom: 12px;
-
-            display: inline-block;
-
-            padding: 4px 12px;
-
-            background: var(--bg-white);
-
-            border-radius: 20px;
-
-        }
-
-
-
-        #projects {
-
-            background: var(--bg-primary);
-
-        }
-
-
-
-        .projects-grid {
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-            gap: 24px;
-
-        }
-
-
-
-        .project-card {
-
-            background: var(--bg-white);
-
-            border-radius: 12px;
-
-            overflow: hidden;
-
-            box-shadow: var(--shadow);
-
-            transition: all 0.3s ease;
-
-        }
-
-
-
-        .project-card:hover {
-
-            transform: translateY(-4px);
-
-            box-shadow: var(--shadow-hover);
-
-        }
-
-
-
-        .project-image {
-
-            height: 180px;
-
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-        }
-
-
-
-        .project-image svg {
-
-            width: 48px;
-
-            height: 48px;
-
-            opacity: 0.5;
-
-        }
-
-
-
-        .project-content {
-
-            padding: 24px;
-
-        }
-
-
-
-        .project-title {
-
-            font-size: 18px;
-
-            font-weight: 600;
-
-            color: var(--text-primary);
-
-            margin-bottom: 8px;
-
-        }
-
-
-
-        .project-description {
-
-            font-size: 14px;
-
-            color: var(--text-secondary);
-
-            line-height: 1.7;
-
-        }
-
-
-
-        .project-tech {
-
-            font-size: 12px;
-
-            color: var(--accent);
-
-            margin-top: 12px;
-
-            font-weight: 500;
-
-        }
-
-
-
-        #contacts {
-
-            background: var(--bg-white);
-
-        }
-
-
-
-        .contacts-container {
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-            gap: 32px;
-
-            max-width: 800px;
-
-            margin: 0 auto;
-
-        }
-
-
-
-        .contact-item {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 16px;
-
-            padding: 24px;
-
-            background: var(--bg-primary);
-
-            border-radius: 12px;
-
-            text-decoration: none;
-
-            transition: all 0.3s ease;
-
-        }
-
-
-
-        .contact-item:hover {
-
-            transform: translateY(-2px);
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-
-        .contact-icon {
-
-            width: 48px;
-
-            height: 48px;
-
-            background: var(--accent);
-
-            border-radius: 12px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            flex-shrink: 0;
-
-        }
-
-
-
-        .contact-icon svg {
-
-            width: 24px;
-
-            height: 24px;
-
-            fill: white;
-
-        }
-
-
-
-        .contact-info h4 {
-
-            font-size: 14px;
-
-            font-weight: 500;
-
-            color: var(--text-secondary);
-
-            margin-bottom: 4px;
-
-        }
-
-
-
-        .contact-info p {
-
-            font-size: 16px;
-
-            font-weight: 500;
-
-            color: var(--text-primary);
-
-        }
-
-
-
-        @keyframes fadeInUp {
-
-            from {
-
-                opacity: 0;
-
-                transform: translateY(30px);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform: translateY(0);
-
-            }
-
-        }
-
-
-
-        .fade-in {
-
-            opacity: 0;
-
-            transform: translateY(30px);
-
-            transition: all 0.6s ease;
-
-        }
-
-
-
-        .fade-in.visible {
-
-            opacity: 1;
-
-            transform: translateY(0);
-
-        }
-
-
-
-        .tabs {
-
-            margin-top: 32px;
-
-        }
-
-
-
-        .profile-blocks {
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 24px;
-
-        }
-
-
-
-        .profile-block {
-
-            background: var(--bg-white);
-
-            border-radius: 12px;
-
-            padding: 20px;
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-
-        .simple-tags {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 8px;
-
-        }
-
-
-
-        .simple-tag {
-
-            padding: 8px 14px;
-
-            background: var(--bg-primary);
-
-            border-radius: 20px;
-
-            font-size: 13px;
-
-            color: var(--text-primary);
-
-        }
-
-
-
-        .languages-list {
-
-            display: flex;
-
-            gap: 8px;
-
-            margin-bottom: 20px;
-
-        }
-
-
-
-        .tab-btn {
-
-            padding: 10px 20px;
-
-            background: transparent;
-
-            border: 1px solid var(--border);
-
-            border-radius: 8px;
-
-            font-size: 14px;
-
-            font-weight: 500;
-
-            color: var(--text-secondary);
-
-            cursor: pointer;
-
-            transition: all 0.3s ease;
-
-            font-family: inherit;
-
-        }
-
-
-
-        .tab-btn:hover {
-
-            border-color: var(--accent);
-
-            color: var(--accent);
-
-        }
-
-
-
-        .tab-btn.active {
-
-            background: var(--accent);
-
-            border-color: var(--accent);
-
-            color: white;
-
-        }
-
-
-
-        .tab-content {
-
-            display: none;
-
-        }
-
-
-
-        .tab-content.active {
-
-            display: block;
-
-            animation: fadeIn 0.3s ease;
-
-        }
-
-
-
-        @keyframes fadeIn {
-
-            from { opacity: 0; }
-
-            to { opacity: 1; }
-
-        }
-
-
-
-        .skills-list {
-
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 16px;
-
-        }
-
-
-
-        .skill-group {
-
-            background: var(--bg-white);
-
-            border-radius: 12px;
-
-            padding: 16px;
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-
-        .skill-group-title {
-
-            font-size: 14px;
-
-            font-weight: 600;
-
-            color: var(--accent);
-
-            margin-bottom: 10px;
-
-        }
-
-
-
-        .skill-tags {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 6px;
-
-        }
-
-
-
-        .skill-tag {
-
-            padding: 6px 12px;
-
-            background: var(--bg-primary);
-
-            border-radius: 16px;
-
-            font-size: 13px;
-
-            color: var(--text-primary);
-
-        }
-
-
-
-        .skill-tag.sub {
-
-            font-size: 12px;
-
-            color: var(--text-secondary);
-
-            padding: 4px 10px;
-
-        }
-
-
-
-        .interests-list {
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-
-            gap: 12px;
-
-        }
-
-
-
-        .interest-item {
-
-            padding: 16px;
-
-            background: var(--bg-white);
-
-            border-radius: 12px;
-
-            text-align: center;
-
-            font-size: 14px;
-
-            color: var(--text-primary);
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-
-        .languages-list {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 12px;
-
-        }
-
-
-
-        .language-item {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            padding: 14px 18px;
-
-            background: var(--bg-white);
-
-            border-radius: 10px;
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-
-        .language-name {
-
-            font-weight: 600;
-
-            font-size: 14px;
-
-            color: var(--text-primary);
-
-        }
-
-
-
-        .language-level {
-
-            font-size: 13px;
-
-            color: var(--text-secondary);
-
-            text-align: right;
-
-        }
-
-
-
-        .carousel {
-
-            position: relative;
-
-            max-width: 600px;
-
-            margin: 0 auto;
-
-        }
-
-
-
-        .carousel-track {
-
-            overflow: hidden;
-
-            border-radius: 12px;
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-
-        .carousel-slides {
-
-            display: flex;
-
-            transition: transform 0.5s ease;
-
-        }
-
-
-
-        .carousel-slide {
-
-            min-width: 100%;
-
-        }
-
-
-
-        .carousel-slide img {
-
-            width: 100%;
-
-            height: auto;
-
-            display: block;
-
-        }
-
-
-
-        .carousel-caption {
-
-            padding: 16px;
-
-            background: var(--bg-white);
-
-            text-align: center;
-
-            border-radius: 0 0 12px 12px;
-
-            box-shadow: var(--shadow);
-
-        }
-
-
-
-        .carousel-caption p {
-
-            font-size: 14px;
-
-            color: var(--text-primary);
-
-            margin: 0;
-
-        }
-
-
-
-        .carousel-btn {
-
-            position: absolute;
-
-            top: 50%;
-
-            transform: translateY(-50%);
-
-            width: 40px;
-
-            height: 40px;
-
-            background: var(--bg-white);
-
-            border: none;
-
-            border-radius: 50%;
-
-            box-shadow: var(--shadow);
-
-            cursor: pointer;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            transition: all 0.3s ease;
-
-            z-index: 10;
-
-        }
-
-
-
-        .carousel-btn:hover {
-
-            background: var(--accent);
-
-            color: white;
-
-        }
-
-
-
-        .carousel-btn.prev {
-
-            left: -20px;
-
-        }
-
-
-
-        .carousel-btn.next {
-
-            right: -20px;
-
-        }
-
-
-
-        .carousel-dots {
-
-            display: flex;
-
-            justify-content: center;
-
-            gap: 8px;
-
-            margin-top: 16px;
-
-        }
-
-
-
-        .carousel-dot {
-
-            width: 10px;
-
-            height: 10px;
-
-            border-radius: 50%;
-
-            background: var(--border);
-
-            cursor: pointer;
-
-            transition: all 0.3s ease;
-
-        }
-
-
-
-        .carousel-dot.active {
-
-            background: var(--accent);
-
-        }
-
-
-
-        .certificate-link {
-
-            display: block;
-
-            text-decoration: none;
-
-        }
-
-
-
-        .certificate-placeholder {
-
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
-
-            padding: 60px 20px;
-
-            text-align: center;
-
-            color: white;
-
-            border-radius: 12px 12px 0 0;
-
-        }
-
-
-
-        .certificate-placeholder svg {
-
-            opacity: 0.8;
-
-            margin-bottom: 16px;
-
-        }
-
-
-
-        .certificate-placeholder p {
-
-            font-size: 16px;
-
-            font-weight: 500;
-
-            margin: 0;
-
-        }
-
-
-
-        .cert-card {
-
-            background: var(--bg-primary);
-
-            border-radius: 12px;
-
-            overflow: hidden;
-
-            box-shadow: var(--shadow);
-
-            margin-bottom: 24px;
-
-        }
-
-
-
-        .cert-header {
-
-            padding: 24px;
-
-            background: var(--bg-white);
-
-            cursor: pointer;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            transition: all 0.3s ease;
-
-        }
-
-
-
-        .cert-header:hover {
-
-            background: var(--bg-primary);
-
-        }
-
-
-
-        .cert-title-group h3 {
-
-            font-size: 18px;
-
-            font-weight: 600;
-
-            color: var(--text-primary);
-
-            margin-bottom: 4px;
-
-        }
-
-
-
-        .cert-title-group p {
-
-            font-size: 14px;
-
-            color: var(--text-secondary);
-
-        }
-
-
-
-        .cert-toggle-btn {
-
-            padding: 10px 20px;
-
-            background: var(--accent);
-
-            color: white;
-
-            border: none;
-
-            border-radius: 8px;
-
-            font-size: 14px;
-
-            font-weight: 500;
-
-            cursor: pointer;
-
-            transition: all 0.3s ease;
-
-            font-family: inherit;
-
-            white-space: nowrap;
-
-        }
-
-
-
-        .cert-toggle-btn:hover {
-
-            background: var(--accent-hover);
-
-        }
-
-
-
-        .cert-toggle-btn.viewing {
-
-            background: var(--text-secondary);
-
-        }
-
-
-
-        .cert-viewer {
-
-            display: none;
-
-            padding: 20px;
-
-            background: var(--bg-white);
-
-            border-top: 1px solid var(--border);
-
-        }
-
-
-
-        .cert-viewer.active {
-
-            display: block;
-
-            animation: fadeIn 0.3s ease;
-
-        }
-
-
-
-        .cert-viewer object,
-
-        .cert-viewer iframe {
-
-            width: 100%;
-
-            height: 600px;
-
-            border: none;
-
-            border-radius: 8px;
-
-            background: #f0f0f0;
-
-        }
-
-
-
-        .cert-download-link {
-
-            display: none;
-
-            text-align: center;
-
-            padding: 40px 20px;
-
-            background: var(--bg-white);
-
-        }
-
-
-
-        .cert-download-link a {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            padding: 12px 24px;
-
-            background: var(--accent);
-
-            color: white;
-
-            text-decoration: none;
-
-            border-radius: 8px;
-
-            font-weight: 500;
-
-            transition: all 0.3s ease;
-
-        }
-
-
-
-        .cert-download-link a:hover {
-
-            background: var(--accent-hover);
-
-        }
-
-
+        .cert-download-link a:hover { background: var(--accent-hover); }
 
         @media (max-width: 768px) {
 
-            .cert-viewer object,
+            .cert-viewer object, .cert-viewer iframe { display: none; }
 
-            .cert-viewer iframe {
+            .cert-viewer .cert-download-link { display: block; }
 
-                display: none;
+            .cert-header { flex-direction: column; align-items: flex-start; gap: 16px; }
 
-            }
+            .cert-toggle-btn { width: 100%; }
 
+            .nav-links { position: fixed; top: 70px; left: 0; right: 0; background: var(--bg-white); flex-direction: column; padding: 24px; gap: 16px; box-shadow: var(--shadow); transform: translateY(-150%); transition: transform 0.3s; }
 
+            .nav-links.active { transform: translateY(0); }
 
-            .cert-viewer .cert-download-link {
+            .nav-toggle { display: flex; }
 
-                display: block;
+            .hero-container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
 
-            }
+            .hero-name { font-size: 36px; }
 
+            .hero-role { font-size: 20px; }
 
+            .hero-description { margin: 0 auto; }
 
-            .cert-header {
+            .hero-image img { width: 260px; height: 320px; }
 
-                flex-direction: column;
+            .profile-blocks { grid-template-columns: 1fr; }
 
-                align-items: flex-start;
+            .tabs { margin-top: 24px; }
 
-                gap: 16px;
+            .skills-list { grid-template-columns: 1fr; }
 
-            }
+            .section-title { font-size: 28px; }
 
+            section { padding: 60px 24px; }
 
+            .carousel-btn { display: flex; }
 
-            .cert-toggle-btn {
-
-                width: 100%;
-
-            }
+            .projects-grid { grid-template-columns: 1fr; }
 
         }
 
+        .chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 1001; }
 
+        .chat-btn { width: 60px; height: 60px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; box-shadow: var(--shadow-hover); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
 
-        @media (max-width: 768px) {
+        .chat-btn:hover { background: var(--accent-hover); transform: scale(1.05); }
 
-            .nav-links {
+        .chat-btn svg { width: 28px; height: 28px; fill: white; }
 
-                position: fixed;
+        .chat-window { position: absolute; bottom: 70px; right: 0; width: 360px; height: 500px; background: var(--bg-white); border-radius: 16px; box-shadow: var(--shadow-hover); display: none; flex-direction: column; overflow: hidden; }
 
-                top: 70px;
+        .chat-window.active { display: flex; }
 
-                left: 0;
+        .chat-header { padding: 16px 20px; background: var(--accent); color: white; display: flex; justify-content: space-between; align-items: center; }
 
-                right: 0;
+        .chat-header h4 { font-size: 16px; font-weight: 600; }
 
-                background: var(--bg-white);
+        .chat-close { background: none; border: none; color: white; cursor: pointer; padding: 4px; }
 
-                flex-direction: column;
+        .chat-messages { flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
 
-                padding: 24px;
+        .chat-message { padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.5; max-width: 85%; }
 
-                gap: 16px;
+        .chat-message.bot { background: var(--bg-primary); color: var(--text-primary); align-self: flex-start; }
 
-                box-shadow: var(--shadow);
+        .chat-message.user { background: var(--accent); color: white; align-self: flex-end; }
 
-                transform: translateY(-150%);
+        .chat-input { padding: 16px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
 
-                transition: transform 0.3s ease;
+        .chat-input input { flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg-primary); color: var(--text-primary); }
 
-            }
+        .chat-input input:focus { outline: none; border-color: var(--accent); }
 
+        .chat-input button { padding: 10px 20px; background: var(--accent); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.3s; font-family: inherit; }
 
-
-            .nav-links.active {
-
-                transform: translateY(0);
-
-            }
-
-
-
-            .nav-toggle {
-
-                display: flex;
-
-            }
-
-
-
-            .hero-container {
-
-                grid-template-columns: 1fr;
-
-                gap: 40px;
-
-                text-align: center;
-
-            }
-
-
-
-            .hero-name {
-
-                font-size: 36px;
-
-            }
-
-
-
-            .hero-role {
-
-                font-size: 20px;
-
-            }
-
-
-
-            .hero-description {
-
-                margin: 0 auto;
-
-            }
-
-
-
-            .hero-image img {
-
-                width: 260px;
-
-                height: 320px;
-
-            }
-
-
-
-            .profile-blocks {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-
-            .tabs {
-
-                margin-top: 24px;
-
-            }
-
-
-
-            .skills-list {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-
-            .section-title {
-
-                font-size: 28px;
-
-            }
-
-
-
-            section {
-
-                padding: 60px 24px;
-
-            }
-
-        }
-
-
-
-        .chat-widget {
-
-            position: fixed;
-
-            bottom: 24px;
-
-            right: 24px;
-
-            z-index: 1001;
-
-        }
-
-
-
-        .chat-btn {
-
-            width: 60px;
-
-            height: 60px;
-
-            border-radius: 50%;
-
-            background: var(--accent);
-
-            border: none;
-
-            cursor: pointer;
-
-            box-shadow: var(--shadow-hover);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            transition: all 0.3s ease;
-
-        }
-
-
-
-        .chat-btn:hover {
-
-            background: var(--accent-hover);
-
-            transform: scale(1.05);
-
-        }
-
-
-
-        .chat-btn svg {
-
-            width: 28px;
-
-            height: 28px;
-
-            fill: white;
-
-        }
-
-
-
-        .chat-window {
-
-            position: absolute;
-
-            bottom: 70px;
-
-            right: 0;
-
-            width: 360px;
-
-            height: 500px;
-
-            background: var(--bg-white);
-
-            border-radius: 16px;
-
-            box-shadow: var(--shadow-hover);
-
-            display: none;
-
-            flex-direction: column;
-
-            overflow: hidden;
-
-        }
-
-
-
-        .chat-window.active {
-
-            display: flex;
-
-        }
-
-
-
-        .chat-header {
-
-            padding: 16px 20px;
-
-            background: var(--accent);
-
-            color: white;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-        }
-
-
-
-        .chat-header h4 {
-
-            font-size: 16px;
-
-            font-weight: 600;
-
-        }
-
-
-
-        .chat-close {
-
-            background: none;
-
-            border: none;
-
-            color: white;
-
-            cursor: pointer;
-
-            padding: 4px;
-
-        }
-
-
-
-        .chat-messages {
-
-            flex: 1;
-
-            padding: 16px;
-
-            overflow-y: auto;
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 12px;
-
-        }
-
-
-
-        .chat-message {
-
-            padding: 10px 14px;
-
-            border-radius: 12px;
-
-            font-size: 14px;
-
-            line-height: 1.5;
-
-            max-width: 85%;
-
-        }
-
-
-
-        .chat-message.bot {
-
-            background: var(--bg-primary);
-
-            color: var(--text-primary);
-
-            align-self: flex-start;
-
-        }
-
-
-
-        .chat-message.user {
-
-            background: var(--accent);
-
-            color: white;
-
-            align-self: flex-end;
-
-        }
-
-
-
-        .chat-input {
-
-            padding: 16px;
-
-            border-top: 1px solid var(--border);
-
-            display: flex;
-
-            gap: 8px;
-
-        }
-
-
-
-        .chat-input input {
-
-            flex: 1;
-
-            padding: 10px 14px;
-
-            border: 1px solid var(--border);
-
-            border-radius: 8px;
-
-            font-size: 14px;
-
-            font-family: inherit;
-
-            background: var(--bg-primary);
-
-            color: var(--text-primary);
-
-        }
-
-
-
-        .chat-input input:focus {
-
-            outline: none;
-
-            border-color: var(--accent);
-
-        }
-
-
-
-        .chat-input button {
-
-            padding: 10px 20px;
-
-            background: var(--accent);
-
-            color: white;
-
-            border: none;
-
-            border-radius: 8px;
-
-            font-size: 14px;
-
-            font-weight: 500;
-
-            cursor: pointer;
-
-            transition: all 0.3s ease;
-
-            font-family: inherit;
-
-        }
-
-
-
-        .chat-input button:hover {
-
-            background: var(--accent-hover);
-
-        }
+        .chat-input button:hover { background: var(--accent-hover); }
 
     </style>
 
@@ -2130,33 +406,9 @@
 
                 <button class="theme-toggle" id="themeToggle">
 
-                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
 
-                        <circle cx="12" cy="12" r="5"></circle>
-
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-
-                    </svg>
-
-                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-
-                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 
                 </button>
 
@@ -2250,7 +502,7 @@
 
                     <p class="card-subtitle">Академическая мобильность</p>
 
-                    <p class="card-description">Академическая мобильность по специальностям "Mechanical Engineering" и "Computer science". Core courses: "Theory and Implementation of Programming Language", "Software Development", "AI in Electrical Engineering", "AI and Intelligent Robots", "Statistical Signal Processing: Fundamentals and Machine Learning Prospectives"</p>
+                    <p class="card-description">Академическая мобильность по специальностям "Mechanical Engineering" (ТОП-1 вузов мира в этой специальности по версии U.S. News & World Report 2025) и "Computer science". Core courses: "Theory and Implementation of Programming Language", "Software Development", "AI in Electrical Engineering", "AI and Intelligent Robots", "Statistical Signal Processing: Fundamentals and Machine Learning Prospectives"</p>
 
                 </div>
 
@@ -2282,7 +534,7 @@
 
                         <p class="project-description">Распознавание рукописных цифр с помощью свёрточной нейронной сети (CNN) на PyTorch.</p>
 
-                        <p class="project-tech">OpenCode, Python (pandas, numpy, matplotlib), PyTorch, CNN</p>
+                        <p class="project-tech">Python (pandas, numpy, matplotlib), PyTorch, CNN</p>
 
                     </div>
 
@@ -2302,7 +554,7 @@
 
                         <p class="project-description">Персональный сайт-портфолио ML-инженера с информацией об образовании, навыках, проектах и контактах.</p>
 
-                        <p class="project-tech">OpenCode, HTML, GitHub</p>
+                        <p class="project-tech">HTML, CSS, JavaScript, GitHub</p>
 
                     </div>
 
@@ -2323,6 +575,26 @@
                         <p class="project-description">Анализ данных Титаника, рождаемости в США и других датасетов.</p>
 
                         <p class="project-tech">Python (numpy, pandas, matplotlib, scikit-learn)</p>
+
+                    </div>
+
+                </a>
+
+                <a href="https://github.com/serezhinVM" target="_blank" class="project-card fade-in">
+
+                    <div class="project-image">
+
+                        <img src="Robotics.jpg" alt="AI and Intelligent Robots" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3 class="project-title">AI and Intelligent Robots</h3>
+
+                        <p class="project-description">Проект по искусственному интеллекту и интеллектуальным роботам, выполненный в рамках академической мобильности.</p>
+
+                        <p class="project-tech">Python, Machine Learning, Robotics</p>
 
                     </div>
 
@@ -2446,117 +718,13 @@
 
         const translations = {
 
-            ru: {
+            ru: { heroDesc: "Студент магистратуры, специализирующийся на машинном обучении и анализе данных. Разрабатываю модели для распознавания образов и обработки данных.", edu1Title: "Университет ИТМО", edu1Subtitle: "Магистратура", edu1Desc: "Прикладная математика и информатика. Специализация: Машинное обучение и интеллектуальный анализ данных.", edu2Title: "Университет ИТМО", edu2Subtitle: "Бакалавриат", edu2Desc: "Прикладная информатика. Специализация: Разработка программного обеспечения для беспилотных летательных аппаратов.", edu3Title: "Wrocław University of Science and Technology", edu3Subtitle: "Академическая мобильность", edu3Desc: "Академическая мобильность по специальностям "Mechanical Engineering" и "Computer science". Core courses: "Theory and Implementation of Programming Language", "Software Development", "AI in Electrical Engineering", "AI and Intelligent Robots", "Statistical Signal Processing: Fundamentals and Machine Learning Prospectives"", skillsTitle: "Навыки", interestsTitle: "Интересы", languagesTitle: "Языки", project1Title: "MNIST Handwritten Digit Recognition", project2Title: "Личное портфолио", project3Title: "Учебные проекты по анализу данных на Python", project4Title: "AI and Intelligent Robots" },
 
-                heroDesc: "Студент магистратуры, специализирующийся на машинном обучении и анализе данных. Разрабатываю модели для распознавания образов и обработки данных.",
+            en: { heroDesc: "Master's student specializing in machine learning and data analysis. Developing models for pattern recognition and data processing.", edu1Title: "ITMO University", edu1Subtitle: "Master's Degree", edu1Desc: "Applied Mathematics and Computer Science. Specialization: Machine Learning and Data Mining.", edu2Title: "ITMO University", edu2Subtitle: "Bachelor's Degree", edu2Desc: "Applied Informatics. Specialization: Software Development for Unmanned Aerial Vehicles.", edu3Title: "Wrocław University of Science and Technology", edu3Subtitle: "Academic Mobility", edu3Desc: "Academic mobility in "Mechanical Engineering" and "Computer science". Core courses: "Theory and Implementation of Programming Language", "Software Development", "AI in Electrical Engineering", "AI and Intelligent Robots", "Statistical Signal Processing: Fundamentals and Machine Learning Prospectives"", skillsTitle: "Skills", interestsTitle: "Interests", languagesTitle: "Languages", project1Title: "MNIST Handwritten Digit Recognition", project2Title: "Personal Portfolio", project3Title: "Python Data Analysis Projects", project4Title: "AI and Intelligent Robots" },
 
-                edu1Title: "Университет ИТМО",
-
-                edu1Subtitle: "Магистратура",
-
-                edu1Desc: "Прикладная математика и информатика. Специализация: Машинное обучение и интеллектуальный анализ данных.",
-
-                edu2Title: "Университет ИТМО",
-
-                edu2Subtitle: "Бакалавриат",
-
-                edu2Desc: "Прикладная информатика. Специализация: Разработка программного обеспечения для беспилотных летательных аппаратов.",
-
-                edu3Title: "Wrocław University of Science and Technology",
-
-                edu3Subtitle: "Академическая мобильность",
-
-                edu3Desc: "Академическая мобильность по специальностям "Mechanical Engineering" и "Computer science". Core courses: "Theory and Implementation of Programming Language", "Software Development", "AI in Electrical Engineering", "AI and Intelligent Robots", "Statistical Signal Processing: Fundamentals and Machine Learning Prospectives"",
-
-                skillsTitle: "Навыки",
-
-                interestsTitle: "Интересы",
-
-                languagesTitle: "Языки",
-
-                project1Title: "MNIST Handwritten Digit Recognition",
-
-                project2Title: "Личное портфолио",
-
-                project3Title: "Учебные проекты по анализу данных на Python"
-
-            },
-
-            en: {
-
-                heroDesc: "Master's student specializing in machine learning and data analysis. Developing models for pattern recognition and data processing.",
-
-                edu1Title: "ITMO University",
-
-                edu1Subtitle: "Master's Degree",
-
-                edu1Desc: "Applied Mathematics and Computer Science. Specialization: Machine Learning and Data Mining.",
-
-                edu2Title: "ITMO University",
-
-                edu2Subtitle: "Bachelor's Degree",
-
-                edu2Desc: "Applied Informatics. Specialization: Software Development for Unmanned Aerial Vehicles.",
-
-                edu3Title: "Wrocław University of Science and Technology",
-
-                edu3Subtitle: "Academic Mobility",
-
-                edu3Desc: "Academic mobility in "Mechanical Engineering" and "Computer science". Core courses: "Theory and Implementation of Programming Language", "Software Development", "AI in Electrical Engineering", "AI and Intelligent Robots", "Statistical Signal Processing: Fundamentals and Machine Learning Prospectives"",
-
-                skillsTitle: "Skills",
-
-                interestsTitle: "Interests",
-
-                languagesTitle: "Languages",
-
-                project1Title: "MNIST Handwritten Digit Recognition",
-
-                project2Title: "Personal Portfolio",
-
-                project3Title: "Python Data Analysis Projects"
-
-            },
-
-            zh: {
-
-                heroDesc: "专攻机器学习和数据分析的硕士生。开发用于模式识别和数据处理的模型。",
-
-                edu1Title: "ITMO 大学",
-
-                edu1Subtitle: "硕士",
-
-                edu1Desc: "应用数学与计算机科学。专业：机器学习和数据挖掘。",
-
-                edu2Title: "ITMO 大学",
-
-                edu2Subtitle: "学士",
-
-                edu2Desc: "应用信息学。专业：无人机软件系统开发。",
-
-                edu3Title: "Wrocław University of Science and Technology",
-
-                edu3Subtitle: "学术交流",
-
-                edu3Desc: "学术交流 "机械工程" 和 "计算机科学" 专业。核心课程："编程语言理论与实现"、"软件开发"、"电气工程中的AI"、"AI与智能机器人"、"统计信号处理：基础与机器学习视角"",
-
-                skillsTitle: "技能",
-
-                interestsTitle: "兴趣",
-
-                languagesTitle: "语言",
-
-                project1Title: "MNIST 手写数字识别",
-
-                project2Title: "个人作品集",
-
-                project3Title: "Python 数据分析项目"
-
-            }
+            zh: { heroDesc: "专攻机器学习和数据分析的硕士生。开发用于模式识别和数据处理的模型。", edu1Title: "ITMO 大学", edu1Subtitle: "硕士", edu1Desc: "应用数学与计算机科学。专业：机器学习和数据挖掘。", edu2Title: "ITMO 大学", edu2Subtitle: "学士", edu2Desc: "应用信息学。专业：无人机软件系统开发。", edu3Title: "Wrocław University of Science and Technology", edu3Subtitle: "学术交流", edu3Desc: "学术交流 "机械工程" 和 "计算机科学" 专业。核心课程："编程语言理论与实现"、"软件开发"、"电气工程中的AI"、"AI与智能机器人"、"统计信号处理：基础与机器学习视角"", skillsTitle: "技能", interestsTitle: "兴趣", languagesTitle: "语言", project1Title: "MNIST 手写数字识别", project2Title: "个人作品集", project3Title: "Python 数据分析项目", project4Title: "AI与智能机器人" }
 
         };
-
-
 
         let currentLang = 'ru';
 
@@ -2612,8 +780,6 @@
 
         };
 
-
-
         document.getElementById('themeToggle').addEventListener('click', function() {
 
             const body = document.body;
@@ -2646,8 +812,6 @@
 
         });
 
-
-
         const savedTheme = localStorage.getItem('theme');
 
         if (savedTheme === 'dark') {
@@ -2666,10 +830,6 @@
 
         }
 
-
-
-
-
         document.getElementById('langSelect').addEventListener('change', function(e) {
 
             currentLang = e.target.value;
@@ -2680,11 +840,7 @@
 
             localStorage.setItem('lang', currentLang);
 
-            updateContent();
-
         });
-
-
 
         const savedLang = localStorage.getItem('lang');
 
@@ -2696,41 +852,23 @@
 
         }
 
-
-
-
-
         document.getElementById('navToggle').addEventListener('click', function() {
 
             document.querySelector('.nav-links').classList.toggle('active');
 
         });
 
-
-
-
-
         const observer = new IntersectionObserver((entries) => {
 
             entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add('visible');
-
-                }
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
 
             });
 
         }, { threshold: 0.1 });
 
-
-
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-
-
-
 
         document.getElementById('chatBtn').addEventListener('click', function() {
 
@@ -2738,15 +876,11 @@
 
         });
 
-
-
         document.getElementById('chatClose').addEventListener('click', function() {
 
             document.getElementById('chatWindow').classList.remove('active');
 
         });
-
-
 
         document.getElementById('chatSend').addEventListener('click', sendMessage);
 
@@ -2755,8 +889,6 @@
             if (e.key === 'Enter') sendMessage();
 
         });
-
-
 
         function sendMessage() {
 
@@ -2786,7 +918,7 @@
 
             const div = document.createElement('div');
 
-            div.className = `chat-message ${type}`;
+            div.className = 'chat-message ' + type;
 
             div.textContent = text;
 
@@ -2806,25 +938,13 @@
 
                 for (let keyword of item.keywords) {
 
-                    if (lowerMessage.includes(keyword.toLowerCase())) {
-
-                        return item.answer;
-
-                    }
+                    if (lowerMessage.includes(keyword.toLowerCase())) { return item.answer; }
 
                 }
 
             }
 
-            return currentLang === 'zh' ? '抱歉，我没有理解您的问题。请尝试其他问题。' : currentLang === 'en' ? 'Sorry, I didn't understand your question. Please try a different one.' : 'Извините, я не понял ваш вопрос. Попробуйте задать его по-другому.';
-
-        }
-
-        function updateContent() {
-
-            const t = translations[currentLang];
-
-            document.getElementById('heroDesc').textContent = t.heroDesc;
+            return currentLang === 'zh' ? '抱歉，我没有理解您的问题。请尝试其他问题。' : currentLang === 'en' ? 'Sorry, I didn\'t understand your question. Please try a different one.' : 'Извините, я не понял ваш вопрос. Попробуйте задать его по-другому.';
 
         }
 
