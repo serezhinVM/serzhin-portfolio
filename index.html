@@ -4181,60 +4181,7 @@ edu3Desc: "综合技术教育。学习\"编程语言理论与实现\"、\"软件
 
     
         
-        let currentProjectPage = 0;
-        const projectsPerPage = 3;
-        let totalProjectPages = 1;
 
-        function initProjectsCarousel() {
-            const cards = document.querySelectorAll('.projects-grid .project-card');
-            totalProjectPages = Math.ceil(cards.length / projectsPerPage);
-            
-            const dotsContainer = document.querySelector('.projects-nav-dots');
-            dotsContainer.innerHTML = '';
-            for (let i = 0; i < totalProjectPages; i++) {
-                const dot = document.createElement('span');
-                dot.className = 'projects-nav-dot' + (i === 0 ? ' active' : '');
-                dot.onclick = function() { goToProjectPage(i); };
-                dotsContainer.appendChild(dot);
-            }
-            
-            updateProjectsCarousel();
-        }
-
-        function slideProjects(direction) {
-            currentProjectPage += direction;
-            if (currentProjectPage < 0) currentProjectPage = totalProjectPages - 1;
-            if (currentProjectPage >= totalProjectPages) currentProjectPage = 0;
-            updateProjectsCarousel();
-        }
-
-        function goToProjectPage(page) {
-            currentProjectPage = page;
-            updateProjectsCarousel();
-        }
-
-        function updateProjectsCarousel() {
-            const slider = document.querySelector('.projects-slider');
-            const grid = document.querySelector('.projects-grid');
-            const cardWidth = grid.offsetWidth / projectsPerPage;
-            const offset = currentProjectPage * cardWidth * projectsPerPage;
-            slider.scrollLeft = offset;
-            
-            document.querySelectorAll('.projects-nav-dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentProjectPage);
-            });
-            
-            // Always show navigation buttons (even with 1 page for future projects)
-            document.querySelector('.projects-nav-btn.prev').style.display = 'flex';
-            document.querySelector('.projects-nav-btn.next').style.display = 'flex';
-        }
-
-        function handleResize() {
-            initProjectsCarousel();
-        }
-
-        window.addEventListener('resize', handleResize);
-        document.addEventListener('DOMContentLoaded', initProjectsCarousel);
 </script>
 
     <div class="chat-widget">
