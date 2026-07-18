@@ -382,7 +382,7 @@
 
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
 
             gap: 64px;
 
@@ -607,6 +607,8 @@
             background: var(--bg-white);
 
             border-radius: 20px;
+
+        }
 
         }
 
@@ -946,7 +948,7 @@
 
             grid-template-columns: 1fr 1fr;
 
-            gap: 24px;
+            gap: 32px;
 
         }
 
@@ -963,8 +965,6 @@
             box-shadow: var(--shadow);
 
         }
-
-
 
         .simple-tags {
 
@@ -2474,15 +2474,19 @@
 
                             <div class="simple-tags">
 
-                                <span class="simple-tag">Экстремальная робототехника (роботы для космической, нефтегазовой, атомной промышленности)</span>
+                                <span class="simple-tag">Экстремальная робототехника (роботы для космической, нефтегазовой, морской, атомной промышленности)</span>
 
                                 <span class="simple-tag">Беспилотные летательные аппараты</span>
 
-                                <span class="simple-tag">Компьютерное зрение</span>
-
                                 <span class="simple-tag">Прикладной ИИ в робототехнике</span>
 
-                                <span class="simple-tag">Мягкая робототехника</span>
+                                <span class="simple-tag">SLAM</span>
+
+                                <span class="simple-tag">Автономная навигация</span>
+
+                                <span class="simple-tag">Motion & Path Planning</span>
+
+                                <span class="simple-tag">3D-реконструкция</span>
 
                             </div>
 
@@ -2606,9 +2610,9 @@
 
                         <div class="cert-title-group">
 
-                            <h3>Certificate of achievement</h3>
+                            <h3>Сианьский технологический университет, Китай</h3>
 
-                            <p>Сианьский технологический университет, Китай</p>
+                            <p>Сертификат о достижениях — февраль 2025 — июль 2025</p>
 
                         </div>
 
@@ -2658,7 +2662,7 @@
 
                             <h3>Oxford Placement Test - C1</h3>
 
-                            <p>Подтверждение уровня английского языка</p>
+                            <p>Подтверждение уровня английского языка — 2025</p>
 
                         </div>
 
@@ -2706,9 +2710,59 @@
 
                         <div class="cert-title-group">
 
+                            <h3>Астрофизическая школа «Траектория» (им. О.В. Верходанова)</h3>
+
+                            <p>Выпускник 7 очных смен (в т.ч. Армения, Сербия) — 2020 — 2023</p>
+
+                        </div>
+
+                        <button class="cert-toggle-btn">Посмотреть</button>
+
+                    </div>
+
+                    <div class="cert-viewer">
+
+                        <object data="Traektoria.pdf" type="application/pdf">
+
+                            <iframe src="Traektoria.pdf">
+
+                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="Traektoria.pdf">Скачать сертификат</a></p>
+
+                            </iframe>
+
+                        </object>
+
+                        <div class="cert-download-link">
+
+                            <a href="Traektoria.pdf" target="_blank">
+
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+
+                                    <polyline points="14 2 14 8 20 8"/>
+
+                                </svg>
+
+                                Открыть сертификат
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="cert-card">
+
+                    <div class="cert-header" onclick="toggleCert(this)">
+
+                        <div class="cert-title-group">
+
                             <h3>Математический анализ - с отличием</h3>
 
-                            <p>Образовательный центр «Сириус»</p>
+                            <p>Образовательный центр «Сириус» — 2026</p>
 
                         </div>
 
@@ -2756,59 +2810,9 @@
 
                         <div class="cert-title-group">
 
-                            <h3>Теория вероятностей - с отличием</h3>
-
-                            <p>Образовательный центр «Сириус»</p>
-
-                        </div>
-
-                        <button class="cert-toggle-btn">Посмотреть</button>
-
-                    </div>
-
-                    <div class="cert-viewer">
-
-                        <object data="Теория вероятности.pdf" type="application/pdf">
-
-                            <iframe src="Теория вероятности.pdf">
-
-                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="Теория вероятности.pdf">Скачать сертификат</a></p>
-
-                            </iframe>
-
-                        </object>
-
-                        <div class="cert-download-link">
-
-                            <a href="Теория вероятности.pdf" target="_blank">
-
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-
-                                    <polyline points="14 2 14 8 20 8"/>
-
-                                </svg>
-
-                                Открыть сертификат
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="cert-card">
-
-                    <div class="cert-header" onclick="toggleCert(this)">
-
-                        <div class="cert-title-group">
-
                             <h3>Разработка программного обеспечения беспилотных авиационных систем</h3>
 
-                            <p>Повышение квалификации государственного образца (144 часа)</p>
+                            <p>Повышение квалификации государственного образца (144 часа) — 2025</p>
 
                         </div>
 
@@ -2856,9 +2860,59 @@
 
                         <div class="cert-title-group">
 
+                            <h3>Теория вероятностей - с отличием</h3>
+
+                            <p>Образовательный центр «Сириус» — 2026</p>
+
+                        </div>
+
+                        <button class="cert-toggle-btn">Посмотреть</button>
+
+                    </div>
+
+                    <div class="cert-viewer">
+
+                        <object data="Теория вероятности.pdf" type="application/pdf">
+
+                            <iframe src="Теория вероятности.pdf">
+
+                                <p>Ваш браузер не поддерживает просмотр PDF. <a href="Теория вероятности.pdf">Скачать сертификат</a></p>
+
+                            </iframe>
+
+                        </object>
+
+                        <div class="cert-download-link">
+
+                            <a href="Теория вероятности.pdf" target="_blank">
+
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+
+                                    <polyline points="14 2 14 8 20 8"/>
+
+                                </svg>
+
+                                Открыть сертификат
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="cert-card">
+
+                    <div class="cert-header" onclick="toggleCert(this)">
+
+                        <div class="cert-title-group">
+
                             <h3>Введение в машинное обучение</h3>
 
-                            <p>Образовательный центр «Сириус»</p>
+                            <p>Образовательный центр «Сириус» — 2026</p>
 
                         </div>
 
@@ -2908,7 +2962,7 @@
 
                             <h3>Программирование на языке C++</h3>
 
-                            <p>Образовательный центр «Сириус»</p>
+                            <p>Образовательный центр «Сириус» — 2026</p>
 
                         </div>
 
@@ -2984,7 +3038,7 @@
 
                     <p class="card-subtitle">Стажёр | Программист в отделе разработки специального программного обеспечения</p>
 
-                    <p class="card-description">1. Модернизирована система локального позиционирования автономного снегоуборочного трактора на основе алгоритма семантического SLAM (SuMa++), что повысило устойчивость навигации в условиях заснеженной местности. 2. Разработан и программно реализован модуль для ROS 2, воспроизводящий кинематику машины с шарнирно-сочленённой рамой и интегрированный в экосистему ros2_control. Проведена оценка его точности и вычислительной эффективности в симуляционной среде. По результатам работы опубликована научная статья.</p>
+                    <p class="card-description">1. Модернизирована система локального позиционирования автономного снегоуборочного трактора на основе алгоритма семантического SLAM (SuMa++), что повысило устойчивость навигации в условиях заснеженной местности. 2. Разработан и программно реализован модуль для ROS 2, воспроизводящий кинематику машины с шарнирно-сочленённой рамой и интегрированный в экосистему ros2_control. Проведена оценка его точности и вычислительной эффективности в симуляционной среде.</p>
 
                 </div>
 
@@ -3486,25 +3540,29 @@
 
                 skill2: "C++",
 
-                skill3: "OpenCode",
+                skill3: "Linux (Ubuntu) + ROS2, Gazebo",
 
                 skill4: "Математический анализ, линейная алгебра, теория вероятностей и математическая статистика",
 
-                skill5: "OOP (базовые знания)",
+                skill5: "Классические алгоритмы ML, глубокое обучение (нейронные сети)",
 
-                skill6: "Linux (Ubuntu) + ROS2, Gazebo, Docker",
+                skill6: "OOP (базовые знания)",
 
-                skill7: "Классические алгоритмы ML, глубокое обучение (нейронные сети), обучение с подкреплением",
+                skill7: "OpenCode",
 
-                interest1: "Экстремальная робототехника (роботы для космической, нефтегазовой, атомной промышленности)",
+                interest1: "Экстремальная робототехника (роботы для космической, нефтегазовой, морской, атомной промышленности)",
 
                 interest2: "Беспилотные летательные аппараты",
 
-                interest3: "Компьютерное зрение",
+                interest3: "Прикладной ИИ в робототехнике",
 
-                interest4: "Прикладной ИИ в робототехнике",
+                interest4: "SLAM",
 
-                interest5: "Мягкая робототехника",
+                interest5: "Автономная навигация",
+
+                interest6: "Motion & Path Planning",
+
+                interest7: "3D-реконструкция",
 
                 russian: "Русский",
 
@@ -3546,33 +3604,37 @@
 
                 hideCert: "Скрыть",
 
-                cert1Title: "Certificate of achievement",
+                cert1Title: "Сианьский технологический университет, Китай",
 
-                cert1Desc: "Сианьский технологический университет, Китай",
+                cert1Desc: "Сертификат о достижениях — февраль 2025 — июль 2025",
 
                 cert2Title: "Oxford Placement Test - C1",
 
-                cert2Desc: "Подтверждение уровня английского языка",
+                cert2Desc: "Подтверждение уровня английского языка — 2025",
 
-                cert3Title: "Математический анализ",
+                cert3Title: "Астрофизическая школа «Траектория» (им. О.В. Верходанова)",
 
-                cert3Desc: "Образовательный центр «Сириус»",
+                cert3Desc: "Выпускник 7 очных смен (в т.ч. Армения, Сербия) — 2020 — 2023",
 
-                cert4Title: "Разработка программного обеспечения беспилотных авиационных систем",
+                cert4Title: "Математический анализ",
 
-                cert4Desc: "Повышение квалификации государственного образца (144 часа)",
+                cert4Desc: "Образовательный центр «Сириус» — 2026",
 
-                cert5Title: "Теория вероятностей и математическая статистика",
+                cert5Title: "Разработка программного обеспечения беспилотных авиационных систем",
 
-                cert5Desc: "Образовательный центр «Сириус»",
+                cert5Desc: "Повышение квалификации государственного образца (144 часа) — 2025",
 
-                cert6Title: "Введение в машинное обучение",
+                cert6Title: "Теория вероятностей и математическая статистика",
 
-                cert6Desc: "Образовательный центр «Сириус»",
+                cert6Desc: "Образовательный центр «Сириус» — 2026",
 
-                cert7Title: "Программирование на языке C++",
+                cert7Title: "Введение в машинное обучение",
 
-                cert7Desc: "Образовательный центр «Сириус»",
+                cert7Desc: "Образовательный центр «Сириус» — 2026",
+
+                cert8Title: "Программирование на языке C++",
+
+                cert8Desc: "Образовательный центр «Сириус» — 2026",
 
                 project1Title: "Проекты по классическому машинному обучению",
 
@@ -3645,7 +3707,7 @@
 
                 exp2Subtitle: "Стажёр | Программист в отделе разработки специального программного обеспечения",
 
-                exp2Desc: "1. Модернизирована система локального позиционирования автономного снегоуборочного трактора на основе алгоритма семантического SLAM (SuMa++), что повысило устойчивость навигации в условиях заснеженной местности. 2. Разработан и программно реализован модуль для ROS 2, воспроизводящий кинематику машины с шарнирно-сочленённой рамой и интегрированный в экосистему ros2_control. Проведена оценка его точности и вычислительной эффективности в симуляционной среде. По результатам работы опубликована научная статья."
+                exp2Desc: "1. Модернизирована система локального позиционирования автономного снегоуборочного трактора на основе алгоритма семантического SLAM (SuMa++), что повысило устойчивость навигации в условиях заснеженной местности. 2. Разработан и программно реализован модуль для ROS 2, воспроизводящий кинематику машины с шарнирно-сочленённой рамой и интегрированный в экосистему ros2_control. Проведена оценка его точности и вычислительной эффективности в симуляционной среде."
 
             },
 
@@ -3677,25 +3739,29 @@
 
                 skill2: "C++",
 
-                skill3: "OpenCode",
+                skill3: "Linux (Ubuntu) + ROS2, Gazebo",
 
                 skill4: "Calculus, Linear Algebra, Probability Theory and Mathematical Statistics",
 
-                skill5: "OOP (basic knowledge)",
+                skill5: "Classical ML algorithms, Deep Learning (Neural Networks)",
 
-                skill6: "Linux (Ubuntu) + ROS2, Gazebo, Docker",
+                skill6: "OOP (basic knowledge)",
 
-                skill7: "Classical ML algorithms, Deep Learning (Neural Networks), Reinforcement Learning",
+                skill7: "OpenCode",
 
-                interest1: "Extreme robotics (robots for space, oil & gas, nuclear industries)",
+                interest1: "Extreme robotics (robots for space, oil & gas, marine, nuclear industries)",
 
                 interest2: "Unmanned aerial vehicles (drones)",
 
-                interest3: "Computer Vision",
+                interest3: "Applied AI in Robotics",
 
-                interest4: "Applied AI in Robotics",
+                interest4: "SLAM",
 
-                interest5: "Soft Robotics",
+                interest5: "Autonomous Navigation",
+
+                interest6: "Motion & Path Planning",
+
+                interest7: "3D Reconstruction",
 
                 russian: "Russian",
 
@@ -3737,33 +3803,37 @@
 
                 hideCert: "Hide",
 
-                cert1Title: "Certificate of achievement",
+                cert1Title: "Xi'an University of Technology, China",
 
-                cert1Desc: "Xi'an University of Technology, China",
+                cert1Desc: "Certificate of Achievement — February 2025 — July 2025",
 
                 cert2Title: "Oxford Placement Test - C1",
 
-                cert2Desc: "English language proficiency confirmation",
+                cert2Desc: "English language proficiency confirmation — 2025",
 
-                cert3Title: "Mathematical Analysis",
+                cert3Title: "Astrophysics School \"Traektoria\" (named after O.V. Verkhodanov)",
 
-                cert3Desc: "Sirius Educational Center",
+                cert3Desc: "Graduate of 7 in-person sessions (including Armenia, Serbia) — 2020 — 2023",
 
-                cert4Title: "Unmanned Aerial Systems Software Development",
+                cert4Title: "Mathematical Analysis",
 
-                cert4Desc: "State-recognized professional development (144 hours)",
+                cert4Desc: "Sirius Educational Center — 2026",
 
-                cert5Title: "Probability Theory and Mathematical Statistics",
+                cert5Title: "Unmanned Aerial Systems Software Development",
 
-                cert5Desc: "Sirius Educational Center",
+                cert5Desc: "State-recognized professional development (144 hours) — 2025",
 
-                cert6Title: "Introduction to Machine Learning",
+                cert6Title: "Probability Theory and Mathematical Statistics",
 
-                cert6Desc: "Sirius Educational Center",
+                cert6Desc: "Sirius Educational Center — 2026",
 
-                cert7Title: "Programming in C++",
+                cert7Title: "Introduction to Machine Learning",
 
-                cert7Desc: "Sirius Educational Center",
+                cert7Desc: "Sirius Educational Center — 2026",
+
+                cert8Title: "Programming in C++",
+
+                cert8Desc: "Sirius Educational Center — 2026",
 
                 project1Title: "Classical Machine Learning Projects",
 
@@ -3836,7 +3906,7 @@
 
                 exp2Subtitle: "Intern | Software Developer, Special-Purpose Software Department",
 
-                exp2Desc: "1. Upgraded the local positioning system of an autonomous snow-clearing tractor using a semantic SLAM algorithm (SuMa++), improving navigation stability in snow-covered terrain. 2. Developed and implemented a ROS 2 module that replicates the kinematics of an articulated-frame vehicle, integrated with the ros2_control ecosystem. Its accuracy and computational efficiency were evaluated in a simulation environment. A scientific paper was published based on the results."
+                exp2Desc: "1. Upgraded the local positioning system of an autonomous snow-clearing tractor using a semantic SLAM algorithm (SuMa++), improving navigation stability in snow-covered terrain. 2. Developed and implemented a ROS 2 module that replicates the kinematics of an articulated-frame vehicle, integrated with the ros2_control ecosystem. Its accuracy and computational efficiency were evaluated in a simulation environment."
 
             },
 
@@ -3868,25 +3938,29 @@
 
                 skill2: "C++",
 
-                skill3: "OpenCode",
+                skill3: "Linux (Ubuntu) + ROS2, Gazebo",
 
                 skill4: "微积分、线性代数、概率论与数理统计",
 
-                skill5: "面向对象编程(基础知识)",
+                skill5: "经典机器学习算法、深度学习（神经网络）",
 
-                skill6: "Linux (Ubuntu) + ROS2, Gazebo, Docker",
+                skill6: "面向对象编程(基础知识)",
 
-                skill7: "经典机器学习算法、深度学习（神经网络）、强化学习",
+                skill7: "OpenCode",
 
-                interest1: "极端环境机器人技术（用于航天、石油天然气、核工业的机器人）",
+                interest1: "极端机器人技术（用于航天、石油、天然气、海洋、核工业）",
 
                 interest2: "无人机（无人飞行器）",
 
-                interest3: "计算机视觉",
+                interest3: "人工智能在机器人中的应用",
 
-                interest4: "机器人学中的人工智能应用",
+                interest4: "SLAM",
 
-                interest5: "软体机器人技术",
+                interest5: "自主导航",
+
+                interest6: "Motion & Path Planning",
+
+                interest7: "三维重建",
 
                 russian: "俄语",
 
@@ -3928,33 +4002,37 @@
 
                 hideCert: "隐藏",
 
-                cert1Title: "成就证书",
+                cert1Title: "西安工业大学，中国",
 
-                cert1Desc: "西安工业大学，中国",
+                cert1Desc: "成就证书 — 2025年2月 — 2025年7月",
 
                 cert2Title: "牛津分级测试 - C1",
 
-                cert2Desc: "牛津大学英语水平测试",
+                cert2Desc: "牛津大学英语水平测试 — 2025",
 
-                cert3Title: "数学分析",
+                cert3Title: "天体物理学校\"Traektoria\"（以O.V. Verkhodanov命名）",
 
-                cert3Desc: "天狼星教育中心",
+                cert3Desc: "7次线下课程的毕业生（包括亚美尼亚、塞尔维亚） — 2020 — 2023",
 
-                cert4Title: "无人机系统软件开发",
+                cert4Title: "数学分析",
 
-                cert4Desc: "国家认证的职业培训（144小时）",
+                cert4Desc: "天狼星教育中心 — 2026",
 
-                cert5Title: "概率论与数理统计",
+                cert5Title: "无人机系统软件开发",
 
-                cert5Desc: "天狼星教育中心",
+                cert5Desc: "国家认证的职业培训（144小时） — 2025",
 
-                cert6Title: "机器学习入门",
+                cert6Title: "概率论与数理统计",
 
-                cert6Desc: "天狼星教育中心",
+                cert6Desc: "天狼星教育中心 — 2026",
 
-                cert7Title: "C++编程",
+                cert7Title: "机器学习入门",
 
-                cert7Desc: "天狼星教育中心",
+                cert7Desc: "天狼星教育中心 — 2026",
+
+                cert8Title: "C++编程",
+
+                cert8Desc: "天狼星教育中心 — 2026",
 
                 project1Title: "经典机器学习项目",
 
@@ -4029,7 +4107,7 @@ edu3Desc: "Mechanical Engineering专业（<a href=\"https://www.usnews.com/educa
 
                 exp2Subtitle: "实习生 | 特殊软件部门程序员",
 
-                exp2Desc: "1. 基于语义SLAM算法（SuMa++）对自动除雪拖拉机的本地定位系统进行了升级，提升了雪地环境中的导航稳定性。2. 开发并实现了ROS 2模块，模拟铰接式底盘的运动学特性，并与ros2_control生态集成。在仿真环境中评估了其精度和计算效率。根据研究成果发表了科学论文。"
+                exp2Desc: "1. 基于语义SLAM算法（SuMa++）对自动除雪拖拉机的本地定位系统进行了升级，提升了雪地环境中的导航稳定性。2. 开发并实现了ROS 2模块，模拟铰接式底盘的运动学特性，并与ros2_control生态集成。在仿真环境中评估了其精度和计算效率。"
 
             }
 
@@ -4077,7 +4155,7 @@ edu3Desc: "Mechanical Engineering专业（<a href=\"https://www.usnews.com/educa
 
             const tags = document.querySelectorAll('.simple-tag');
             const skillTags = [t.skill1, t.skill2, t.skill3, t.skill4, t.skill5, t.skill6, t.skill7];
-            const interestTags = [t.interest1, t.interest2, t.interest3, t.interest4, t.interest5];
+            const interestTags = [t.interest1, t.interest2, t.interest3, t.interest4, t.interest5, t.interest6, t.interest7];
 
             
 
@@ -4176,6 +4254,10 @@ edu3Desc: "Mechanical Engineering专业（<a href=\"https://www.usnews.com/educa
             certTitles[6].textContent = t.cert7Title;
 
             certDescs[6].textContent = t.cert7Desc;
+
+            certTitles[7].textContent = t.cert8Title;
+
+            certDescs[7].textContent = t.cert8Desc;
 
             certBtns.forEach(btn => {
 
